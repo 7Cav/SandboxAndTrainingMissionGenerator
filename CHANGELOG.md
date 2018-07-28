@@ -1,4 +1,7 @@
 # CHANGELOG
+## Version 1.0.10
+- Updated cScripts to 4.2.7.RC3 DevBuild
+
 ## Version 1.0.9
 - Updated cScripts to 4.2.7.RC2 DevBuild
 
