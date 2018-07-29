@@ -27,7 +27,6 @@ addons[]=
 	"A3_Characters_F_Exp",
 	"A3_Characters_F_Orange",
 	"A3_Characters_F",
-	"CH_47_F",
 	"A3_Characters_F_Jets"
 };
 class AddonsMetaData
@@ -71,11 +70,6 @@ class AddonsMetaData
 			url="https://www.arma3.com";
 		};
 		class Item5
-		{
-			className="CH_47_F";
-			name="CH_47_F";
-		};
-		class Item6
 		{
 			className="A3_Characters_F_Jets";
 			name="Arma 3 Jets - Characters and Clothing";
