@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-import sys, os, time
+import sys, os, time, subprocess
 import pathlib, shutil, tempfile, zipfile
 
-# Version
+############## GLOBALS ################
+
+# Version number
 MAJOR = '1'
 MINOR = '0'
-PATCH = '10'
+PATCH = '11'
 
 SCRIPT_PACKAGE = 'cScripts_v4.2.7.RC3_DevBuild.zip'
 
@@ -69,6 +71,12 @@ WORLDLIST_XYZ = [
 VERSION = '{}.{}.{}'.format(MAJOR,MINOR,PATCH)
 VERSION_DIR = '{}_{}_{}'.format(MAJOR,MINOR,PATCH)
 
+# path: {0} filename: {1}
+PBOPACKINGTOOL = 'D:\\Tools\\Arma3\\PBO Manager v.1.4 beta\\PBOConsole.exe -pack "{0}\\{1}" "{0}\\release\\{1}.pbo"'
+
+############## ####### ################
+
+############## ####### ################
 
 def getMissionData(file,string):
     try:
@@ -184,14 +192,15 @@ def main():
 
         # Pack missions to pbo
         print('Making 7cav_zeus_sandbox_v{}.{}.pbo'.format(VERSION_DIR,world))
-        os.system('start /d "D:\\Tools\\Arma3\\PBO Manager v.1.4 beta\\" PBOConsole.exe -pack "{0}\\{1}" "{0}\\{1}.pbo"'.format(projectPath,newWorld))
+        subprocess.call(PBOPACKINGTOOL.format(projectPath,newWorld), stdout=open(os.devnull, 'wb'))
+
         #removing dir
-        time.sleep(1.5)
+        time.sleep(1)
         shutil.rmtree('{}'.format(newWorld))
         print('{} is done.'.format(world))
         operation_run += 1
 
-    print('All missions are created')
+    print('All {} missions are created'.format(len(WORLDLIST)))
 
 if __name__ == "__main__":
     sys.exit(main())
