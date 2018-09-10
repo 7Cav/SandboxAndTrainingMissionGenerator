@@ -1,4 +1,7 @@
 # CHANGELOG
+## Version 1.0.12
+- Updated cScripts to v4.2.9.RC1
+
 ## Version 1.0.11
 - Removed the weird `CH_47_F` class referenced in the mission.sqm
 - (Hotfixed) Amount of mod items were showing 7 instead of 6
