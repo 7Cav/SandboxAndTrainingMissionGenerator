@@ -7,7 +7,7 @@ import pathlib, shutil, tempfile, zipfile
 # Version number
 MAJOR = '1'
 MINOR = '0'
-PATCH = '12'
+PATCH = '13'
 
 SCRIPT_PACKAGE = 'cScripts_v4.2.9.RC1.zip'
 
@@ -72,7 +72,7 @@ VERSION = '{}.{}.{}'.format(MAJOR,MINOR,PATCH)
 VERSION_DIR = '{}_{}_{}'.format(MAJOR,MINOR,PATCH)
 
 # path: {0} filename: {1}
-PBOPACKINGTOOL = 'D:\\Tools\\Arma3\\PBO Manager v.1.4 beta\\PBOConsole.exe -pack "{0}\\{1}" "{0}\\release\\{1}.pbo"'
+#PBOPACKINGTOOL = 'D:\\Tools\\Arma3\\PBO Manager v.1.4 beta\\PBOConsole.exe -pack "{0}\\{1}" "{0}\\release\\{1}.pbo"'
 
 ############## ####### ################
 
@@ -108,12 +108,12 @@ def add(file, string):
     fileObject.write(string)
 
 def main():
-    operation_run = 0
     projectPath = os.path.dirname(os.path.realpath(__file__))
+    islandList = []
 
     for world in WORLDLIST:
         newWorld = '7cav_zeus_sandbox_v{}.{}'.format(VERSION_DIR,world)
-        print('Creating {}. ({}/{})'.format(world,operation_run+1,len(WORLDLIST)))
+        print('Creating {}. ({}/{})'.format(world,len(islandList)+1,len(WORLDLIST)))
 
         pathlib.Path(newWorld).mkdir(parents=True, exist_ok=True)
         shutil.copy2('Template_Sandbox.VR\\mission.sqm', newWorld)
@@ -183,7 +183,7 @@ def main():
         print('Setting world spawn in mission.sqm...')
         # set spawn postion
         x = getMissionData('{}\\mission.sqm'.format(newWorld), 'position[]={20.200001,25.200001,20.200001};')
-        spawn = WORLDLIST_XYZ[operation_run]
+        spawn = WORLDLIST_XYZ[len(islandList)]
         spawn_X = spawn[0]
         spawn_Y = spawn[1]
         spawn_Z = spawn[2]
@@ -192,15 +192,16 @@ def main():
 
         # Pack missions to pbo
         print('Making 7cav_zeus_sandbox_v{}.{}.pbo'.format(VERSION_DIR,world))
-        subprocess.call(PBOPACKINGTOOL.format(projectPath,newWorld), stdout=open(os.devnull, 'wb'))
+        #subprocess.call(PBOPACKINGTOOL.format(projectPath,newWorld), stdout=open(os.devnull, 'wb'))
+        subprocess.run('armake build -f -p {0} {0}.pbo"'.format(newWorld))
+        islandList.append('{0}.pbo'.format(newWorld))
 
         #removing dir
         time.sleep(1)
         shutil.rmtree('{}'.format(newWorld))
         print('{} is done.'.format(world))
-        operation_run += 1
 
-    print('All {} missions are created'.format(len(WORLDLIST)))
+    print('All {} missions are created'.format(len(islandList)))
 
 if __name__ == "__main__":
     sys.exit(main())

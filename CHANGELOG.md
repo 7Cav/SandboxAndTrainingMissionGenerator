@@ -1,4 +1,7 @@
 # CHANGELOG
+## Version 1.0.13
+- Fixed cScripts to v4.2.9.RC1 not being installed propperly
+
 ## Version 1.0.12
 - Updated cScripts to v4.2.9.RC1
 
