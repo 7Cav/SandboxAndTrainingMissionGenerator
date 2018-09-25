@@ -7,7 +7,7 @@ import pathlib, shutil, tempfile, zipfile
 # Version number
 MAJOR = '1'
 MINOR = '0'
-PATCH = '14'
+PATCH = '13'
 
 SCRIPT_PACKAGE = 'cScripts_v4.2.9.zip'
 
