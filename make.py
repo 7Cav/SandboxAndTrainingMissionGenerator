@@ -7,9 +7,9 @@ import pathlib, shutil, tempfile, zipfile
 # Version number
 MAJOR = '1'
 MINOR = '0'
-PATCH = '13'
+PATCH = '14'
 
-SCRIPT_PACKAGE = 'cScripts_v4.2.9.RC1.zip'
+SCRIPT_PACKAGE = 'cScripts_v4.2.9.zip'
 
 WORLDLIST = [
     'Altis',
@@ -25,7 +25,12 @@ WORLDLIST = [
     'Mountains_ACR',
     'pja319',
     'porto',
-    'prei_khmaoch_luong',
+    #'prei_khmaoch_luong',
+    'pja310',
+    'pja307',
+    'pja308',
+    'pja306',
+    'pja314',
     'ProvingGrounds_PMC',
     'sara_dbe1',
     'sara',
@@ -53,7 +58,12 @@ WORLDLIST_XYZ = [
     [4541.0576,145.40143,6041.1016],    #Mountains_ACR
     [1607.7159,637.45093,3306.1414],    #pja319
     [2572.7817,5.030777,2394.7749],     #porto
-    [5677.208,111.26981,4182.6396],     #prei_khmaoch_luong
+    #[5677.208,111.26981,4182.6396],    #prei_khmaoch_luong
+    [1315.1356,15.050012,985.10767],    #pja310
+    [5353.0347,273.7785,14497.363],     #pja307
+    [7668.6006,7.7759309,10451.485],    #pja308
+    [15625.017,398,12116.016],          #pja306
+    [753.32843,143.50633,1481.077],     #pja314
     [710.72131,51.721439,1171.8711],    #ProvingGrounds_PMC
     [9561.6406,139.99643,9872.0205],    #sara_dbe1
     [9561.6406,139.99643,9872.0205],    #sara
