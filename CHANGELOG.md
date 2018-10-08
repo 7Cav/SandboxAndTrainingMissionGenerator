@@ -1,4 +1,7 @@
 # CHANGELOG
+## Version 1.0.14
+- Updated cScripts to v4.2.10
+
 ## Version 1.0.13
 - Updated cScripts to v4.2.9
 - Added new maps

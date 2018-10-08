@@ -7,9 +7,9 @@ import pathlib, shutil, tempfile, zipfile
 # Version number
 MAJOR = '1'
 MINOR = '0'
-PATCH = '13'
+PATCH = '14'
 
-SCRIPT_PACKAGE = 'cScripts_v4.2.9.zip'
+SCRIPT_PACKAGE = 'cScripts_v4.2.10.zip'
 
 WORLDLIST = [
     'Altis',
@@ -166,19 +166,21 @@ def main():
         x = '{}\\cba_settings.sqf'.format(newWorld)
         add(x, '\n')
         add(x, '// cScripts Mission Settings\n')
-        add(x, 'force force cScripts_Settings_enable7cavZeusModules = true;\n')
-        add(x, 'force force cScripts_Settings_allowCustomTagging = true;\n')
-        add(x, 'force force cScripts_Settings_enableStartHint = true;\n')
-        add(x, 'force force cScripts_Settings_setAiSystemDifficulty = 0;\n')
-        add(x, 'force force cScripts_Settings_setCustomHintText = "Be creative!";\n')
-        add(x, 'force force cScripts_Settings_setCustomHintTopic = "Zeus Sandbox v{}";\n'.format(VERSION))
-        add(x, 'force force cScripts_Settings_setMissionType = 0;\n')
-        add(x, 'force force cScripts_Settings_setRedLightTime = 30;\n')
-        add(x, 'force force cScripts_Settings_setTrainingHintTime = 20;\n')
-        add(x, 'force force cScripts_Settings_showDiaryRecords = true;\n')
-        add(x, 'force force cScripts_Settings_useCustomSupplyInventory = false;\n')
-        add(x, 'force force cScripts_Settings_useCustomVehicleInventory = true;\n')
-        add(x, 'force force cScripts_Settings_useCustomVehicleSettings = true;\n')
+        add(x,'force force cScripts_Settings_allowCustomInit = true;\n')
+        add(x,'force force cScripts_Settings_allowCustomTagging = true;\n')
+        add(x,'force force cScripts_Settings_enable7cavZeusModules = true;\n')
+        add(x,'force force cScripts_Settings_enableStartHint = true;\n')
+        add(x,'force force cScripts_Settings_setAiSystemDifficulty = 1;\n')
+        add(x,'force force cScripts_Settings_setCustomHintText = "Be creative!";\n')
+        add(x,'force force cScripts_Settings_setCustomHintTopic = "Zeus Sandbox v{}";\n'.format(VERSION))
+        add(x,'force force cScripts_Settings_setMissionType = 0;\n')
+        add(x,'force force cScripts_Settings_setRedLightTime = 30;\n')
+        add(x,'force force cScripts_Settings_setTrainingHintTime = 20;\n')
+        add(x,'force force cScripts_Settings_showDiaryRecords = true;\n')
+        add(x,'force force cScripts_Settings_useCustomSupplyInventory = false;\n')
+        add(x,'force force cScripts_Settings_useCustomVehicleInventory = true;\n')
+        add(x,'force force cScripts_Settings_useCustomVehicleSettings = true;\n')
+
 
 
         print('Removing immortality from S3 loadout CfgLoadouts_S3.hpp...')
