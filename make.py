@@ -7,9 +7,9 @@ import pathlib, shutil, tempfile, zipfile
 # Version number
 MAJOR = '1'
 MINOR = '0'
-PATCH = '14'
+PATCH = '15'
 
-SCRIPT_PACKAGE = 'cScripts_v4.2.10.zip'
+SCRIPT_PACKAGE = 'cScripts_v4.2.11.zip'
 
 WORLDLIST = [
     'Altis',
@@ -187,8 +187,8 @@ def main():
         # remove mission controller immortality
         x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld),'    preLoadout = " \\')
         replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld), x, '')
-        x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld),'    [(_this select 0), \'s3\', 2, true, true] call cScripts_fnc_setPreInitPlayerSettings;')
-        replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld), x, '    preLoadout = "[(_this select 0), \'s3\', 2, true, true] call cScripts_fnc_setPreInitPlayerSettings;";\n')
+        x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld),'    [(_this select 0), \'s3\', 2, 2, true] call cScripts_fnc_setPreInitPlayerSettings;')
+        replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld), x, '    preLoadout = "[(_this select 0), \'s3\', 2, 2, true] call cScripts_fnc_setPreInitPlayerSettings;";\n')
         x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld),'    (_this select 0) allowDamage false;";')
         replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld), x, '')
 
