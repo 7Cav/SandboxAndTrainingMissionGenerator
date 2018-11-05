@@ -7,9 +7,9 @@ import pathlib, shutil, tempfile, zipfile
 # Version number
 MAJOR = '1'
 MINOR = '0'
-PATCH = '15'
+PATCH = '16'
 
-SCRIPT_PACKAGE = 'cScripts_v4.2.11.zip'
+SCRIPT_PACKAGE = 'cScripts_v4.2.13.zip'
 
 WORLDLIST = [
     'Altis',
