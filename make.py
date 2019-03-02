@@ -9,6 +9,8 @@ MAJOR = '1'
 MINOR = '1'
 PATCH = '0'
 
+MISSION_NAME = '7cav_zeus_sandbox'
+
 SCRIPT_PACKAGE = 'cScripts-4.3.2.zip'
 
 WORLDLIST = [
@@ -81,12 +83,37 @@ WORLDLIST_XYZ = [
 VERSION = '{}.{}.{}'.format(MAJOR,MINOR,PATCH)
 VERSION_DIR = '{}_{}_{}'.format(MAJOR,MINOR,PATCH)
 
-# path: {0} filename: {1}
-#PBOPACKINGTOOL = 'D:\\Tools\\Arma3\\PBO Manager v.1.4 beta\\PBOConsole.exe -pack "{0}\\{1}" "{0}\\release\\{1}.pbo"'
+############## ####### ################
+
+projectPath = os.path.dirname(os.path.realpath(__file__))
 
 ############## ####### ################
 
-############## ####### ################
+def fetch_objects(pathToTemplate=''):
+    content = os.listdir(pathToTemplate)
+
+    objectList = []
+
+    folderList = [] # Collect directories
+    fileList = []   # Collect files
+
+    for obj in content:
+        if os.path.isfile('{}\\{}\\{}'.format(projectPath,pathToTemplate,obj)):
+            fileList.append('{}\\{}\\{}'.format(projectPath,pathToTemplate,obj))
+        elif os.path.isdir('{}\\{}\\{}'.format(projectPath,pathToTemplate,obj)):
+            folderList.append('{}\\{}\\{}'.format(projectPath,pathToTemplate,obj))
+        else:
+            sys.exit('ERROR: Issues occured when listing files.')
+
+    objectList.append(folderList)
+    objectList.append(fileList)
+    
+    return objectList
+
+def copy_and_overwrite(from_path, to_path):
+    if os.path.exists(to_path):
+        shutil.rmtree(to_path)
+    shutil.copytree(from_path, to_path)
 
 def getMissionData(file,string):
     try:
@@ -101,6 +128,7 @@ def getMissionData(file,string):
     fileObject.close()
     return missionData
 
+
 def replace(file_path, pattern, subst):
     #Create temp file
     fh, abs_path = tempfile.mkstemp()
@@ -113,57 +141,65 @@ def replace(file_path, pattern, subst):
     #Move new file
     shutil.move(abs_path, file_path)
 
+
 def add(file, string):
     fileObject = open('{}'.format(file), "a")
     fileObject.write(string)
 
+
 def main():
-    projectPath = os.path.dirname(os.path.realpath(__file__))
     islandList = []
 
     for world in WORLDLIST:
-        newWorld = '7cav_zeus_sandbox_v{}.{}'.format(VERSION_DIR,world)
+        temp = tempfile.mkdtemp()
+
+        newWorld = '{}_v{}.{}'.format(MISSION_NAME,VERSION_DIR,world)
         print('Creating {}. ({}/{})'.format(world,len(islandList)+1,len(WORLDLIST)))
 
-        pathlib.Path(newWorld).mkdir(parents=True, exist_ok=True)
-        shutil.copy2('Template_Sandbox.VR\\mission.sqm', newWorld)
-
-        # Changing version in mission.sqm
-        x = getMissionData('{}\\mission.sqm'.format(newWorld), 'briefingName=')
-        replace('{}\\mission.sqm'.format(newWorld), x, '\t\tbriefingName="Zeus Sandbox v{}";\n'.format(VERSION))
+        # Copying mission files based on template
+        if (os.path.exists('templates\\Template_{0}.{0}'.format(world))):
+            print('Mission files found for {} using them instead of generic...'.format(world))
+            content_list = fetch_objects('templates\\Template_{0}.{0}'.format(world))
+            folder_list = content_list[0]
+            file_list = content_list[1]
+            for obj in folder_list:
+                copy_and_overwrite(obj, temp)
+            for obj in file_list:
+                shutil.copy2(obj, temp)
+        else:
+            shutil.copy2('templates\\Template_Generic.VR\\mission.sqm', temp)
 
         print('Installing script package...')
         try:
             scriptsArchive = zipfile.ZipFile(SCRIPT_PACKAGE, 'r')
         except:
             sys.exit("Could not locate \"{}\" package file in the root directory...".format(SCRIPT_PACKAGE))
-        scriptsArchive.extractall(newWorld)
+        scriptsArchive.extractall(temp)
         scriptsArchive.close()
-
 
         print('Adjusting description.ext...')
         # find dev
-        x = getMissionData('{}\\description.ext'.format(newWorld),'dev')
-        replace('{}\\description.ext'.format(newWorld), x, '    dev                 = "CPL Brostrom.A";\n')
+        x = getMissionData('{}\\description.ext'.format(temp),'dev')
+        replace('{}\\description.ext'.format(temp), x, '    dev                 = "CPL Brostrom.A";\n')
         # find authur
-        x = getMissionData('{}\\description.ext'.format(newWorld),'author')
-        replace('{}\\description.ext'.format(newWorld), x, '    author              = "CPL Brostrom.A";\n')
+        x = getMissionData('{}\\description.ext'.format(temp),'author')
+        replace('{}\\description.ext'.format(temp), x, '    author              = "CPL Brostrom.A";\n')
         # find onload lable
-        x = getMissionData('{}\\description.ext'.format(newWorld),'onLoadName')
-        replace('{}\\description.ext'.format(newWorld), x, '    onLoadName          = "Zeus Sandbox v{}";\n'.format(VERSION))
+        x = getMissionData('{}\\description.ext'.format(temp),'onLoadName')
+        replace('{}\\description.ext'.format(temp), x, '    onLoadName          = "Zeus Sandbox v{}";\n'.format(VERSION))
         # find onLoadMission lable
-        x = getMissionData('{}\\description.ext'.format(newWorld),'onLoadMission')
-        replace('{}\\description.ext'.format(newWorld), x, '    onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Sandbox";\n')
+        x = getMissionData('{}\\description.ext'.format(temp),'onLoadMission')
+        replace('{}\\description.ext'.format(temp), x, '    onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Sandbox";\n')
         # find onLoadIntro lable
-        x = getMissionData('{}\\description.ext'.format(newWorld),'onLoadIntro')
-        replace('{}\\description.ext'.format(newWorld), x, '    onLoadIntro         = "S3 1BN Battle Staff Sandbox";\n')
+        x = getMissionData('{}\\description.ext'.format(temp),'onLoadIntro')
+        replace('{}\\description.ext'.format(temp), x, '    onLoadIntro         = "S3 1BN Battle Staff Sandbox";\n')
         # find chaning respawn
-        x = getMissionData('{}\\description.ext'.format(newWorld),'respawnOnStart')
-        replace('{}\\description.ext'.format(newWorld), x, '    respawnOnStart         = 1;\n')
+        x = getMissionData('{}\\description.ext'.format(temp),'respawnOnStart')
+        replace('{}\\description.ext'.format(temp), x, '    respawnOnStart         = 1;\n')
 
 
         print('Adjusting cba_settings.sqf...')
-        x = '{}\\cba_settings.sqf'.format(newWorld)
+        x = '{}\\cba_settings.sqf'.format(temp)
         add(x, '\n')
         add(x, '// cScripts Mission Settings\n')
         add(x,'force force cScripts_Settings_allowCustomInit = true;\n')
@@ -185,35 +221,47 @@ def main():
 
         print('Removing immortality from S3 loadout CfgLoadouts_S3.hpp...')
         # remove mission controller immortality
-        x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld),'    preLoadout = " \\')
-        replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld), x, '')
-        x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld),'    [(_this select 0), \'s3\', 2, 2, true] call cScripts_fnc_setPreInitPlayerSettings;')
-        replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld), x, '    preLoadout = "[(_this select 0), \'s3\', 2, 2, true] call cScripts_fnc_setPreInitPlayerSettings;";\n')
-        x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld),'    (_this select 0) allowDamage false;";')
-        replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(newWorld), x, '')
+        x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(temp),'    preLoadout = " \\')
+        replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(temp), x, '')
+        x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(temp),'    [(_this select 0), \'s3\', 2, 2, true] call cScripts_fnc_setPreInitPlayerSettings;')
+        replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(temp), x, '    preLoadout = "[(_this select 0), \'s3\', 2, 2, true] call cScripts_fnc_setPreInitPlayerSettings;";\n')
+        x = getMissionData('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(temp),'    (_this select 0) allowDamage false;";')
+        replace('{}\\cScripts\\Loadouts\\CfgLoadouts_S3.hpp'.format(temp), x, '')
+
+        # Changing version in mission.sqm
+        x = getMissionData('{}\\mission.sqm'.format(temp), 'briefingName=')
+        replace('{}\\mission.sqm'.format(temp), x, '\t\tbriefingName="Zeus Sandbox v{}";\n'.format(VERSION))
 
         print('Setting world spawn in mission.sqm...')
         # set spawn postion
-        x = getMissionData('{}\\mission.sqm'.format(newWorld), 'position[]={20.200001,25.200001,20.200001};')
+        x = getMissionData('{}\\mission.sqm'.format(temp), 'position[]={20.200001,25.200001,20.200001};')
         spawn = WORLDLIST_XYZ[len(islandList)]
         spawn_X = spawn[0]
         spawn_Y = spawn[1]
         spawn_Z = spawn[2]
-        replace('{}\\mission.sqm'.format(newWorld), x, '\t\t\t\tposition[]={{{},{},{}}};\n'.format(spawn_X,spawn_Y,spawn_Z))
+        replace('{}\\mission.sqm'.format(temp), x, '\t\t\t\tposition[]={{{},{},{}}};\n'.format(spawn_X,spawn_Y,spawn_Z))
         print('Spawn is moved to {},{},{}'.format(spawn_X,spawn_Y,spawn_Z))
 
+
         # Pack missions to pbo
-        print('Making 7cav_zeus_sandbox_v{}.{}.pbo'.format(VERSION_DIR,world))
-        #subprocess.call(PBOPACKINGTOOL.format(projectPath,newWorld), stdout=open(os.devnull, 'wb'))
-        subprocess.run('armake build -f -p {0} {0}.pbo"'.format(newWorld))
-        islandList.append('{0}.pbo'.format(newWorld))
+        print('Making {}.pbo'.format(newWorld))
+        if not os.path.exists('output'):
+            os.makedirs('output')
+        subprocess.run('armake build -f -p {} output\\{}.pbo"'.format(temp,newWorld))
+        islandList.append('{0}.pbo'.format(temp))
 
         #removing dir
-        time.sleep(1)
-        shutil.rmtree('{}'.format(newWorld))
+        time.sleep(0.5)
         print('{} is done.'.format(world))
 
     print('All {} missions are created'.format(len(islandList)))
+
+    print('Building archive...')
+    archive_name = '{}_v{}'.format(MISSION_NAME,VERSION_DIR)
+    archive_type = 'zip'
+    shutil.make_archive('{}/{}'.format('release',archive_name), archive_type, 'output')
+    print('Archive created you can find it in the release folder.')
+
 
 if __name__ == "__main__":
     sys.exit(main())

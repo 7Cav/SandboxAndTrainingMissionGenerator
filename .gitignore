@@ -1,3 +1,4 @@
-/release/*
-/__pycache__
-/*.pbo
+release/*
+__pycache__
+*.pbo
+output/*
