@@ -8,7 +8,7 @@ This is a mission generator script built to quickly and reliable build sandbox a
 - **Linux:** `sudo apt-get install python3`
 
 # How to run
-- (Soon) Modfify the `properties.ini` if if needed.
+- (Soon) Modfify the `properties.ini` if needed.
 - Modify the script Globals in ``build.py`` if needed.
 - Modify the Templates if change is needed.
 - Run the script<br />
