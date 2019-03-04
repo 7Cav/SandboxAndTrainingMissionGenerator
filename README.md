@@ -24,6 +24,6 @@ This is a mission generator script built to quickly and reliable build sandbox a
 # Setting up a training mission
 - Mission file most be unbinirized.
 - Training missions need to placed in `./template/training/`.
-- Add additional mission scripts in `./script/` folder.
+- Add additional mission scripts in `./scripts/` folder.
 - Adjustments to `init.sqf` is required to be inside  `init.txt`. 
 - Adjustments to `description.ext` is require to be inside `description.ext`. 
