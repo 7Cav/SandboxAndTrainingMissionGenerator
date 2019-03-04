@@ -21,15 +21,3 @@ This is a mission generator script built to quickly and reliable build sandbox a
   `position[]={20.200001,25.200001,20.200001};` 
 - Unit placement is recommended to be set in the lower left corner on short grid `00 00`.
 
-# To do
-- Define globals via ini file instead of header. 
-  - Set author
-  - Island array
-  - Spawn array
-  - Set author
-  - Island array
-  - Define mission framework zip
-  - Change CBA settings
-
-
-
