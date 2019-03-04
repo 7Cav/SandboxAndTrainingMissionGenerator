@@ -3,6 +3,10 @@ This is a mission generator script built to quickly and reliable build sandbox a
 # Requirements
 * Python3
 
+## Install
+- **Windows:** Download and install: https://www.python.org/downloads/release/python-372/
+- **Linux:** `sudo apt-get install python3`
+
 # How to run
 - (Soon) Modfify the `properties.ini` if if needed.
 - Modify the script Globals in ``build.py`` if needed.
