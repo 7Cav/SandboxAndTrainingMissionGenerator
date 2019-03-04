@@ -1,22 +1,35 @@
-This is a script that create a bunch of missions changes parameters for all 7th Cavalry Supported Arma3 island.
+This is a mission generator script built to quickly and reliable build sandbox and training missions for the 7th Cavalry Gaming.
+
+# Requirements
+* Python3
 
 # How to run
-- Edit the Globals in the header of make.py
-- Run the script
+- (Soon) Modfify the `properties.ini` if if needed.
+- Modify the script Globals in ``build.py`` if needed.
+- Modify the Templates if change is needed.
+- Run the script<br />
+  Windows: `py build.py -b sandbox` or ` py build.py -b training`<br />
+  Linux: `python3 build.py -b sandbox` or ` python3 build.py -b training`
 
-# Setting up a mission template
-- Mission most be unbinirized
-- Respawn must be on the following coardinates to be moved by the script: `position[]={20.200001,25.200001,20.200001};` Respawn  will not be moved if this is not defined.
-- Place units on short ingame grid 00 00
+# Setting up a sandbox template
+- Mission file most be unbinirized.
+- Script will primarily use the Generic template.<br />
+  A custom template can be used to create one the folowing name is required:<br />
+  `Template_Altis.Altis` or `Template_MyIsland.MyIsland`<br />
+  The island need to be placed in the `./Template/sandbox/` directory.
+- To allow the script to set the Respawn use the following coordinates:<br />
+  `position[]={20.200001,25.200001,20.200001};` 
+- Unit placement is recommended to be set in the lower left corner on short grid `00 00`.
 
 # To do
-- Define globals via ini file instead of header
-  - Set mission name
+- Define globals via ini file instead of header. 
   - Set author
   - Island array
   - Spawn array
+  - Set author
+  - Island array
   - Define mission framework zip
   - Change CBA settings
-- Allow sqf bases and map adjustments
-  - setup_sandbox_base.altis.sqf
-- Zip missions created.
+
+
+
