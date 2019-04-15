@@ -1,4 +1,9 @@
 # CHANGELOG
+## Version 2.1.0
+- Updated cScripts to v4.3.5
+- Updated unit deployment
+- Added new maps
+
 ## Version 1.1.0
 - Updated cScripts to v4.3.2
 

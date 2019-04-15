@@ -15,16 +15,18 @@ templateDir = '{}/template'.format(scriptDir)
 SANDBOX_MISSION_NAME = '7cav_zeus_sandbox'
 
 MAJOR = '2'
-MINOR = '0'
+MINOR = '1'
 PATCH = '0'
 
-SCRIPT_PACKAGE = 'cScripts-4.3.2.zip'
+SCRIPT_PACKAGE = 'cScripts-4.3.5.zip'
 
 WORLD_LIST = [
     'Altis',
     'Bootcamp_ACR',
+    'Chernarus_Winter',
     'chernarus_summer',
     'chernarus',
+    'clafghan',
     'Desert_E',
     'fallujah',
     'intro',
@@ -41,6 +43,8 @@ WORLD_LIST = [
     'pja306',
     'pja314',
     'ProvingGrounds_PMC',
+    'ruha',
+    'WL_Rosche',
     'sara_dbe1',
     'sara',
     'saralite',
@@ -48,6 +52,7 @@ WORLD_LIST = [
     'Stratis',
     'takistan',
     'Tanoa',
+    'tem_anizay',
     'utes',
     'VR',
     'Woodland_ACR',
@@ -57,8 +62,10 @@ WORLD_LIST = [
 WORLD_LIST_XYZ = [
     [14180.181,19.533018,16286.612],    #Altis
     [1736.0146,339.00143,1821.2036],    #Bootcamp_ACR
+    [4734.9082,339.00143,10321.878],    #Chernarus_Winter
     [4734.9082,339.00143,10321.878],    #chernarus_summer
     [4734.9082,339.00143,10321.878],    #chernarus
+    [15444.673,2.832844,709.26642],     #clafghan
     [1356.26,40.934971,1456.3073],      #Desert_E
     [7798.8213,7.0014391,1834.03],      #fallujah
     [2599.9934,13.861439,2851.6333],    #intro
@@ -75,6 +82,8 @@ WORLD_LIST_XYZ = [
     [15625.017,398,12116.016],          #pja306
     [753.32843,143.50633,1481.077],     #pja314
     [710.72131,51.721439,1171.8711],    #ProvingGrounds_PMC
+    [6680.1616,46.671436,1116.3844],    #ruha
+    [765.18744,15.131439,4760.374],     #WL_Rosche
     [9561.6406,139.99643,9872.0205],    #sara_dbe1
     [9561.6406,139.99643,9872.0205],    #sara
     [4679.4258,139.98586,7108.8965],    #saralite
@@ -82,6 +91,7 @@ WORLD_LIST_XYZ = [
     [2159.5532,6.0014391,5690.1865],    #Stratis
     [6112.4971,83.041443,11524.703],    #takistan
     [11785.61,6.9514389,13067.984],     #Tanoa
+    [8325.8467,111.54144,7032.5669],    #tem_anizay
     [1375.572,15.88654,962.66998],      #utes
     [7439.9927,5.0014391,7568.0435],    #VR
     [4692.2144,6.0036001,1175.9294],    #Woodland_ACR
