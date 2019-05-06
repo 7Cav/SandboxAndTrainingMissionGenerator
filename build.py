@@ -16,9 +16,9 @@ SANDBOX_MISSION_NAME = '7cav_zeus_sandbox'
 
 MAJOR = '2'
 MINOR = '1'
-PATCH = '0'
+PATCH = '1'
 
-SCRIPT_PACKAGE = 'cScripts-4.3.5.zip'
+SCRIPT_PACKAGE = 'cScripts-4.3.6.zip'
 
 WORLD_LIST = [
     'Altis',
