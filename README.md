@@ -4,13 +4,14 @@ This is a mission generator script built to quickly and reliable build sandbox a
 * Python3
 
 ## Install
-- **Windows:** Download and install: https://www.python.org/downloads/release/python-372/
+- **Windows:** 
+  [Download and install](https://www.python.org) or `choco install python3`
 - **Linux:** `sudo apt-get install python3`
 
 # How to run
 - (Soon) Modfify the `properties.ini` if needed.
 - Modify the script Globals in ``build.py`` if needed.
-- Modify the Templates if change is needed.
+- Modify the Templates if needed. (See below for requirements.) 
 - Run the script<br />
   Windows: `py build.py -b sandbox` or ` py build.py -b training`<br />
   Linux: `python3 build.py -b sandbox` or ` python3 build.py -b training`
@@ -25,8 +26,8 @@ This is a mission generator script built to quickly and reliable build sandbox a
   `position[]={20.200001,25.200001,20.200001};` 
 - Unit placement is recommended to be set in the lower left corner on short grid `00 00`.
 
-# Setting up a training mission
+# Setting up a training mission (WIP)
 - Training missions need to placed in `./template/training/`.
 - Add additional mission scripts in `./scripts/` folder.
-- Adjustments to `init.sqf` is required to be inside  `init.txt`. 
-- Adjustments to `description.ext` is require to be inside `description.ext`. 
+- Adjustments to `init.sqf` is required to be inside  `init.txt`. (It will be merged i to the `init.sqf`) 
+- Adjustments to `description.ext` is require to be inside `description.txt`. (It will be merged i to the `description.ext`) 
