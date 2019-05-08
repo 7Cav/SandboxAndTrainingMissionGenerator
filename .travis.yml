@@ -1,0 +1,22 @@
+language: python
+python:
+- '3.5'
+before_install:
+- sudo add-apt-repository ppa:koffeinflummi/armake -y
+- sudo apt-get update -y
+- sudo apt-get install armake -y
+before_script:
+- if [ -n "${GH_TOKEN}" ] && [ "${TRAVIS_BRANCH}" == "master" ] && [ "${TRAVIS_PULL_REQUEST}"
+  == "false" ]; then pip install pygithub; pip install pygithub3; fi
+before_deploy:
+- deploy.sh
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: {KEY}
+  file_glob: true
+  file: release/*.zip
+  on:
+    repo: 7Cav/SandboxAndTrainingMissionGenerator
+    tags: true
