@@ -18,7 +18,7 @@ MAJOR = '2'
 MINOR = '1'
 PATCH = '1'
 
-SCRIPT_PACKAGE = 'cScripts-4.3.6.zip'
+SCRIPT_PACKAGE = ''
 
 WORLD_LIST = [
     'Altis',
@@ -105,6 +105,55 @@ VERSION_DIR = '{}_{}_{}'.format(MAJOR,MINOR,PATCH)
 
 # #########################################################################################
 
+parser = argparse.ArgumentParser(
+    prog='build',
+    formatter_class=argparse.RawDescriptionHelpFormatter,
+    description='This script generates missions.',
+    epilog='This build script generates sandboxes or training mapes bases on avalible templates.\nThe tool should be cross platform and can be used for other packages as well.'
+)
+
+parser.add_argument('-b', '--buildtype',
+    required=False,
+    choices=['sandbox', 'training'],
+    default='sandbox',
+    help='This defines what kind of generation the script should commit.'
+)
+
+parser.add_argument('-p', '--package',
+    required=False,
+    default='',
+    help='This defines what script package to install.'
+)
+
+parser.add_argument('-vu', '--versionUpdate',
+    required=False,
+    default='',
+    help='This defines what script package to install.'
+)
+
+parser.add_argument("-y", "--fastbuild",
+    help="Will instantly run untill done.",
+    action="store_false"
+)
+parser.add_argument('--color',
+    help='Enable colors in the script.',
+    action='store_true'
+)
+
+parser.add_argument('-v', '--version', action='version', version='Author: Andreas Broström <andreas.brostrom.ce@gmail.com>\nScript version: {}'.format(__version__))
+
+args = parser.parse_args()
+
+# handle arguments
+
+SCRIPT_PACKAGE = args.package
+
+if args.versionUpdate:
+    VERSION = args.versionUpdate
+    VERSION_DIR = args.versionUpdate.replace('.','_')
+
+# #########################################################################################
+
 def color_string(string='', color='\033[0m', use_color=False):
     if use_color:
         return '\033[0m{}{}\033[0m'.format(color,string)
@@ -115,7 +164,7 @@ def color_string(string='', color='\033[0m', use_color=False):
 def build_pbo(temp_folder='', pbo_name='unnamed', use_color=False):
     os.chdir(scriptDir)
     print('Compiling {}...'.format(color_string('{}.pbo'.format(pbo_name),'\033[96m',use_color)))
-    subprocess.run('armake build -f -p {} output\\{}.pbo'.format(temp_folder,pbo_name))
+    subprocess.run('armake build -f -p {} output/{}.pbo'.format(temp_folder,pbo_name))
 
 
 def build_archive(archive_name='unnamed', archive_type='zip', archive_input=''):
@@ -283,35 +332,6 @@ def cleanup_output():
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        prog='build',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        description='This script generates missions.',
-        epilog='This build script generates sandboxes or training mapes bases on avalible templates.\nThe tool should be cross platform and can be used for other packages as well.'
-    )
-
-    parser.add_argument('-b', '--buildtype',
-        required=False,
-        choices=['sandbox', 'training'],
-        default='sandbox',
-        help='This defines what kind of generation the script should commit.'
-    )
-
-    parser.add_argument("-y", "--fastbuild",
-        help="Will instantly run untill done.",
-        action="store_false"
-    )
-    parser.add_argument('--color',
-        help='Enable colors in the script.',
-        action='store_true'
-    )
-
-    parser.add_argument('-v', '--version', action='version', version='Author: Andreas Broström <andreas.brostrom.ce@gmail.com>\nScript version: {}'.format(__version__))
-
-    args = parser.parse_args()
-
-    #input('\nPress enter to start the build process...') if args.fastbuild else print('')
-
     # setup directories if non exist
     check_or_create_folder('release')
     check_or_create_folder('output')
