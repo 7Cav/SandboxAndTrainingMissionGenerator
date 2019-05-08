@@ -1,3 +1,9 @@
+<p align="center">
+<a href="https://github.com/7Cav/SandboxAndTrainingMissionGenerator/releases/latest"><img src="https://img.shields.io/github/release/7Cav/SandboxAndTrainingMissionGenerator.svg?style=for-the-badge&label=Release%20Build" alt="Release Build Version"></a>
+<a href="https://github.com/7Cav/SandboxAndTrainingMissionGenerator/releases/latest"><img src="https://img.shields.io/github/downloads/7cav/SandboxAndTrainingMissionGenerator/total.svg?style=for-the-badge&label=Downloads" alt="Downloads"></a>
+<a href="https://travis-ci.org/7Cav/SandboxAndTrainingMissionGenerator"><img src="https://img.shields.io/travis/7Cav/SandboxAndTrainingMissionGenerator.svg?style=for-the-badge&logo=Travis-CI" alt="Build"></a>
+</p>
+
 This is a mission generator script built to quickly and reliable build sandbox and training missions for the 7th Cavalry Gaming.
 
 # Requirements
