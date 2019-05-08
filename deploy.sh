@@ -1,7 +1,5 @@
 #!/bin/bash
 
-TRAVIS_TAG='1.2.3'
-
 set -e
 
 TAG=$(curl --silent "https://api.github.com/repos/7Cav/cScripts/releases/latest" | \
