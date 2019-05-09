@@ -14,12 +14,6 @@ templateDir = '{}/template'.format(scriptDir)
 
 SANDBOX_MISSION_NAME = '7cav_zeus_sandbox'
 
-MAJOR = '2'
-MINOR = '1'
-PATCH = '1'
-
-SCRIPT_PACKAGE = ''
-
 WORLD_LIST = [
     'Altis',
     'Bootcamp_ACR',
@@ -100,11 +94,6 @@ WORLD_LIST_XYZ = [
 
 # #########################################################################################
 
-VERSION = '{}.{}.{}'.format(MAJOR,MINOR,PATCH)
-VERSION_DIR = '{}_{}_{}'.format(MAJOR,MINOR,PATCH)
-
-# #########################################################################################
-
 parser = argparse.ArgumentParser(
     prog='build',
     formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -120,14 +109,12 @@ parser.add_argument('-b', '--buildtype',
 )
 
 parser.add_argument('-p', '--package',
-    required=False,
-    default='',
+    required=True,
     help='This defines what script package to install.'
 )
 
 parser.add_argument('-vu', '--versionUpdate',
-    required=False,
-    default='',
+    required=True,
     help='This defines what script package to install.'
 )
 
@@ -223,7 +210,7 @@ def install_script_package(script_package, temp_path, use_color=False):
     try:
         scriptsArchive = zipfile.ZipFile(script_package_full_path, 'r')
     except:
-        sys.exit("Could not locate \"{}\" package file in the root directory...".format(SCRIPT_PACKAGE))
+        sys.exit("Could not locate script package in the root directory...".format(SCRIPT_PACKAGE))
     scriptsArchive.extractall(temp_path)
     scriptsArchive.close()
 
