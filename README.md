@@ -33,7 +33,8 @@ This is a mission generator script built to quickly and reliable build sandbox a
 - Unit placement is recommended to be set in the lower left corner on short grid `00 00`.
 
 # Setting up a training mission (WIP)
+- Training missions name need to be in the following format `[My_Training_Mission]_DEVBUILD.[Island_Name]`
 - Training missions need to placed in `./template/training/`.
-- Add additional mission scripts in `./scripts/` folder.
-- Adjustments to `init.sqf` is required to be inside  `init.txt`. (It will be merged i to the `init.sqf`) 
-- Adjustments to `description.ext` is require to be inside `description.txt`. (It will be merged i to the `description.ext`) 
+- Additional training mission scripts need to be placed in the mission `./scripts/` folder.
+- Adjustments to `init.sqf` is required to be inside  `init.sqf`. (It will be merged i to the `init.sqf`) 
+- Adjustments to `description.ext` is require to be inside `description.ext`. (It will be merged i to the `description.ext`) 
