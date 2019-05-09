@@ -36,5 +36,5 @@ This is a mission generator script built to quickly and reliable build sandbox a
 - Training missions name need to be in the following format `[My_Training_Mission]_DEVBUILD.[Island_Name]`
 - Training missions need to placed in `./template/training/`.
 - Additional training mission scripts need to be placed in the mission `./scripts/` folder.
-- Adjustments to `init.sqf` is required to be inside  `init.sqf`. (It will be merged i to the `init.sqf`) 
-- Adjustments to `description.ext` is require to be inside `description.ext`. (It will be merged i to the `description.ext`) 
+- Adjustments to `init.sqf` is required to be inside `init.sqf`. Only add mission essensials. (It will be merged i to the `init.sqf`) 
+- Adjustments to `description.ext` is require to be inside `description.ext`. Only add mission essensials. (It will be merged i to the `description.ext`) 
