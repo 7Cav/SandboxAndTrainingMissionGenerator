@@ -3,7 +3,7 @@ before_deploy:
 - sudo add-apt-repository ppa:koffeinflummi/armake -y
 - sudo apt-get update -y
 - sudo apt-get install armake -y
-- ./deploy.sh
+- "./deploy.sh"
 deploy:
   skip_cleanup: true
   provider: releases
@@ -13,4 +13,4 @@ deploy:
     repo: 7Cav/SandboxAndTrainingMissionGenerator
     tags: true
   api-key:
-    secure: Y40YjBvS/PkGr5N+toJUOyCb+O4LgrvSsjNLkWJOWESPA7joqU/MZMuR7cnMHjd+CL+j52Z6XTFllgZaKfW5c3faEVDlr74+aM5HC6iLjo2l7GWc7U+LkgnhLPgEgDeTLLNVtq56aecL9KNRZ1oqCCmA605yY4ZizdXCI3JPSFU7wazkqkaD7malNLQdi6nImcYy/SvCZo3HvaUpXvz5TF9lXz6o9+slTfD4aOoYqoQl7ofHDHDeoluR1cfUTEaAsMu0AhSd99dQOu7FA+O/wBP6+BTiLa5BoKWd3g4ogO1V27cyoTEIslLXHz7WX+2a9e9AZBrXpjvtvQ+SeCs1fYmzPswZieN08ykWD4B5gtTvrM0tlK6N6gBuYmMR1S3ATq08Lr8w1CEUL68cBW2FARuUbBv0k0hpSAkhoYgRVuthk2d04j0YsatFSgYlzPxm2bwj/HqOn/vpRl/BOn3ZdwFSaO214sKT9TDkkAgZiRdJ3tTtGaDDcNyCkHIklrQBscaiAv787dsGyejiZpjaoFTJ3qvM5dUKF6tnayVGTjb5t60ShkJaFR/FwtjZO1m5kFAlmAA5u5w/qXlAM9Wx4/BwaWP06Z4thFF/kWi/BVJ8xbIoYT/XH0jO/MLvbU4YHvgd3jpxWk4hnyfQmNGVXBIf68i7/+54kNpqamyRFpY=
+    secure: GU3+CDGSb8BueD4NBj6mzc0FlVog4XhjsVqXNqNxK15d7o9tQqTuhTm4ScpO0ZztStwI+c7K2K2q7uThoPZlrNtyh+6nozcActA84j+oaleHnKLiYLqtBoAC0cIteer/2k77KzXXwPkktkSYFR+AqSXWM3q0kv+xdi0GXB6V7UFA8pfo5bXivRQLx51iZ/MBkB2uZIZI8cDBFGNhYmp/7t4Pys/QTbKL2NOZYxCJgYO+a8OrKtPQZl4M+Q7NNtQS3eWO2XuuBl5IQCdymQ+6cHA9Ue1kvHtsCIYH5Inwb7AJeFYasdcBXv3vPDwV6X1IM7WRprqwEaCSk9h82IyEpFFf+01zKF78DU1OvWYnD5sOclQe+es+ZTfNBri8/QgS/k8j+s9g5+AGLelfufILuPEJPVL/Qt7YTB53xzDXQ69fNKnzvR5aqC4VuvuywblnUTqycEbU335lLb7Q1aBEwiOu8CpzzG+WAiOMffLwP1Q7Efw5o/0Gx3RSLtM3VWmSDhYtvjY6K8QcgKY1e+cAa0DchdygYex0RCPxwvUocrMlQas8gkXJc4WOb+8z9GGAtQldBXALhAAaipb8Spu8nSfpPc7+jdBD/HmxsdDDx9kEmd8Rpyd4tcheR6EMmCxK88Q99pgHtPWI7nL2s+8ZpesxNwTDcz0BUwPVihWzIk8=
