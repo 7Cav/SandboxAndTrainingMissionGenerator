@@ -12,7 +12,7 @@ This is a mission generator script built to quickly and reliable build sandbox a
 
 ## Install
 **Windows:** 
-- [Download and install python3](https://www.python.org) or `choco install python3`
+- [Download and install python3](https://www.python.org)
 - [Download and install armake](https://github.com/KoffeinFlummi/armake/releases/latest)
   
 **Linux:**
