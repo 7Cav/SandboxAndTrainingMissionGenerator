@@ -7,15 +7,26 @@
 This is a mission generator script built to quickly and reliable build sandbox and training missions for the 7th Cavalry Gaming.
 
 # Requirements
-* Python3
+* [Python3](https://www.python.org)
+* [armake](https://github.com/KoffeinFlummi/armake)
 
 ## Install
-- **Windows:** 
-  [Download and install](https://www.python.org) or `choco install python3`
-- **Linux:** `sudo apt-get install python3`
+**Windows:** 
+- [Download and install python3](https://www.python.org) or `choco install python3`
+- [Download and install armake](https://github.com/KoffeinFlummi/armake/releases/latest)
+  
+**Linux:**
+```
+$ sudo apt-get install python3
+```
+```
+$ sudo add-apt-repository ppa:koffeinflummi/armake
+$ sudo apt-get update
+$ sudo apt-get install armake
+```
 
 # How to run
-- (Soon) Modfify the `properties.ini` if needed.
+<!--- (Soon) Modfify the `properties.ini` if needed.-->
 - Modify the script Globals in ``build.py`` if needed.
 - Modify the Templates if needed. (See below for requirements.) 
 - Run the script<br />
