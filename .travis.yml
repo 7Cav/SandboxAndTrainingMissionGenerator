@@ -1,11 +1,7 @@
-language: python
-python:
-- '3.5'
 install:
 - sudo add-apt-repository ppa:koffeinflummi/armake -y
 - sudo apt-get update -y
 - sudo apt-get install armake -y
-- pip3 install --upgrade pip
 script: make test
 before_deploy:
 - deploy.sh
