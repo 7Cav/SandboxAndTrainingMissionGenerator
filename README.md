@@ -26,6 +26,28 @@ $ sudo apt-get install armake
 ```
 
 # How to run
+```
+usage: build [-h] [-b {sandbox,training}] -p PACKAGE -vu VERSIONUPDATE [-y]
+             [--color] [-v]
+
+This script generates missions.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -b {sandbox,training}, --buildtype {sandbox,training}
+                        This defines what kind of generation the script should
+                        commit.
+  -p PACKAGE, --package PACKAGE
+                        This defines what script package to install.
+  -vu VERSIONUPDATE, --versionUpdate VERSIONUPDATE
+                        This defines what script package to install.
+  -y, --fastbuild       Will instantly run untill done.
+  --color               Enable colors in the script.
+  -v, --version         show program's version number and exit
+
+This build script generates sandboxes or training mapes bases on avalible templates.
+The tool should be cross platform and can be used for other packages as well.
+```
 <!--- (Soon) Modfify the `properties.ini` if needed.-->
 - Modify the script Globals in ``build.py`` if needed.
 - Modify the Templates if needed. (See below for requirements.) 
@@ -33,7 +55,7 @@ $ sudo apt-get install armake
   Windows: `py build.py -b sandbox` or ` py build.py -b training`<br />
   Linux: `python3 build.py -b sandbox` or ` python3 build.py -b training`
 
-# Setting up a sandbox template
+## Setting up a sandbox template
 - Mission file most be unbinirized.
 - Script will primarily use the Generic template.<br />
   A custom template can be used to create one the folowing name is required:<br />
@@ -43,7 +65,7 @@ $ sudo apt-get install armake
   `position[]={20.200001,25.200001,20.200001};` 
 - Unit placement is recommended to be set in the lower left corner on short grid `00 00`.
 
-# Setting up a training mission (WIP)
+## Setting up a training mission (WIP)
 - Training missions name need to be in the following format `[My_Training_Mission]_DEVBUILD.[Island_Name]`
 - Training missions need to placed in `./template/training/`.
 - Additional training mission scripts need to be placed in the mission `./scripts/` folder.
