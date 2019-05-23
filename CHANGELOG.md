@@ -1,6 +1,6 @@
 # CHANGELOG
 ## Version 2.1.1
-- Updated cScripts to v4.3.5
+- Updated cScripts to v4.3.6
 
 ## Version 2.1.0
 - Updated cScripts to v4.3.5
