@@ -1,4 +1,8 @@
 # CHANGELOG
+## Version 2.1.2
+- Updated cScripts to v4.3.7
+- Updated Generic Template with new classnames
+
 ## Version 2.1.1
 - Updated cScripts to v4.3.6
 
