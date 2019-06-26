@@ -8,14 +8,14 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1354;
+		nextID=1357;
 	};
 	class Camera
 	{
-		pos[]={-11.607633,57.066868,46.954998};
-		dir[]={0.5897646,-0.5688687,-0.57322234};
-		up[]={0.4079451,0.82241613,-0.396503};
-		aside[]={-0.6969859,-2.195593e-007,-0.71709979};
+		pos[]={37.164543,16.725662,30.549501};
+		dir[]={-0.071826413,-0.53413343,-0.84236109};
+		up[]={-0.045382179,0.84538639,-0.53222829};
+		aside[]={-0.99640173,-2.9501462e-007,0.084961452};
 	};
 };
 binarizationWanted=0;
@@ -28,14 +28,13 @@ addons[]=
 	"cav_bravo_characters",
 	"cav_alpha_characters_units",
 	"cav_alpha_characters",
-	"A3_Modules_F_Curator_Curator",
-	"rhsusf_c_troops"
+	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=8;
+		items=7;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -85,13 +84,6 @@ class AddonsMetaData
 			author="7th Cavalry S3 Mod Team";
 			url="http://7cav.us";
 		};
-		class Item7
-		{
-			className="rhsusf_c_troops";
-			name="RHSUSF Infantry & Equipment";
-			author="Red Hammer Studios";
-			url="http://www.rhsmods.org/";
-		};
 	};
 };
 randomSeed=1446646;
@@ -125,7 +117,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=46;
+		items=42;
 		class Item0
 		{
 			dataType="Logic";
@@ -138,46 +130,6 @@ class Mission
 			atlOffset=20.200001;
 		};
 		class Item1
-		{
-			dataType="Group";
-			side="West";
-			class Attributes
-			{
-			};
-			id=983;
-			atlOffset=-5;
-		};
-		class Item2
-		{
-			dataType="Group";
-			side="West";
-			class Attributes
-			{
-			};
-			id=993;
-			atlOffset=-5;
-		};
-		class Item3
-		{
-			dataType="Group";
-			side="West";
-			class Attributes
-			{
-			};
-			id=1037;
-			atlOffset=-5;
-		};
-		class Item4
-		{
-			dataType="Group";
-			side="West";
-			class Attributes
-			{
-			};
-			id=1047;
-			atlOffset=-5;
-		};
-		class Item5
 		{
 			dataType="Group";
 			side="West";
@@ -250,7 +202,7 @@ class Mission
 			};
 			id=1086;
 		};
-		class Item6
+		class Item2
 		{
 			dataType="Group";
 			side="West";
@@ -323,7 +275,7 @@ class Mission
 			};
 			id=1088;
 		};
-		class Item7
+		class Item3
 		{
 			dataType="Group";
 			side="West";
@@ -396,7 +348,7 @@ class Mission
 			};
 			id=1090;
 		};
-		class Item8
+		class Item4
 		{
 			dataType="Group";
 			side="West";
@@ -531,10 +483,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+						description="Alpha Rifleman";
 						isPlayable=1;
 					};
 					id=1097;
-					type="Cav_B_C_Alpha_Rifleman_F";
+					type="Cav_B_C_Alpha_RiflemanLAT_F";
 				};
 				class Item5
 				{
@@ -604,10 +557,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1101;
-					type="Cav_B_C_Bravo_CombatLifeSaver_F";
+					type="Cav_B_C_Bravo_RiflemanLAT_F";
 				};
 			};
 			class Attributes
@@ -615,7 +569,7 @@ class Mission
 			};
 			id=1092;
 		};
-		class Item9
+		class Item5
 		{
 			dataType="Group";
 			side="West";
@@ -750,10 +704,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+						description="Alpha Rifleman";
 						isPlayable=1;
 					};
 					id=1107;
-					type="Cav_B_C_Alpha_Rifleman_F";
+					type="Cav_B_C_Alpha_RiflemanLAT_F";
 				};
 				class Item5
 				{
@@ -823,10 +778,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1111;
-					type="Cav_B_C_Bravo_CombatLifeSaver_F";
+					type="Cav_B_C_Bravo_RiflemanLAT_F";
 				};
 			};
 			class Attributes
@@ -834,7 +790,7 @@ class Mission
 			};
 			id=1102;
 		};
-		class Item10
+		class Item6
 		{
 			dataType="Group";
 			side="West";
@@ -969,10 +925,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+						description="Alpha Rifleman";
 						isPlayable=1;
 					};
 					id=1117;
-					type="Cav_B_C_Alpha_Rifleman_F";
+					type="Cav_B_C_Alpha_RiflemanLAT_F";
 				};
 				class Item5
 				{
@@ -1042,10 +999,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1121;
-					type="Cav_B_C_Bravo_CombatLifeSaver_F";
+					type="Cav_B_C_Bravo_RiflemanLAT_F";
 				};
 			};
 			class Attributes
@@ -1053,7 +1011,7 @@ class Mission
 			};
 			id=1112;
 		};
-		class Item11
+		class Item7
 		{
 			dataType="Group";
 			side="West";
@@ -1188,10 +1146,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+						description="Alpha Rifleman";
 						isPlayable=1;
 					};
 					id=1127;
-					type="Cav_B_C_Alpha_Rifleman_F";
+					type="Cav_B_C_Alpha_RiflemanLAT_F";
 				};
 				class Item5
 				{
@@ -1261,10 +1220,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1131;
-					type="Cav_B_C_Bravo_CombatLifeSaver_F";
+					type="Cav_B_C_Bravo_RiflemanLAT_F";
 				};
 			};
 			class Attributes
@@ -1272,7 +1232,7 @@ class Mission
 			};
 			id=1122;
 		};
-		class Item12
+		class Item8
 		{
 			dataType="Group";
 			side="West";
@@ -1346,7 +1306,7 @@ class Mission
 			};
 			id=1140;
 		};
-		class Item13
+		class Item9
 		{
 			dataType="Group";
 			side="West";
@@ -1419,7 +1379,7 @@ class Mission
 			};
 			id=1142;
 		};
-		class Item14
+		class Item10
 		{
 			dataType="Group";
 			side="West";
@@ -1450,7 +1410,7 @@ class Mission
 			};
 			id=1144;
 		};
-		class Item15
+		class Item11
 		{
 			dataType="Group";
 			side="West";
@@ -1585,10 +1545,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
+						description="Alpha Rifleman";
 						isPlayable=1;
 					};
 					id=1151;
-					type="Cav_B_C_Alpha_Rifleman_F";
+					type="Cav_B_C_Alpha_RiflemanLAT_F";
 				};
 				class Item5
 				{
@@ -1658,10 +1619,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
+						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1155;
-					type="Cav_B_C_Bravo_CombatLifeSaver_F";
+					type="Cav_B_C_Bravo_RiflemanLAT_F";
 				};
 			};
 			class Attributes
@@ -1669,7 +1631,7 @@ class Mission
 			};
 			id=1146;
 		};
-		class Item16
+		class Item12
 		{
 			dataType="Group";
 			side="West";
@@ -1804,10 +1766,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
+						description="Alpha Rifleman";
 						isPlayable=1;
 					};
 					id=1161;
-					type="Cav_B_C_Alpha_Rifleman_F";
+					type="Cav_B_C_Alpha_RiflemanLAT_F";
 				};
 				class Item5
 				{
@@ -1877,10 +1840,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
+						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1165;
-					type="Cav_B_C_Bravo_CombatLifeSaver_F";
+					type="Cav_B_C_Bravo_RiflemanLAT_F";
 				};
 			};
 			class Attributes
@@ -1888,7 +1852,7 @@ class Mission
 			};
 			id=1156;
 		};
-		class Item17
+		class Item13
 		{
 			dataType="Group";
 			side="West";
@@ -2023,10 +1987,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
+						description="Alpha Rifleman";
 						isPlayable=1;
 					};
 					id=1171;
-					type="Cav_B_C_Alpha_Rifleman_F";
+					type="Cav_B_C_Alpha_RiflemanLAT_F";
 				};
 				class Item5
 				{
@@ -2096,10 +2061,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
+						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1175;
-					type="Cav_B_C_Bravo_CombatLifeSaver_F";
+					type="Cav_B_C_Bravo_RiflemanLAT_F";
 				};
 			};
 			class Attributes
@@ -2107,7 +2073,7 @@ class Mission
 			};
 			id=1166;
 		};
-		class Item18
+		class Item14
 		{
 			dataType="Group";
 			side="West";
@@ -2242,10 +2208,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
+						description="Alpha Rifleman";
 						isPlayable=1;
 					};
 					id=1181;
-					type="Cav_B_C_Alpha_Rifleman_F";
+					type="Cav_B_C_Alpha_RiflemanLAT_F";
 				};
 				class Item5
 				{
@@ -2315,10 +2282,11 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
+						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1185;
-					type="Cav_B_C_Bravo_CombatLifeSaver_F";
+					type="Cav_B_C_Bravo_RiflemanLAT_F";
 				};
 			};
 			class Attributes
@@ -2326,7 +2294,7 @@ class Mission
 			};
 			id=1176;
 		};
-		class Item19
+		class Item15
 		{
 			dataType="Group";
 			side="West";
@@ -2399,7 +2367,7 @@ class Mission
 			};
 			id=1190;
 		};
-		class Item20
+		class Item16
 		{
 			dataType="Group";
 			side="West";
@@ -2472,7 +2440,7 @@ class Mission
 			};
 			id=1192;
 		};
-		class Item21
+		class Item17
 		{
 			dataType="Group";
 			side="West";
@@ -2545,7 +2513,7 @@ class Mission
 			};
 			id=1194;
 		};
-		class Item22
+		class Item18
 		{
 			dataType="Group";
 			side="West";
@@ -2764,7 +2732,7 @@ class Mission
 			};
 			id=1196;
 		};
-		class Item23
+		class Item19
 		{
 			dataType="Group";
 			side="West";
@@ -2983,7 +2951,7 @@ class Mission
 			};
 			id=1206;
 		};
-		class Item24
+		class Item20
 		{
 			dataType="Group";
 			side="West";
@@ -3202,7 +3170,7 @@ class Mission
 			};
 			id=1216;
 		};
-		class Item25
+		class Item21
 		{
 			dataType="Group";
 			side="West";
@@ -3421,226 +3389,17 @@ class Mission
 			};
 			id=1226;
 		};
-		class Item26
+		class Item22
 		{
 			dataType="Group";
 			side="West";
-			class Entities
-			{
-				items=9;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={23.136608,5.0014391,6.4896183};
-					};
-					side="West";
-					flags=7;
-					class Attributes
-					{
-						rank="SERGEANT";
-						init="call{this setgroupID[""APOLLO-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""APOLLO-1""];}";
-						isPlayable=1;
-					};
-					id=1237;
-					type="Cav_B_C_Weap_SquadLeader_Havoc_1_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"STRING"
-										};
-									};
-									value="Male11ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={24.637096,5.0014391,5.48913};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.44999999;
-						rank="CORPORAL";
-						init="call{this setVariable [""cScripts_Player_Unit"", ""HAVOC-1""];}";
-						isPlayable=1;
-					};
-					id=1238;
-					type="Cav_B_C_Weap_Alpha_FireTeamLeader_F";
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={23.637096,5.0014391,5.48913};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="call{this setVariable [""cScripts_Player_Unit"", ""HAVOC-1""];}";
-						isPlayable=1;
-					};
-					id=1239;
-					type="Cav_B_C_Weap_Alpha_AutomaticRifleman_F";
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={22.637096,5.0014391,5.48913};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="call{this setVariable [""cScripts_Player_Unit"", ""HAVOC-1""];}";
-						isPlayable=1;
-					};
-					id=1240;
-					type="Cav_B_C_Weap_Alpha_Grenadier_F";
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={21.637096,5.0014391,5.48913};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="call{this setVariable [""cScripts_Player_Unit"", ""HAVOC-1""];}";
-						isPlayable=1;
-					};
-					id=1241;
-					type="Cav_B_C_Weap_Alpha_Rifleman_F";
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={24.637096,5.0014391,4.48913};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.44999999;
-						rank="CORPORAL";
-						init="call{this setVariable [""cScripts_Player_Unit"", ""HAVOC-1""];}";
-						isPlayable=1;
-					};
-					id=1242;
-					type="Cav_B_C_Weap_Bravo_FireTeamLeader_F";
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={23.637096,5.0014391,4.48913};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="call{this setVariable [""cScripts_Player_Unit"", ""HAVOC-1""];}";
-						isPlayable=1;
-					};
-					id=1243;
-					type="Cav_B_C_Weap_Bravo_AutomaticRifleman_F";
-				};
-				class Item7
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={22.637096,5.0014391,4.48913};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="call{this setVariable [""cScripts_Player_Unit"", ""HAVOC-1""];}";
-						isPlayable=1;
-					};
-					id=1244;
-					type="Cav_B_C_Weap_Bravo_Grenadier_F";
-				};
-				class Item8
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={21.637096,5.0014391,4.48913};
-					};
-					side="West";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-						init="call{this setVariable [""cScripts_Player_Unit"", ""HAVOC-1""];}";
-						isPlayable=1;
-					};
-					id=1245;
-					type="Cav_B_C_Weap_Bravo_CombatLifeSaver_F";
-				};
-			};
 			class Attributes
 			{
 			};
 			id=1236;
+			atlOffset=-5;
 		};
-		class Item27
+		class Item23
 		{
 			dataType="Group";
 			side="West";
@@ -3767,7 +3526,7 @@ class Mission
 			};
 			id=1247;
 		};
-		class Item28
+		class Item24
 		{
 			dataType="Group";
 			side="West";
@@ -3840,7 +3599,7 @@ class Mission
 			};
 			id=1268;
 		};
-		class Item29
+		class Item25
 		{
 			dataType="Group";
 			side="West";
@@ -3913,7 +3672,7 @@ class Mission
 			};
 			id=1270;
 		};
-		class Item30
+		class Item26
 		{
 			dataType="Group";
 			side="West";
@@ -4076,7 +3835,7 @@ class Mission
 			};
 			id=1272;
 		};
-		class Item31
+		class Item27
 		{
 			dataType="Group";
 			side="West";
@@ -4206,7 +3965,7 @@ class Mission
 			};
 			id=1283;
 		};
-		class Item32
+		class Item28
 		{
 			dataType="Group";
 			side="West";
@@ -4336,7 +4095,7 @@ class Mission
 			};
 			id=1288;
 		};
-		class Item33
+		class Item29
 		{
 			dataType="Group";
 			side="West";
@@ -4466,7 +4225,7 @@ class Mission
 			};
 			id=1293;
 		};
-		class Item34
+		class Item30
 		{
 			dataType="Group";
 			side="West";
@@ -4596,7 +4355,7 @@ class Mission
 			};
 			id=1298;
 		};
-		class Item35
+		class Item31
 		{
 			dataType="Group";
 			side="West";
@@ -4795,7 +4554,7 @@ class Mission
 			};
 			id=1303;
 		};
-		class Item36
+		class Item32
 		{
 			dataType="Group";
 			side="West";
@@ -4925,7 +4684,7 @@ class Mission
 			};
 			id=1308;
 		};
-		class Item37
+		class Item33
 		{
 			dataType="Group";
 			side="West";
@@ -5060,7 +4819,7 @@ class Mission
 			};
 			id=1333;
 		};
-		class Item38
+		class Item34
 		{
 			dataType="Group";
 			side="West";
@@ -5195,7 +4954,7 @@ class Mission
 			};
 			id=1336;
 		};
-		class Item39
+		class Item35
 		{
 			dataType="Group";
 			side="West";
@@ -5330,7 +5089,7 @@ class Mission
 			};
 			id=1339;
 		};
-		class Item40
+		class Item36
 		{
 			dataType="Group";
 			side="West";
@@ -5465,7 +5224,7 @@ class Mission
 			};
 			id=1342;
 		};
-		class Item41
+		class Item37
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5518,7 +5277,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item42
+		class Item38
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5610,7 +5369,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item43
+		class Item39
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5702,7 +5461,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item44
+		class Item40
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5794,7 +5553,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item45
+		class Item41
 		{
 			dataType="Group";
 			side="West";
@@ -5806,11 +5565,11 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={16.097708,5.0014391,15.933925};
+						position[]={16.098,5.0014391,15.934};
 						angles[]={0,4.6973796,0};
 					};
 					side="West";
-					flags=7;
+					flags=6;
 					class Attributes
 					{
 						init="call{this setgroupid [""ZEUS""];}";
@@ -5818,8 +5577,8 @@ class Mission
 						description="Mission Controller@MISSION CONTROLLERS";
 						isPlayable=1;
 					};
-					id=1351;
-					type="rhsusf_army_ocp_officer";
+					id=1354;
+					type="Cav_B_A_Officer_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5887,19 +5646,19 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={16.065481,5.0014391,14.510584};
+						position[]={16.065001,5.0014391,14.511001};
 						angles[]={0,4.6973796,0};
 					};
 					side="West";
-					flags=5;
+					flags=4;
 					class Attributes
 					{
 						name="S3_2";
 						description="Mission Controller";
 						isPlayable=1;
 					};
-					id=1352;
-					type="rhsusf_army_ocp_officer";
+					id=1355;
+					type="Cav_B_A_Officer_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5967,19 +5726,19 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={15.975637,5.0014391,13.31576};
+						position[]={15.976,5.0014391,13.316};
 						angles[]={0,4.6973796,0};
 					};
 					side="West";
-					flags=5;
+					flags=4;
 					class Attributes
 					{
 						name="S3_3";
 						description="Combat Cameraman";
 						isPlayable=1;
 					};
-					id=1353;
-					type="rhsusf_army_ocp_officer";
+					id=1356;
+					type="Cav_B_A_Officer_F";
 					class CustomAttributes
 					{
 						class Attribute0
