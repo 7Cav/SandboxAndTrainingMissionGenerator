@@ -139,14 +139,72 @@ def replace(file, searchExp, replaceExp):
             line = line.replace(searchExp,replaceExp)
         sys.stdout.write(line)
 
+def replace_in_string(string, searchExp, replaceExp):
+    print(string)
+    print(searchExp)
+    print(replaceExp)
+    string.replace(searchExp, replaceExp)
 
 def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=False):
     print('Setting up and adjusting sandbox mission file...')
     os.chdir(temp_folder)
-    if os.path.isfile('{}/description.ext'.format(temp_folder)):
-        pass
+
+
+    world_spawn_list = []
+    for world in sandbox_json_data['worlds']:
+        world_spawn_list.append(sandbox_json_data['worlds'][world])
+
+    spawn = world_spawn_list[count]
+
+    filename = 'mission.sqm'
+    file = '{}/{}'.format(temp_folder,filename)
+    if os.path.isfile(file):
+        print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+        
+        # Adjust text imput objects
+        for sqmChanges in sandbox_json_data['mission.sqm']:
+            string = sandbox_json_data['mission.sqm'][sqmChanges] 
+            string = string.replace('$0', '{}'.format(VERSION))
+
+            if 'briefingName' == sqmChanges:
+                replace(file,
+                'briefingName="Zeus Sandbox Template Mission";',
+                'briefingName="{}";'.format(string))
+
+            if 'overviewText' == sqmChanges:
+                replace(file,
+                'overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";',
+                'overviewText="{}";'.format(string))
+
+        # Setting spawn
+        print('Spawn set to {}, {}, {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color)))
+        replace(file,
+            'position[]={20.200001,25.200001,20.200001};',
+            'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
+
+        print('Adjustmetns to {} is completed...'.format(color_string(filename,'\033[96m',use_color)))
     else:
-        print('No {} detected skipping changes...'.format(color_string('description.ext','\033[96m',use_color)))
+        sys.exit('No {} detected. Some thing is terrible wrong.'.format(color_string(filename,'\033[96m',use_color)))
+
+    filename = 'description.ext'
+    file = '{}/{}'.format(temp_folder,filename)
+    if os.path.isfile(file):
+        print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+
+        print('Adjustmetns to {} is completed...'.format(color_string(filename,'\033[96m',use_color)))
+    else:
+        print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
+
+
+    filename = 'init.sqf'
+    file = '{}/{}'.format(temp_folder,filename)
+    if os.path.isfile(file):
+        print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+        
+        print('Adjustmetns to {} is completed...'.format(color_string(filename,'\033[96m',use_color)))
+    else:
+        print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
+
 
     # if os.path.isfile('{}/description.ext'.format(temp_folder)):
     #     print('Applying adjustmetns to {}...'.format(color_string('description.ext','\033[96m',use_color)))
@@ -216,17 +274,12 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
     #     replace(file,
     #         '	overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";',
     #         '	overviewText="This is the 7th Cavalry Zeus Sandbox mission." \n "Have fun!";')
-    #     spawn = world_list_XYZ[count]
-    #     print('Spawn set to {}, {}, {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color)))
-    #     replace(file,
-    #         '				position[]={20.200001,25.200001,20.200001};',
-    #         '				position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
 
     # else:
     #     print('No {} detected skipping changes...'.format(color_string('description.ext','\033[96m',use_color)))
 
 
-def setup_training_missions():
+def setup_training_missions(temp_folder='', count=0, use_color=False):
     print('Setting up and adjusting training mission file...')
 
 
@@ -262,7 +315,6 @@ def main():
         world_list = []
         for world in sandbox_data['worlds']:
             world_list.append(world)
-
 
         for count, world in enumerate(world_list):
             temp_path = tempfile.mkdtemp()
