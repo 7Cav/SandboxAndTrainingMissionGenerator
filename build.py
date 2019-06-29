@@ -139,11 +139,6 @@ def replace(file, searchExp, replaceExp):
             line = line.replace(searchExp,replaceExp)
         sys.stdout.write(line)
 
-def replace_in_string(string, searchExp, replaceExp):
-    print(string)
-    print(searchExp)
-    print(replaceExp)
-    string.replace(searchExp, replaceExp)
 
 def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=False):
     print('Setting up and adjusting sandbox mission file...')
