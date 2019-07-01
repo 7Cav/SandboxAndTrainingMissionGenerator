@@ -19,5 +19,5 @@ for i in 1 2 3 4 5; do
     sleep 15
 done
 
-python3 build.py -b sandbox -p cScripts-$TAG.zip -v ${TRAVIS_TAG} -y
-python3 build.py -b training -p cScripts-$TAG.zip -v ${TRAVIS_TAG} -y
+python3 build.py sandbox -p cScripts-$TAG.zip -v ${TRAVIS_TAG} -y
+python3 build.py training -p cScripts-$TAG.zip -v ${TRAVIS_TAG} -y
