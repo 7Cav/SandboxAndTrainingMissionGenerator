@@ -49,10 +49,14 @@
         "onLoadName" : "Zeus Sandbox v$0",
         "onLoadMission" : "7th Cavalry - S3 1BN Battle Staff Sandbox",
         "onLoadIntro" : "S3 1BN Battle Staff Sandbox",
-        "respawnOnStart" : "1"
+        "respawnOnStart" : "1",
+        "add" : []
+    },
+    "init.sqf" : {
+        "add" : []
     },
     "cba_settings.sqf" : {
-        "newSettings" : [
+        "add" : [
             "// cScripts Mission Settings",
             "force force cScripts_Settings_allowCustomInit = true;",
             "force force cScripts_Settings_allowCustomTagging = true;",
