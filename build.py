@@ -19,10 +19,8 @@ parser = argparse.ArgumentParser(
     epilog='This build script generates sandboxes or training mapes bases on avalible templates.\nThe tool should be cross platform and can be used for other packages as well.'
 )
 
-parser.add_argument('-b', '--buildtype',
-    required=False,
+parser.add_argument('buildtype',
     choices=['sandbox', 'training'],
-    default='sandbox',
     help='This defines what kind of generation the script should commit.'
 )
 
@@ -68,15 +66,16 @@ def color_string(string='', color='\033[0m', use_color=False):
 
 def build_pbo(temp_folder='', pbo_name='unnamed', use_color=False):
     os.chdir(scriptDir)
-    print('Compiling {}...'.format(color_string('{}.pbo'.format(pbo_name),'\033[96m',use_color)))
+    print('Building and compiling {}...'.format(color_string('{}.pbo'.format(pbo_name),'\033[96m',use_color)))
     subprocess.call('armake build -f -p "{}" "output/{}.pbo"'.format(temp_folder,pbo_name), shell=True)
 
 
-def build_archive(archive_name='unnamed', archive_type='zip', archive_input=''):
-    print('Building archive...')
+def build_archive(archive_name='unnamed', archive_type='zip', archive_input='', use_color=False):
+    print('Archiving all completed mission files...')
     archive_output = '{}/{}'.format(releaseDir,archive_name)
     shutil.make_archive(archive_output, archive_type, archive_input)
-    print('Archive created you can find it in the release folder.')
+    fullarchname = color_string('{}.{}'.format(archive_name,archive_type),'\033[96m',use_color)
+    print('{} have been created...'.format(fullarchname))
 
 
 def check_or_create_folder(dir=''):
@@ -139,11 +138,32 @@ def replace(file, searchExp, replaceExp):
             line = line.replace(searchExp,replaceExp)
         sys.stdout.write(line)
 
+def additions(file, additions=[]):
+    with open(file, 'a') as add:
+        add.write('\n')
+        for line in additions:
+            add.write('\n{}'.format(line))
+    add.close()
+
+def json_macro_replace(obj):
+
+    if type(obj) == str:
+        if '$0' in obj:
+            obj = obj.replace('$0', '{}'.format(VERSION))
+            return obj
+    elif type(obj) == list:
+        new_list = []
+        for line in obj:
+            line = line.replace('$0', '{}'.format(VERSION))
+            new_list.append(line)
+        return new_list
+    else:
+        sys.exit('ERROR: JSON macro function can\'t handle input...')
+
 
 def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=False):
     print('Setting up and adjusting sandbox mission file...')
     os.chdir(temp_folder)
-
 
     world_spawn_list = []
     for world in sandbox_json_data['worlds']:
@@ -151,52 +171,154 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
 
     spawn = world_spawn_list[count]
 
+
+    # Reset common variable
+    changes = ''
+
     filename = 'mission.sqm'
     file = '{}/{}'.format(temp_folder,filename)
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
         
-        # Adjust text imput objects
-        for sqmChanges in sandbox_json_data['mission.sqm']:
-            string = sandbox_json_data['mission.sqm'][sqmChanges] 
-            string = string.replace('$0', '{}'.format(VERSION))
+        for changes in sandbox_json_data[filename]:
+            string = sandbox_json_data[filename][changes] 
+            string = json_macro_replace(string)
 
-            if 'briefingName' == sqmChanges:
+            if 'briefingName' == changes:
                 replace(file,
                 'briefingName="Zeus Sandbox Template Mission";',
                 'briefingName="{}";'.format(string))
 
-            if 'overviewText' == sqmChanges:
+            if 'overviewText' == changes:
                 replace(file,
                 'overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";',
                 'overviewText="{}";'.format(string))
 
-        # Setting spawn
-        print('Spawn set to {}, {}, {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color)))
+        # Spawn
+        print('Spawn set to {}, {}, {} on {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color), color_string(world,'\033[92m',args.color)))
         replace(file,
             'position[]={20.200001,25.200001,20.200001};',
             'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
-
-        print('Adjustmetns to {} is completed...'.format(color_string(filename,'\033[96m',use_color)))
     else:
         sys.exit('No {} detected. Some thing is terrible wrong.'.format(color_string(filename,'\033[96m',use_color)))
+
+
+    # Reset common variable
+    changes = ''
 
     filename = 'description.ext'
     file = '{}/{}'.format(temp_folder,filename)
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+       
+        for changes in sandbox_json_data[filename]:
+            string = sandbox_json_data[filename][changes] 
+            string = json_macro_replace(string)
+            
+            if changes == 'author':
+                replace(file,
+                    'dev                 = "1SG Tully.B";',
+                    'dev                 = "{}";'.format(string))
+                replace(file,
+                    'author              = "1SG Tully.B";',
+                    'author              = "{}";'.format(string))
 
-        print('Adjustmetns to {} is completed...'.format(color_string(filename,'\033[96m',use_color)))
+            if changes == 'onLoadName':
+                replace(file,
+                    'onLoadName          = "MyMissionName";',
+                    'onLoadName          = "{}";'.format(string))
+
+            if changes == 'onLoadMission':
+                replace(file,
+                    'onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Operation";',
+                    'onLoadMission       = "{}";'.format(string))
+
+            if changes == 'onLoadIntro':
+                replace(file,
+                    'onLoadIntro         = "S3 1BN Battle Staff Operation";',
+                    'onLoadIntro         = "{}";'.format(string))
+
+            if changes == 'loadScreen':
+                replace(file,
+                    'loadScreen          = "Data\MissionLogo.paa";',
+                    'loadScreen         = "{}";'.format(string))
+
+            if changes == 'overviewPicture':
+                replace(file,
+                    'overviewPicture     = "Data\MissionLogo.paa";',
+                    'overviewPicture     = "{}";'.format(string))
+
+            if 'cba_settings_hasSettingsFile':
+                replace(file,
+                    'cba_settings_hasSettingsFile = 1;',
+                    'cba_settings_hasSettingsFile = {};'.format(string))
+
+            if changes == 'disabledAI':
+                replace(file,
+                    'disabledAI              = true;',
+                    'disabledAI              = {};'.format(string))
+
+            if changes == 'forceRotorLibSimulation':
+                replace(file,
+                    'forceRotorLibSimulation = 1;',
+                    'forceRotorLibSimulation = {};'.format(string))
+
+            if changes == 'respawn':
+                replace(file,
+                    'respawn                = BASE;',
+                    'respawn                = {};'.format(string))
+
+            if changes == 'respawnDelay':
+                replace(file,
+                    'respawnDelay           = 4;',
+                    'respawnDelay           = {};'.format(string))
+
+            if changes == 'respawnOnStart':
+                replace(file,
+                    'respawnOnStart         = -1;',
+                    'respawnOnStart         = {};'.format(string))
+
+            if changes == 'add':
+                additions(file, string)
+
     else:
         print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
 
+
+    # Reset common variable
+    changes = ''
 
     filename = 'init.sqf'
     file = '{}/{}'.format(temp_folder,filename)
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
-        
-        print('Adjustmetns to {} is completed...'.format(color_string(filename,'\033[96m',use_color)))
+       
+        for changes in sandbox_json_data[filename]:
+            string = sandbox_json_data[filename][changes] 
+            string = json_macro_replace(string)
+            
+            if changes == 'add':
+                additions(file, string)
+
+    else:
+        print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
+
+
+    # Reset common variable
+    changes = ''
+
+    filename = 'cba_settings.sqf'
+    file = '{}/{}'.format(temp_folder,filename)
+    if os.path.isfile(file):
+        print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+       
+        for changes in sandbox_json_data[filename]:
+            string = sandbox_json_data[filename][changes] 
+            string = json_macro_replace(string)
+
+            if changes == 'add':
+                additions(file, string)
+
     else:
         print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
 
@@ -369,7 +491,7 @@ def main():
             # Building PBO
             build_pbo(temp_path, mission_name, args.color)
 
-    build_archive('Mission_{}_v{}'.format(args.buildtype, VERSION), 'zip', outputDir)
+    build_archive('Mission_{}_v{}'.format(args.buildtype, VERSION), 'zip', outputDir, args.color)
     cleanup_output()
 
     print('Builds complete.')
