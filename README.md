@@ -27,23 +27,25 @@ $ sudo apt-get install armake
 
 # How to run
 ```
-usage: build [-h] [-b {sandbox,training}] -p PACKAGE -vu VERSIONUPDATE [-y]
-             [--color] [-v]
+usage: build [-h] -p PACKAGE -v VERSIONTAG [-y] [--color] [--version]
+             {sandbox,training}
 
 This script generates missions.
 
+positional arguments:
+  {sandbox,training}    This defines what kind of generation the script should
+                        commit.
+
 optional arguments:
   -h, --help            show this help message and exit
-  -b {sandbox,training}, --buildtype {sandbox,training}
-                        This defines what kind of generation the script should
-                        commit.
   -p PACKAGE, --package PACKAGE
                         This defines what script package to install.
-  -vu VERSIONUPDATE, --versionUpdate VERSIONUPDATE
-                        This defines what script package to install.
+  -v VERSIONTAG, --versionTag VERSIONTAG
+                        This define what version name you whant the file to
+                        have.
   -y, --fastbuild       Will instantly run untill done.
   --color               Enable colors in the script.
-  -v, --version         show program's version number and exit
+  --version             show program's version number and exit
 
 This build script generates sandboxes or training mapes bases on avalible templates.
 The tool should be cross platform and can be used for other packages as well.
