@@ -1,8 +1,4 @@
 {
-    "mission.sqm" : {
-        "briefingName" : "Training Mission v$0",
-        "overviewText" : "This is the 7th Cavalry Training mission.\" \\n \"o7"
-    },
     "description.ext" : {
         "author" : "PFC Tully.B",
         "onLoadName" : "Training Mission v$0",
