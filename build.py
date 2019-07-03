@@ -49,12 +49,9 @@ parser.add_argument('--version', action='version', version='Author: Andreas Bros
 args = parser.parse_args()
 
 # handle arguments
-
-SCRIPT_PACKAGE = args.package
-
-if args.versionTag:
-    VERSION = args.versionTag
-    VERSION_DIR = args.versionTag.replace('.','_')
+PACKAGE = args.package
+VERSION = args.versionTag
+VERSION_DIR = args.versionTag.replace('.','_')
 
 # #########################################################################################
 
@@ -123,12 +120,12 @@ def fetch_objects(template_path=''):
 
 
 def install_script_package(script_package, temp_path, use_color=False):
-    print('Installing script package {}...'.format(color_string(SCRIPT_PACKAGE,'\033[96m',use_color)))
+    print('Installing script package {}...'.format(color_string(script_package,'\033[96m',use_color)))
     script_package_full_path = '{}/{}'.format(scriptDir,script_package)
     try:
         scriptsArchive = zipfile.ZipFile(script_package_full_path, 'r')
     except:
-        sys.exit("Could not locate script package in the root directory...".format(SCRIPT_PACKAGE))
+        sys.exit("Could not locate script package in the root directory...")
     scriptsArchive.extractall(temp_path)
     scriptsArchive.close()
 
@@ -149,23 +146,16 @@ def additions(file, additions=[]):
 
 
 def json_macro_replace(obj):
-    # get cScripts version else return package name
-    if 'cScripts-' in SCRIPT_PACKAGE:
-        scver = SCRIPT_PACKAGE.split('-')
-        scver = scver[1].replace('.zip', '')
-    else:
-        SCRIPT_PACKAGE
-
     if type(obj) == str:
         if '$0' in obj:
             return obj.replace('$0', '{}'.format(VERSION))
         if '$1' in obj:
-            return obj.replace('$1', '{}'.format(scver))
+            return obj.replace('$1', '{}'.format(PACKAGE))
     elif type(obj) == list:
         new_list = []
         for line in obj:
             line = line.replace('$0', '{}'.format(VERSION))
-            line = line.replace('$1', '{}'.format(scver))
+            line = line.replace('$1', '{}'.format(PACKAGE))
             new_list.append(line)
         return new_list
     else:
@@ -409,7 +399,7 @@ def main():
                 shutil.copy2(obj, temp_path)
 
             # Unzip and install script package
-            install_script_package(SCRIPT_PACKAGE, temp_path, args.color)
+            install_script_package(PACKAGE, temp_path, args.color)
 
             # Setup mission file
             print('Setting up and adjusting sandbox mission file...')
@@ -446,7 +436,7 @@ def main():
                 shutil.copy2(obj, temp_path)
 
             # Unzip and install script package
-            install_script_package(SCRIPT_PACKAGE, temp_path, args.color)
+            install_script_package(PACKAGE, temp_path, args.color)
 
             # get json data
             training_json = '{}/template/training/{}/setup.json'.format(scriptDir,world)
