@@ -51,14 +51,16 @@ This build script generates sandboxes or training mapes bases on avalible templa
 The tool should be cross platform and can be used for other packages as well.
 ```
 <!--- (Soon) Modfify the `properties.ini` if needed.-->
-- Modify the script Globals in ``build.py`` if needed.
+- Modify the `setup.json` if needed.
 - Modify the Templates if needed. (See below for requirements.) 
 - Run the script<br />
-  Windows: `py build.py -b sandbox` or ` py build.py -b training`<br />
-  Linux: `python3 build.py -b sandbox` or ` python3 build.py -b training`
+  Windows: `py build.py sandbox -v 1.0 -p cScripts.zip` or
+           `py build.py training -v 1.0 -p cScripts.zip`<br />
+  Linux: `python3 build.py sandbox -v 1.0 -p cScripts.zip` or
+         ` python3 build.py training -v 1.0 -p cScripts.zip`
 
 ## Setting up a sandbox template
-- Mission file most be unbinirized.
+- __Mission file most be unbinirized__.
 - Script will primarily use the Generic template.<br />
   A custom template can be used to create one the folowing name is required:<br />
   `Template_Altis.Altis` or `Template_MyIsland.MyIsland`<br />
@@ -68,8 +70,7 @@ The tool should be cross platform and can be used for other packages as well.
 - Unit placement is recommended to be set in the lower left corner on short grid `00 00`.
 
 ## Setting up a training mission (WIP)
-- Training missions name need to be in the following format `[My_Training_Mission]_DEVBUILD.[Island_Name]`
+- Training missions name need to be in the following format `7cav_[My_Training_Mission]_DEVBUILD.[Island_Name]`
 - Training missions need to placed in `./template/training/`.
 - Additional training mission scripts need to be placed in the mission `./scripts/` folder.
-- Adjustments to `init.sqf` is required to be inside `init.sqf`. Only add mission essensials. (It will be merged i to the `init.sqf`) 
-- Adjustments to `description.ext` is require to be inside `description.ext`. Only add mission essensials. (It will be merged i to the `description.ext`) 
+- Adjust or add a `setup.json`<br />__NOTE!__ Do not add your own `init.sqf` of `description.ext` Add changes or adjustmetns instead to the `add : []` array of the json file.
