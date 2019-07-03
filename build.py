@@ -100,7 +100,7 @@ def get_templates(template_type='', world=''):
 def fetch_objects(template_path=''):
     os.chdir(template_path)
     content = os.listdir(template_path)
-    
+
     objectList = []
 
     folderList = [] # Collect directories
@@ -139,6 +139,7 @@ def replace(file, searchExp, replaceExp):
             line = line.replace(searchExp,replaceExp)
         sys.stdout.write(line)
 
+
 def additions(file, additions=[]):
     with open(file, 'a') as add:
         add.write('\n')
@@ -146,8 +147,8 @@ def additions(file, additions=[]):
             add.write('\n{}'.format(line))
     add.close()
 
-def json_macro_replace(obj):
 
+def json_macro_replace(obj):
     if type(obj) == str:
         if '$0' in obj:
             obj = obj.replace('$0', '{}'.format(VERSION))
@@ -161,31 +162,47 @@ def json_macro_replace(obj):
     else:
         sys.exit('ERROR: JSON macro function can\'t handle input...')
 
+def clean_mission_folder(temp_folder=''):
+    os.chdir(temp_folder)
+    remove_list = ['README.md', 'setup.json', 'Data/MissionLogo.psd']
+    for f in remove_list:
+        try:
+            os.remove(f)
+        except:
+            pass
 
-def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=False):
-    print('Setting up and adjusting sandbox mission file...')
+def cleanup_output():
+    print('Cleaning up output folder...')
+    output_list = os.listdir(outputDir)
+    os.chdir(outputDir)
+    for f in output_list:
+        os.remove(f)
+    os.chdir(scriptDir)
+
+
+def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=False):
     os.chdir(temp_folder)
 
-    world_spawn_list = []
-    for world in sandbox_json_data['worlds']:
-        world_spawn_list.append(sandbox_json_data['worlds'][world])
+    if args.buildtype == 'sandbox':
+        world_spawn_list = []
+        for world in sandbox_json_data['worlds']:
+            world_spawn_list.append(sandbox_json_data['worlds'][world])
 
-    spawn = world_spawn_list[count]
-
+        spawn = world_spawn_list[count]
 
     # Reset common variable
     changes = ''
-
     filename = 'mission.sqm'
     file = '{}/{}'.format(temp_folder,filename)
-    if os.path.isfile(file):
+    if filename in sandbox_json_data and os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
         
         # Spawn
-        print('Spawn set to {}, {}, {} on {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color), color_string(world,'\033[92m',args.color)))
-        replace(file,
-            'position[]={20.200001,25.200001,20.200001};',
-            'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
+        if args.buildtype == 'sandbox':
+            print('Spawn set to {}, {}, {} on {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color), color_string(world,'\033[92m',args.color)))
+            replace(file,
+                'position[]={20.200001,25.200001,20.200001};',
+                'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
         
         for changes in sandbox_json_data[filename]:
             string = sandbox_json_data[filename][changes] 
@@ -204,12 +221,12 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
                 continue
 
     else:
-        sys.exit('No {} detected. Some thing is terrible wrong.'.format(color_string(filename,'\033[96m',use_color)))
+        '' if os.path.isfile(file) else sys.exit('ERROR: No {} discoverd something is terrible wrong'.format(color_string(filename,'\033[96m',use_color)))
+        print('No changes to {} is defined skipping this step...'.format(color_string(filename,'\033[96m',use_color)))
 
 
     # Reset common variable
     changes = ''
-
     filename = 'description.ext'
     file = '{}/{}'.format(temp_folder,filename)
     if os.path.isfile(file):
@@ -299,12 +316,11 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
                 continue
 
     else:
-        print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
+        print('No changes to {} is defined skipping this step...'.format(color_string(filename,'\033[96m',use_color)))
 
 
     # Reset common variable
     changes = ''
-
     filename = 'init.sqf'
     file = '{}/{}'.format(temp_folder,filename)
     if os.path.isfile(file):
@@ -319,12 +335,11 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
                 continue
 
     else:
-        print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
+        print('No changes to {} is defined skipping this step...'.format(color_string(filename,'\033[96m',use_color)))
 
 
     # Reset common variable
     changes = ''
-
     filename = 'cba_settings.sqf'
     file = '{}/{}'.format(temp_folder,filename)
     if os.path.isfile(file):
@@ -339,20 +354,8 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
                 continue
 
     else:
-        print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
+        print('No changes to {} is defined skipping this step...'.format(color_string(filename,'\033[96m',use_color)))
 
-
-def setup_training_missions(temp_folder='', count=0, use_color=False):
-    print('Setting up and adjusting training mission file...')
-
-
-def cleanup_output():
-    print('Cleaning up output folder...')
-    output_list = os.listdir(outputDir)
-    os.chdir(outputDir)
-    for f in output_list:
-        os.remove(f)
-    os.chdir(scriptDir)
 
 # #########################################################################################
 
@@ -365,7 +368,6 @@ def main():
     check_or_create_folder('template/training')
 
     if args.buildtype == 'sandbox':
-        
         # get json data
         sandbox_json = '{}/setup.json'.format(scriptDir)
         with open(sandbox_json) as json_file:  
@@ -401,14 +403,20 @@ def main():
             install_script_package(SCRIPT_PACKAGE, temp_path, args.color)
 
             # Setup mission file
-            setup_sandbox_missions(temp_path, sandbox_data, count, args.color)
+            print('Setting up and adjusting sandbox mission file...')
+            setup_missions(temp_path, sandbox_data, count, args.color)
 
+            # Cleaning mission from readme and template files.
+            clean_mission_folder(temp_path)
+            
             # Building PBO
             build_pbo(temp_path, mission_name, args.color)
 
 
     if args.buildtype == 'training':
         all_templates = get_templates('training')
+        all_templates.remove('setup_template.json')
+
         sys.exit('No training missions found in "./template/training/"...') if (len(all_templates) == 0) else ''
 
         for count, world in enumerate(all_templates):
@@ -431,8 +439,17 @@ def main():
             # Unzip and install script package
             install_script_package(SCRIPT_PACKAGE, temp_path, args.color)
 
+            # get json data
+            training_json = '{}/template/training/{}/setup.json'.format(scriptDir,world)
+            with open(training_json) as json_file:
+                training_json = json.load(json_file)
+            
             # Setup mission file
-            setup_training_missions(temp_path, count, args.color)
+            print('Setting up and adjusting training mission file...')
+            setup_missions(temp_path, training_json, count, args.color)
+
+            # Cleaning mission from readme and template files.
+            clean_mission_folder(temp_path)
 
             # Building PBO
             build_pbo(temp_path, mission_name, args.color)
