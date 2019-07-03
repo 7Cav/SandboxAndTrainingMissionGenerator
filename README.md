@@ -70,7 +70,7 @@ The tool should be cross platform and can be used for other packages as well.
 - Unit placement is recommended to be set in the lower left corner on short grid `00 00`.
 
 ## Setting up a training mission (WIP)
-- Training missions name need to be in the following format `7cav_[My_Training_Mission]_DEVBUILD.[Island_Name]`
+- Training missions name need to be in the following format `7cav_[Company]_CO_Trg_[My_Training_Mission_Name-Map]_DEVBUILD.[Island_Name]`<br />Example: `7cav_Charlie_CO_Trg_Map_DEVBUILD.Stratis` or `7cav_Charlie_CO_Trg_Ambush_DEVBUILD.Altis`
 - Training missions need to placed in `./template/training/`.
 - Additional training mission scripts need to be placed in the mission `./scripts/` folder.
 - Adjust or add a `setup.json`<br />__NOTE!__ Do not add your own `init.sqf` of `description.ext` Add changes or adjustmetns instead to the `add : []` array of the json file.
