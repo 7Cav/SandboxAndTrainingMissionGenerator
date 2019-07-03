@@ -61,8 +61,9 @@
             "force force cScripts_Settings_allowCustomInit = true;",
             "force force cScripts_Settings_allowCustomTagging = true;",
             "force force cScripts_Settings_allowInsigniaApplication = true;",
+            "force force cScripts_Settings_curatorImmortality = false;",
             "force force cScripts_Settings_enable7cavZeusModules = true;",
-            "force force cScripts_Settings_enableStartHint = false;",
+            "force force cScripts_Settings_enableStartHint = true;",
             "force force cScripts_Settings_enforceEyewereBlacklist = true;",
             "force force cScripts_Settings_jumpSimulation = 1;",
             "force force cScripts_Settings_jumpSimulationGlasses = true;",
@@ -78,10 +79,7 @@
             "force force cScripts_Settings_showDiaryRecords = true;",
             "force force cScripts_Settings_useCustomSupplyInventory = false;",
             "force force cScripts_Settings_useCustomVehicleInventory = true;",
-            "force force cScripts_Settings_useCustomVehicleSettings = true"
+            "force force cScripts_Settings_useCustomVehicleSettings = true;"
         ]
-    },
-    "zeusPlayerSettings" : {
-        "imortality" : false
     }
 }
