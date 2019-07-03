@@ -42,7 +42,7 @@
     },
     "mission.sqm" : {
         "briefingName" : "Zeus Sandbox v$0",
-        "overviewText" : "This is the 7th Cavalry Zeus Sandbox mission.\" \\n \"Have fun!"
+        "overviewText" : "This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios. The mission is running version $1 of cScripts."
     },
     "description.ext" : {
         "author" :"SGT Brostrom.A",
