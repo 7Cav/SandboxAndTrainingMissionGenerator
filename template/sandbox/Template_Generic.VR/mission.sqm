@@ -90,7 +90,7 @@ randomSeed=1446646;
 class ScenarioData
 {
 	author="CPL.Brostrom.A";
-	overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";
+	overviewText="OverviewText Template Text";
 };
 class Mission
 {
