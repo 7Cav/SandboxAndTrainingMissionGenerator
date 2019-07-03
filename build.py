@@ -1,96 +1,15 @@
 #!/usr/bin/env python3
-import sys, os, shutil, subprocess
-import argparse, tempfile, zipfile, fileinput
+import sys, os, shutil, subprocess, time
+import argparse, tempfile, zipfile, fileinput, json
+startTime = time.time()
 
-__version__ = 2.0
+__version__ = 3.0
 
 scriptPath = os.path.realpath(__file__)
 scriptDir = os.path.dirname(scriptPath)
 outputDir = '{}/output'.format(scriptDir)
 releaseDir = '{}/release'.format(scriptDir)
 templateDir = '{}/template'.format(scriptDir)
-
-# #########################################################################################
-
-SANDBOX_MISSION_NAME = '7cav_zeus_sandbox'
-
-WORLD_LIST = [
-    'Altis',
-    'Bootcamp_ACR',
-    'Chernarus_Winter',
-    'chernarus_summer',
-    'chernarus',
-    'clafghan',
-    'Desert_E',
-    'fallujah',
-    'intro',
-    'lythium',
-    'Malden',
-    #'Mog',
-    'Mountains_ACR',
-    'pja319',
-    'porto',
-    #'prei_khmaoch_luong',
-    'pja310',
-    'pja307',
-    'pja308',
-    'pja306',
-    'pja314',
-    'ProvingGrounds_PMC',
-    'ruha',
-    'WL_Rosche',
-    'sara_dbe1',
-    'sara',
-    'saralite',
-    'Shapur_BAF',
-    'Stratis',
-    'takistan',
-    'Tanoa',
-    'tem_anizay',
-    'utes',
-    'VR',
-    'Woodland_ACR',
-    'zargabad'
-]
-
-WORLD_LIST_XYZ = [
-    [14180.181,19.533018,16286.612],    #Altis
-    [1736.0146,339.00143,1821.2036],    #Bootcamp_ACR
-    [4734.9082,339.00143,10321.878],    #Chernarus_Winter
-    [4734.9082,339.00143,10321.878],    #chernarus_summer
-    [4734.9082,339.00143,10321.878],    #chernarus
-    [15444.673,2.832844,709.26642],     #clafghan
-    [1356.26,40.934971,1456.3073],      #Desert_E
-    [7798.8213,7.0014391,1834.03],      #fallujah
-    [2599.9934,13.861439,2851.6333],    #intro
-    [12284.305,32.930412,1994.9125],    #lythium
-    [757.7951,28.921438,12122.284],     #Malden
-    #[8241.5498,3.2092922,5366.6777],   #Mog
-    [4541.0576,145.40143,6041.1016],    #Mountains_ACR
-    [1607.7159,637.45093,3306.1414],    #pja319
-    [2572.7817,5.030777,2394.7749],     #porto
-    #[5677.208,111.26981,4182.6396],    #prei_khmaoch_luong
-    [1315.1356,15.050012,985.10767],    #pja310
-    [5353.0347,273.7785,14497.363],     #pja307
-    [7668.6006,7.7759309,10451.485],    #pja308
-    [15625.017,398,12116.016],          #pja306
-    [753.32843,143.50633,1481.077],     #pja314
-    [710.72131,51.721439,1171.8711],    #ProvingGrounds_PMC
-    [6680.1616,46.671436,1116.3844],    #ruha
-    [765.18744,15.131439,4760.374],     #WL_Rosche
-    [9561.6406,139.99643,9872.0205],    #sara_dbe1
-    [9561.6406,139.99643,9872.0205],    #sara
-    [4679.4258,139.98586,7108.8965],    #saralite
-    [712.9986,35.381439,409.31555],     #Shapur_BAF
-    [2159.5532,6.0014391,5690.1865],    #Stratis
-    [6112.4971,83.041443,11524.703],    #takistan
-    [11785.61,6.9514389,13067.984],     #Tanoa
-    [8325.8467,111.54144,7032.5669],    #tem_anizay
-    [1375.572,15.88654,962.66998],      #utes
-    [7439.9927,5.0014391,7568.0435],    #VR
-    [4692.2144,6.0036001,1175.9294],    #Woodland_ACR
-    [4967.8613,29.545662,6143.1611]     #zargabad
-]
 
 # #########################################################################################
 
@@ -101,10 +20,8 @@ parser = argparse.ArgumentParser(
     epilog='This build script generates sandboxes or training mapes bases on avalible templates.\nThe tool should be cross platform and can be used for other packages as well.'
 )
 
-parser.add_argument('-b', '--buildtype',
-    required=False,
+parser.add_argument('buildtype',
     choices=['sandbox', 'training'],
-    default='sandbox',
     help='This defines what kind of generation the script should commit.'
 )
 
@@ -113,9 +30,9 @@ parser.add_argument('-p', '--package',
     help='This defines what script package to install.'
 )
 
-parser.add_argument('-vu', '--versionUpdate',
+parser.add_argument('-v', '--versionTag',
     required=True,
-    help='This defines what script package to install.'
+    help='This define what version name you whant the file to have.'
 )
 
 parser.add_argument("-y", "--fastbuild",
@@ -127,7 +44,7 @@ parser.add_argument('--color',
     action='store_true'
 )
 
-parser.add_argument('-v', '--version', action='version', version='Author: Andreas Broström <andreas.brostrom.ce@gmail.com>\nScript version: {}'.format(__version__))
+parser.add_argument('--version', action='version', version='Author: Andreas Broström <andreas.brostrom.ce@gmail.com>\nScript version: {}'.format(__version__))
 
 args = parser.parse_args()
 
@@ -135,9 +52,9 @@ args = parser.parse_args()
 
 SCRIPT_PACKAGE = args.package
 
-if args.versionUpdate:
-    VERSION = args.versionUpdate
-    VERSION_DIR = args.versionUpdate.replace('.','_')
+if args.versionTag:
+    VERSION = args.versionTag
+    VERSION_DIR = args.versionTag.replace('.','_')
 
 # #########################################################################################
 
@@ -150,15 +67,16 @@ def color_string(string='', color='\033[0m', use_color=False):
 
 def build_pbo(temp_folder='', pbo_name='unnamed', use_color=False):
     os.chdir(scriptDir)
-    print('Compiling {}...'.format(color_string('{}.pbo'.format(pbo_name),'\033[96m',use_color)))
+    print('Building and compiling {}...'.format(color_string('{}.pbo'.format(pbo_name),'\033[96m',use_color)))
     subprocess.call('armake build -f -p "{}" "output/{}.pbo"'.format(temp_folder,pbo_name), shell=True)
 
 
-def build_archive(archive_name='unnamed', archive_type='zip', archive_input=''):
-    print('Building archive...')
+def build_archive(archive_name='unnamed', archive_type='zip', archive_input='', use_color=False):
+    print('Archiving all generated mission files...')
     archive_output = '{}/{}'.format(releaseDir,archive_name)
     shutil.make_archive(archive_output, archive_type, archive_input)
-    print('Archive created you can find it in the release folder.')
+    fullarchname = color_string('{}.{}'.format(archive_name,archive_type),'\033[96m',use_color)
+    print('{} have been created...'.format(fullarchname))
 
 
 def check_or_create_folder(dir=''):
@@ -182,7 +100,7 @@ def get_templates(template_type='', world=''):
 def fetch_objects(template_path=''):
     os.chdir(template_path)
     content = os.listdir(template_path)
-    
+
     objectList = []
 
     folderList = [] # Collect directories
@@ -222,90 +140,36 @@ def replace(file, searchExp, replaceExp):
         sys.stdout.write(line)
 
 
-def setup_sandbox_missions(temp_folder='', count=0, use_color=False):
-    print('Setting up and adjusting sandbox mission file...')
-    os.chdir(temp_folder)
-    if os.path.isfile('{}/description.ext'.format(temp_folder)):
-        print('Applying adjustmetns to {}...'.format(color_string('description.ext','\033[96m',use_color)))
-        file = '{}/description.ext'.format(temp_folder)
-        replace(file,
-            '    dev                 = "1SG Tully.B";',
-            '    dev                 = "CPL Brostrom.A";')
-        replace(file,
-            '    author              = "1SG Tully.B";',
-            '    author              = "CPL Brostrom.A";')
-        replace(file,
-            '    onLoadName          = "MyMissionName";',
-            '    onLoadName          = "Zeus Sandbox v{}";'.format(VERSION))
-        replace(file,
-            '    onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Operation";',
-            '    onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Sandbox";')
-        replace(file,
-            '    onLoadIntro         = "S3 1BN Battle Staff Operation";',
-            '    onLoadIntro         = "S3 1BN Battle Staff Sandbox";'.format(VERSION))
-        replace(file,
-            '    respawnOnStart         = -1;',
-            '    respawnOnStart         = 1;')
+def additions(file, additions=[]):
+    with open(file, 'a') as add:
+        add.write('\n')
+        for line in additions:
+            add.write('\n{}'.format(line))
+    add.close()
 
-        print('Adding new settings to {}...'.format(color_string('cba_settings.sqf','\033[96m',use_color)))
-        add_new_settings = [
-            '// cScripts Mission Settings',
-            'force force cScripts_Settings_allowCustomInit = true;',
-            'force force cScripts_Settings_allowCustomTagging = true;',
-            'force force cScripts_Settings_allowInsigniaApplication = true;',
-            'force force cScripts_Settings_enable7cavZeusModules = true;',
-            'force force cScripts_Settings_enableStartHint = false;',
-            'force force cScripts_Settings_enforceEyewereBlacklist = true;',
-            'force force cScripts_Settings_jumpSimulation = 1;',
-            'force force cScripts_Settings_jumpSimulationGlasses = true;',
-            'force force cScripts_Settings_jumpSimulationHat = true;',
-            'force force cScripts_Settings_jumpSimulationNVG = true;',
-            'force force cScripts_Settings_setAiSystemDifficulty = 0;',
-            'force force cScripts_Settings_setCustomHintText = "Be creative!";',
-            'force force cScripts_Settings_setCustomHintTopic = "Zeus Sandbox v{}";'.format(VERSION),
-            'force force cScripts_Settings_setMissionType = 3;',
-            'force force cScripts_Settings_setPlayerRank = true;',
-            'force force cScripts_Settings_setRadio = true;',
-            'force force cScripts_Settings_setStartupDelay = 30;',
-            'force force cScripts_Settings_showDiaryRecords = true;',
-            'force force cScripts_Settings_useCustomSupplyInventory = false;',
-            'force force cScripts_Settings_useCustomVehicleInventory = true;',
-            'force force cScripts_Settings_useCustomVehicleSettings = true;'
-        ]
-        with open('{}/cba_settings.sqf'.format(temp_folder), 'a') as settings_file:
-            settings_file.write('\n')
-            for line in add_new_settings:
-                settings_file.write('\n{}'.format(line))
-        settings_file.close()
 
-        print('Removing immortality from S3 loadout {}...'.format(color_string('CfgLoadouts_S3.hpp','\033[96m',use_color)))
-        file = '{}/cScripts/Loadouts/CfgLoadouts_S3.hpp'.format(temp_folder)
-        replace(file,
-            '    (_this select 0) allowDamage false;";',
-            '    (_this select 0) allowDamage true;";')
-
-        print('Adjusting {}...'.format(color_string('mission.sqm','\033[96m',use_color)))
-        file = '{}/mission.sqm'.format(temp_folder)
-        print('Adjusting {} and {}...'.format(color_string('overviewText','\033[92m',use_color), color_string('briefingName','\033[92m',use_color)))
-        replace(file,
-            '		briefingName="Zeus Sandbox Template Mission";',
-            '		briefingName="Zeus Sandbox v{}";'.format(VERSION))
-        replace(file,
-            '	overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";',
-            '	overviewText="This is the 7th Cavalry Zeus Sandbox mission." \n "Have fun!";')
-        spawn = WORLD_LIST_XYZ[count]
-        print('Spawn set to {}, {}, {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color)))
-        replace(file,
-            '				position[]={20.200001,25.200001,20.200001};',
-            '				position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
-
+def json_macro_replace(obj):
+    if type(obj) == str:
+        if '$0' in obj:
+            obj = obj.replace('$0', '{}'.format(VERSION))
+            return obj
+    elif type(obj) == list:
+        new_list = []
+        for line in obj:
+            line = line.replace('$0', '{}'.format(VERSION))
+            new_list.append(line)
+        return new_list
     else:
-        print('No {} detected skipping changes...'.format(color_string('description.ext','\033[96m',use_color)))
+        sys.exit('ERROR: JSON macro function can\'t handle input...')
 
-
-def setup_training_missions():
-    print('Setting up and adjusting training mission file...')
-
+def clean_mission_folder(temp_folder=''):
+    os.chdir(temp_folder)
+    remove_list = ['README.md', 'setup.json', 'Data/MissionLogo.psd']
+    for f in remove_list:
+        try:
+            os.remove(f)
+        except:
+            pass
 
 def cleanup_output():
     print('Cleaning up output folder...')
@@ -314,6 +178,184 @@ def cleanup_output():
     for f in output_list:
         os.remove(f)
     os.chdir(scriptDir)
+
+
+def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=False):
+    os.chdir(temp_folder)
+
+    if args.buildtype == 'sandbox':
+        world_spawn_list = []
+        for world in sandbox_json_data['worlds']:
+            world_spawn_list.append(sandbox_json_data['worlds'][world])
+
+        spawn = world_spawn_list[count]
+
+    # Reset common variable
+    changes = ''
+    filename = 'mission.sqm'
+    file = '{}/{}'.format(temp_folder,filename)
+    if filename in sandbox_json_data and os.path.isfile(file):
+        print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+        
+        # Spawn
+        if args.buildtype == 'sandbox':
+            print('Spawn set to {}, {}, {} on {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color), color_string(world,'\033[92m',args.color)))
+            replace(file,
+                'position[]={20.200001,25.200001,20.200001};',
+                'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
+        
+        for changes in sandbox_json_data[filename]:
+            string = sandbox_json_data[filename][changes] 
+            string = json_macro_replace(string)
+
+            if 'briefingName' == changes:
+                replace(file,
+                'briefingName="Zeus Sandbox Template Mission";',
+                'briefingName="{}";'.format(string))
+                continue
+
+            if 'overviewText' == changes:
+                replace(file,
+                'overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";',
+                'overviewText="{}";'.format(string))
+                continue
+
+    else:
+        '' if os.path.isfile(file) else sys.exit('ERROR: No {} discoverd something is terrible wrong'.format(color_string(filename,'\033[96m',use_color)))
+        print('No changes to {} is defined skipping this step...'.format(color_string(filename,'\033[96m',use_color)))
+
+
+    # Reset common variable
+    changes = ''
+    filename = 'description.ext'
+    file = '{}/{}'.format(temp_folder,filename)
+    if os.path.isfile(file):
+        print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+       
+        for changes in sandbox_json_data[filename]:
+            string = sandbox_json_data[filename][changes] 
+            string = json_macro_replace(string)
+            
+            if changes == 'author':
+                replace(file,
+                    'dev                 = "1SG Tully.B";',
+                    'dev                 = "{}";'.format(string))
+                replace(file,
+                    'author              = "1SG Tully.B";',
+                    'author              = "{}";'.format(string))
+                continue
+
+            if changes == 'onLoadName':
+                replace(file,
+                    'onLoadName          = "MyMissionName";',
+                    'onLoadName          = "{}";'.format(string))
+                continue
+
+            if changes == 'onLoadMission':
+                replace(file,
+                    'onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Operation";',
+                    'onLoadMission       = "{}";'.format(string))
+                continue
+
+            if changes == 'onLoadIntro':
+                replace(file,
+                    'onLoadIntro         = "S3 1BN Battle Staff Operation";',
+                    'onLoadIntro         = "{}";'.format(string))
+                continue
+
+            if changes == 'loadScreen':
+                replace(file,
+                    'loadScreen          = "Data\MissionLogo.paa";',
+                    'loadScreen         = "{}";'.format(string))
+                continue
+
+            if changes == 'overviewPicture':
+                replace(file,
+                    'overviewPicture     = "Data\MissionLogo.paa";',
+                    'overviewPicture     = "{}";'.format(string))
+                continue
+
+            if 'cba_settings_hasSettingsFile':
+                replace(file,
+                    'cba_settings_hasSettingsFile = 1;',
+                    'cba_settings_hasSettingsFile = {};'.format(string))
+                continue
+
+            if changes == 'disabledAI':
+                replace(file,
+                    'disabledAI              = true;',
+                    'disabledAI              = {};'.format(string))
+                continue
+
+            if changes == 'forceRotorLibSimulation':
+                replace(file,
+                    'forceRotorLibSimulation = 1;',
+                    'forceRotorLibSimulation = {};'.format(string))
+                continue
+
+            if changes == 'respawn':
+                replace(file,
+                    'respawn                = BASE;',
+                    'respawn                = {};'.format(string))
+                continue
+
+            if changes == 'respawnDelay':
+                replace(file,
+                    'respawnDelay           = 4;',
+                    'respawnDelay           = {};'.format(string))
+                continue
+
+            if changes == 'respawnOnStart':
+                replace(file,
+                    'respawnOnStart         = -1;',
+                    'respawnOnStart         = {};'.format(string))
+                continue
+
+            if changes == 'add':
+                additions(file, string)
+                continue
+
+    else:
+        print('No changes to {} is defined skipping this step...'.format(color_string(filename,'\033[96m',use_color)))
+
+
+    # Reset common variable
+    changes = ''
+    filename = 'init.sqf'
+    file = '{}/{}'.format(temp_folder,filename)
+    if os.path.isfile(file):
+        print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+       
+        for changes in sandbox_json_data[filename]:
+            string = sandbox_json_data[filename][changes] 
+            string = json_macro_replace(string)
+            
+            if changes == 'add':
+                additions(file, string)
+                continue
+
+    else:
+        print('No changes to {} is defined skipping this step...'.format(color_string(filename,'\033[96m',use_color)))
+
+
+    # Reset common variable
+    changes = ''
+    filename = 'cba_settings.sqf'
+    file = '{}/{}'.format(temp_folder,filename)
+    if os.path.isfile(file):
+        print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
+       
+        for changes in sandbox_json_data[filename]:
+            string = sandbox_json_data[filename][changes] 
+            string = json_macro_replace(string)
+
+            if changes == 'add':
+                additions(file, string)
+                continue
+
+    else:
+        print('No changes to {} is defined skipping this step...'.format(color_string(filename,'\033[96m',use_color)))
+
 
 # #########################################################################################
 
@@ -326,11 +368,24 @@ def main():
     check_or_create_folder('template/training')
 
     if args.buildtype == 'sandbox':
-        for count, world in enumerate(WORLD_LIST):
-            temp_path = tempfile.mkdtemp()
-            mission_name = '{}_v{}.{}'.format(SANDBOX_MISSION_NAME, VERSION_DIR, world)
+        # get json data
+        sandbox_json = '{}/setup.json'.format(scriptDir)
+        with open(sandbox_json) as json_file:  
+            sandbox_data = json.load(json_file)
 
-            print('Creating sandbox mission on {}... ({}/{})'.format(color_string(world,'\033[92m',args.color), count+1, len(WORLD_LIST)))
+        # get mission name
+        sandbox_mission_name = sandbox_data['sandboxMissionName']
+
+        # set up world list
+        world_list = []
+        for world in sandbox_data['worlds']:
+            world_list.append(world)
+
+        for count, world in enumerate(world_list):
+            temp_path = tempfile.mkdtemp()
+            mission_name = '{}_v{}.{}'.format(sandbox_mission_name, VERSION_DIR, world)
+
+            print('Creating sandbox mission on {}... ({}/{})'.format(color_string(world,'\033[92m',args.color), count+1, len(world_list)))
 
             template_path = get_templates('sandbox', world)
             content_list = fetch_objects(template_path)
@@ -348,13 +403,20 @@ def main():
             install_script_package(SCRIPT_PACKAGE, temp_path, args.color)
 
             # Setup mission file
-            setup_sandbox_missions(temp_path, count, args.color)
+            print('Setting up and adjusting sandbox mission file...')
+            setup_missions(temp_path, sandbox_data, count, args.color)
 
+            # Cleaning mission from readme and template files.
+            clean_mission_folder(temp_path)
+            
             # Building PBO
             build_pbo(temp_path, mission_name, args.color)
 
+
     if args.buildtype == 'training':
         all_templates = get_templates('training')
+        all_templates.remove('setup_template.json')
+
         sys.exit('No training missions found in "./template/training/"...') if (len(all_templates) == 0) else ''
 
         for count, world in enumerate(all_templates):
@@ -377,16 +439,25 @@ def main():
             # Unzip and install script package
             install_script_package(SCRIPT_PACKAGE, temp_path, args.color)
 
+            # get json data
+            training_json = '{}/template/training/{}/setup.json'.format(scriptDir,world)
+            with open(training_json) as json_file:
+                training_json = json.load(json_file)
+            
             # Setup mission file
-            setup_training_missions(temp_path, count, args.color)
+            print('Setting up and adjusting training mission file...')
+            setup_missions(temp_path, training_json, count, args.color)
+
+            # Cleaning mission from readme and template files.
+            clean_mission_folder(temp_path)
 
             # Building PBO
             build_pbo(temp_path, mission_name, args.color)
 
-    build_archive('Mission_{}_v{}'.format(args.buildtype, VERSION), 'zip', outputDir)
+    build_archive('Mission_{}_v{}'.format(args.buildtype, VERSION), 'zip', outputDir, args.color)
     cleanup_output()
 
-    print('Builds complete.')
+    print('Builds complete. ({} seconds)'.format(round(time.time() - startTime, 3)))
 
 if __name__ == "__main__":
     sys.exit(main())

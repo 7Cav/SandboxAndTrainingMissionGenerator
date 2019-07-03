@@ -27,36 +27,40 @@ $ sudo apt-get install armake
 
 # How to run
 ```
-usage: build [-h] [-b {sandbox,training}] -p PACKAGE -vu VERSIONUPDATE [-y]
-             [--color] [-v]
+usage: build [-h] -p PACKAGE -v VERSIONTAG [-y] [--color] [--version]
+             {sandbox,training}
 
 This script generates missions.
 
+positional arguments:
+  {sandbox,training}    This defines what kind of generation the script should
+                        commit.
+
 optional arguments:
   -h, --help            show this help message and exit
-  -b {sandbox,training}, --buildtype {sandbox,training}
-                        This defines what kind of generation the script should
-                        commit.
   -p PACKAGE, --package PACKAGE
                         This defines what script package to install.
-  -vu VERSIONUPDATE, --versionUpdate VERSIONUPDATE
-                        This defines what script package to install.
+  -v VERSIONTAG, --versionTag VERSIONTAG
+                        This define what version name you whant the file to
+                        have.
   -y, --fastbuild       Will instantly run untill done.
   --color               Enable colors in the script.
-  -v, --version         show program's version number and exit
+  --version             show program's version number and exit
 
 This build script generates sandboxes or training mapes bases on avalible templates.
 The tool should be cross platform and can be used for other packages as well.
 ```
 <!--- (Soon) Modfify the `properties.ini` if needed.-->
-- Modify the script Globals in ``build.py`` if needed.
+- Modify the `setup.json` if needed.
 - Modify the Templates if needed. (See below for requirements.) 
 - Run the script<br />
-  Windows: `py build.py -b sandbox` or ` py build.py -b training`<br />
-  Linux: `python3 build.py -b sandbox` or ` python3 build.py -b training`
+  Windows: `py build.py sandbox -v 1.0 -p cScripts.zip` or
+           `py build.py training -v 1.0 -p cScripts.zip`<br />
+  Linux: `python3 build.py sandbox -v 1.0 -p cScripts.zip` or
+         ` python3 build.py training -v 1.0 -p cScripts.zip`
 
 ## Setting up a sandbox template
-- Mission file most be unbinirized.
+- __Mission file most be unbinirized__.
 - Script will primarily use the Generic template.<br />
   A custom template can be used to create one the folowing name is required:<br />
   `Template_Altis.Altis` or `Template_MyIsland.MyIsland`<br />
@@ -66,8 +70,7 @@ The tool should be cross platform and can be used for other packages as well.
 - Unit placement is recommended to be set in the lower left corner on short grid `00 00`.
 
 ## Setting up a training mission (WIP)
-- Training missions name need to be in the following format `[My_Training_Mission]_DEVBUILD.[Island_Name]`
+- Training missions name need to be in the following format `7cav_[Company]_CO_Trg_[My_Training_Mission_Name-Map]_DEVBUILD.[Island_Name]`<br />Example: `7cav_Charlie_CO_Trg_Map_DEVBUILD.Stratis` or `7cav_Charlie_CO_Trg_Ambush_DEVBUILD.Altis`
 - Training missions need to placed in `./template/training/`.
-- Additional training mission scripts need to be placed in the mission `./scripts/` folder.
-- Adjustments to `init.sqf` is required to be inside `init.sqf`. Only add mission essensials. (It will be merged i to the `init.sqf`) 
-- Adjustments to `description.ext` is require to be inside `description.ext`. Only add mission essensials. (It will be merged i to the `description.ext`) 
+- Additional training mission scripts need to be placed in the mission folder in `./scripts/` or `./` folder.
+- Adjust or add a `setup.json`<br />__NOTE!__ Do not add your own `init.sqf` of `description.ext` Add changes or adjustmetns instead to the `add : []` array of the json file.
