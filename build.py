@@ -149,14 +149,23 @@ def additions(file, additions=[]):
 
 
 def json_macro_replace(obj):
+    # get cScripts version else return package name
+    if 'cScripts-' in SCRIPT_PACKAGE:
+        scver = SCRIPT_PACKAGE.split('-')
+        scver = scver[1].replace('.zip', '')
+    else:
+        SCRIPT_PACKAGE
+
     if type(obj) == str:
         if '$0' in obj:
-            obj = obj.replace('$0', '{}'.format(VERSION))
-            return obj
+            return obj.replace('$0', '{}'.format(VERSION))
+        if '$1' in obj:
+            return obj.replace('$1', '{}'.format(scver))
     elif type(obj) == list:
         new_list = []
         for line in obj:
             line = line.replace('$0', '{}'.format(VERSION))
+            line = line.replace('$1', '{}'.format(scver))
             new_list.append(line)
         return new_list
     else:
@@ -216,7 +225,7 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
 
             if 'overviewText' == changes:
                 replace(file,
-                'overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";',
+                'overviewText="OverviewText Template Text";',
                 'overviewText="{}";'.format(string))
                 continue
 
