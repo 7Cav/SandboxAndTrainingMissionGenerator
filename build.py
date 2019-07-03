@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-import sys, os, shutil, subprocess
+import sys, os, shutil, subprocess, time
 import argparse, tempfile, zipfile, fileinput, json
+startTime = time.time()
 
 __version__ = 3.0
 
@@ -71,7 +72,7 @@ def build_pbo(temp_folder='', pbo_name='unnamed', use_color=False):
 
 
 def build_archive(archive_name='unnamed', archive_type='zip', archive_input='', use_color=False):
-    print('Archiving all completed mission files...')
+    print('Archiving all generated mission files...')
     archive_output = '{}/{}'.format(releaseDir,archive_name)
     shutil.make_archive(archive_output, archive_type, archive_input)
     fullarchname = color_string('{}.{}'.format(archive_name,archive_type),'\033[96m',use_color)
@@ -180,6 +181,12 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
         
+        # Spawn
+        print('Spawn set to {}, {}, {} on {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color), color_string(world,'\033[92m',args.color)))
+        replace(file,
+            'position[]={20.200001,25.200001,20.200001};',
+            'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
+        
         for changes in sandbox_json_data[filename]:
             string = sandbox_json_data[filename][changes] 
             string = json_macro_replace(string)
@@ -188,17 +195,14 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
                 replace(file,
                 'briefingName="Zeus Sandbox Template Mission";',
                 'briefingName="{}";'.format(string))
+                continue
 
             if 'overviewText' == changes:
                 replace(file,
                 'overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";',
                 'overviewText="{}";'.format(string))
+                continue
 
-        # Spawn
-        print('Spawn set to {}, {}, {} on {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color), color_string(world,'\033[92m',args.color)))
-        replace(file,
-            'position[]={20.200001,25.200001,20.200001};',
-            'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
     else:
         sys.exit('No {} detected. Some thing is terrible wrong.'.format(color_string(filename,'\033[96m',use_color)))
 
@@ -222,64 +226,77 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
                 replace(file,
                     'author              = "1SG Tully.B";',
                     'author              = "{}";'.format(string))
+                continue
 
             if changes == 'onLoadName':
                 replace(file,
                     'onLoadName          = "MyMissionName";',
                     'onLoadName          = "{}";'.format(string))
+                continue
 
             if changes == 'onLoadMission':
                 replace(file,
                     'onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Operation";',
                     'onLoadMission       = "{}";'.format(string))
+                continue
 
             if changes == 'onLoadIntro':
                 replace(file,
                     'onLoadIntro         = "S3 1BN Battle Staff Operation";',
                     'onLoadIntro         = "{}";'.format(string))
+                continue
 
             if changes == 'loadScreen':
                 replace(file,
                     'loadScreen          = "Data\MissionLogo.paa";',
                     'loadScreen         = "{}";'.format(string))
+                continue
 
             if changes == 'overviewPicture':
                 replace(file,
                     'overviewPicture     = "Data\MissionLogo.paa";',
                     'overviewPicture     = "{}";'.format(string))
+                continue
 
             if 'cba_settings_hasSettingsFile':
                 replace(file,
                     'cba_settings_hasSettingsFile = 1;',
                     'cba_settings_hasSettingsFile = {};'.format(string))
+                continue
 
             if changes == 'disabledAI':
                 replace(file,
                     'disabledAI              = true;',
                     'disabledAI              = {};'.format(string))
+                continue
 
             if changes == 'forceRotorLibSimulation':
                 replace(file,
                     'forceRotorLibSimulation = 1;',
                     'forceRotorLibSimulation = {};'.format(string))
+                continue
 
             if changes == 'respawn':
                 replace(file,
                     'respawn                = BASE;',
                     'respawn                = {};'.format(string))
+                continue
 
             if changes == 'respawnDelay':
                 replace(file,
                     'respawnDelay           = 4;',
                     'respawnDelay           = {};'.format(string))
+                continue
 
             if changes == 'respawnOnStart':
                 replace(file,
                     'respawnOnStart         = -1;',
                     'respawnOnStart         = {};'.format(string))
+                continue
 
             if changes == 'add':
                 additions(file, string)
+                continue
 
     else:
         print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
@@ -299,6 +316,7 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
             
             if changes == 'add':
                 additions(file, string)
+                continue
 
     else:
         print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
@@ -318,82 +336,10 @@ def setup_sandbox_missions(temp_folder='', sandbox_json_data={}, count=0, use_co
 
             if changes == 'add':
                 additions(file, string)
+                continue
 
     else:
         print('No {} detected skipping changes...'.format(color_string(filename,'\033[96m',use_color)))
-
-
-    # if os.path.isfile('{}/description.ext'.format(temp_folder)):
-    #     print('Applying adjustmetns to {}...'.format(color_string('description.ext','\033[96m',use_color)))
-    #     file = '{}/description.ext'.format(temp_folder)
-    #     replace(file,
-    #         '    dev                 = "1SG Tully.B";',
-    #         '    dev                 = "CPL Brostrom.A";')
-    #     replace(file,
-    #         '    author              = "1SG Tully.B";',
-    #         '    author              = "CPL Brostrom.A";')
-    #     replace(file,
-    #         '    onLoadName          = "MyMissionName";',
-    #         '    onLoadName          = "Zeus Sandbox v{}";'.format(VERSION))
-    #     replace(file,
-    #         '    onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Operation";',
-    #         '    onLoadMission       = "7th Cavalry - S3 1BN Battle Staff Sandbox";')
-    #     replace(file,
-    #         '    onLoadIntro         = "S3 1BN Battle Staff Operation";',
-    #         '    onLoadIntro         = "S3 1BN Battle Staff Sandbox";'.format(VERSION))
-    #     replace(file,
-    #         '    respawnOnStart         = -1;',
-    #         '    respawnOnStart         = 1;')
-
-    #     print('Adding new settings to {}...'.format(color_string('cba_settings.sqf','\033[96m',use_color)))
-    #     add_new_settings = [
-    #         '// cScripts Mission Settings',
-    #         'force force cScripts_Settings_allowCustomInit = true;',
-    #         'force force cScripts_Settings_allowCustomTagging = true;',
-    #         'force force cScripts_Settings_allowInsigniaApplication = true;',
-    #         'force force cScripts_Settings_enable7cavZeusModules = true;',
-    #         'force force cScripts_Settings_enableStartHint = false;',
-    #         'force force cScripts_Settings_enforceEyewereBlacklist = true;',
-    #         'force force cScripts_Settings_jumpSimulation = 1;',
-    #         'force force cScripts_Settings_jumpSimulationGlasses = true;',
-    #         'force force cScripts_Settings_jumpSimulationHat = true;',
-    #         'force force cScripts_Settings_jumpSimulationNVG = true;',
-    #         'force force cScripts_Settings_setAiSystemDifficulty = 0;',
-    #         'force force cScripts_Settings_setCustomHintText = "Be creative!";',
-    #         'force force cScripts_Settings_setCustomHintTopic = "Zeus Sandbox v{}";'.format(VERSION),
-    #         'force force cScripts_Settings_setMissionType = 3;',
-    #         'force force cScripts_Settings_setPlayerRank = true;',
-    #         'force force cScripts_Settings_setRadio = true;',
-    #         'force force cScripts_Settings_setStartupDelay = 30;',
-    #         'force force cScripts_Settings_showDiaryRecords = true;',
-    #         'force force cScripts_Settings_useCustomSupplyInventory = false;',
-    #         'force force cScripts_Settings_useCustomVehicleInventory = true;',
-    #         'force force cScripts_Settings_useCustomVehicleSettings = true;'
-    #     ]
-    #     with open('{}/cba_settings.sqf'.format(temp_folder), 'a') as settings_file:
-    #         settings_file.write('\n')
-    #         for line in add_new_settings:
-    #             settings_file.write('\n{}'.format(line))
-    #     settings_file.close()
-
-    #     print('Removing immortality from S3 loadout {}...'.format(color_string('CfgLoadouts_S3.hpp','\033[96m',use_color)))
-    #     file = '{}/cScripts/Loadouts/CfgLoadouts_S3.hpp'.format(temp_folder)
-    #     replace(file,
-    #         '    (_this select 0) allowDamage false;";',
-    #         '    (_this select 0) allowDamage true;";')
-
-    #     print('Adjusting {}...'.format(color_string('mission.sqm','\033[96m',use_color)))
-    #     file = '{}/mission.sqm'.format(temp_folder)
-    #     print('Adjusting {} and {}...'.format(color_string('overviewText','\033[92m',use_color), color_string('briefingName','\033[92m',use_color)))
-    #     replace(file,
-    #         '		briefingName="Zeus Sandbox Template Mission";',
-    #         '		briefingName="Zeus Sandbox v{}";'.format(VERSION))
-    #     replace(file,
-    #         '	overviewText="This is the 7th Cavalry Zeus mission template built to be used for user made custom scenarios." \n "Have fun!";',
-    #         '	overviewText="This is the 7th Cavalry Zeus Sandbox mission." \n "Have fun!";')
-
-    # else:
-    #     print('No {} detected skipping changes...'.format(color_string('description.ext','\033[96m',use_color)))
 
 
 def setup_training_missions(temp_folder='', count=0, use_color=False):
@@ -494,7 +440,7 @@ def main():
     build_archive('Mission_{}_v{}'.format(args.buildtype, VERSION), 'zip', outputDir, args.color)
     cleanup_output()
 
-    print('Builds complete.')
+    print('Builds complete. ({} seconds)'.format(round(time.time() - startTime, 3)))
 
 if __name__ == "__main__":
     sys.exit(main())
