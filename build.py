@@ -420,9 +420,11 @@ def main():
 
         for count, world in enumerate(all_templates):
             temp_path = tempfile.mkdtemp()
-            mission_name = world
-            print('Creating training mission {}... ({}/{})'.format(color_string(world,'\033[92m',args.color), count+1, len(all_templates)))
+            
+            if 'DEVBUILD' in world:
+                mission_name = world.replace('DEVBUILD',VERSION)
 
+            print('Creating training mission {}... ({}/{})'.format(color_string(world,'\033[92m',args.color), count+1, len(all_templates)))
             template_path = '{}/training/{}'.format(templateDir, world)
             content_list = fetch_objects(template_path)
             folder_list = content_list[0]
