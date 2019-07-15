@@ -211,6 +211,10 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
                 replace(file,
                 'briefingName="Zeus Sandbox Template Mission";',
                 'briefingName="{}";'.format(string))
+
+                replace(file,
+                'briefingName="Training Template Mission";',
+                'briefingName="{}";'.format(string))
                 continue
 
             if 'overviewText' == changes:
