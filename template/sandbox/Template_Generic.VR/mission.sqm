@@ -12,10 +12,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={37.164543,16.725662,30.549501};
-		dir[]={-0.071826413,-0.53413343,-0.84236109};
-		up[]={-0.045382179,0.84538639,-0.53222829};
-		aside[]={-0.99640173,-2.9501462e-007,0.084961452};
+		pos[]={39.718529,27.696033,-7.5765595};
+		dir[]={-0.53314614,-0.70160902,0.47280884};
+		up[]={-0.5249446,0.71254003,0.46553633};
+		aside[]={0.66351825,-1.9319123e-007,0.74819356};
 	};
 };
 binarizationWanted=0;
@@ -117,7 +117,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=42;
+		items=41;
 		class Item0
 		{
 			dataType="Logic";
@@ -3393,16 +3393,6 @@ class Mission
 		{
 			dataType="Group";
 			side="West";
-			class Attributes
-			{
-			};
-			id=1236;
-			atlOffset=-5;
-		};
-		class Item23
-		{
-			dataType="Group";
-			side="West";
 			class Entities
 			{
 				items=4;
@@ -3526,7 +3516,7 @@ class Mission
 			};
 			id=1247;
 		};
-		class Item24
+		class Item23
 		{
 			dataType="Group";
 			side="West";
@@ -3599,7 +3589,7 @@ class Mission
 			};
 			id=1268;
 		};
-		class Item25
+		class Item24
 		{
 			dataType="Group";
 			side="West";
@@ -3672,7 +3662,7 @@ class Mission
 			};
 			id=1270;
 		};
-		class Item26
+		class Item25
 		{
 			dataType="Group";
 			side="West";
@@ -3835,7 +3825,7 @@ class Mission
 			};
 			id=1272;
 		};
-		class Item27
+		class Item26
 		{
 			dataType="Group";
 			side="West";
@@ -3965,7 +3955,7 @@ class Mission
 			};
 			id=1283;
 		};
-		class Item28
+		class Item27
 		{
 			dataType="Group";
 			side="West";
@@ -4095,7 +4085,7 @@ class Mission
 			};
 			id=1288;
 		};
-		class Item29
+		class Item28
 		{
 			dataType="Group";
 			side="West";
@@ -4225,7 +4215,7 @@ class Mission
 			};
 			id=1293;
 		};
-		class Item30
+		class Item29
 		{
 			dataType="Group";
 			side="West";
@@ -4355,7 +4345,7 @@ class Mission
 			};
 			id=1298;
 		};
-		class Item31
+		class Item30
 		{
 			dataType="Group";
 			side="West";
@@ -4554,7 +4544,7 @@ class Mission
 			};
 			id=1303;
 		};
-		class Item32
+		class Item31
 		{
 			dataType="Group";
 			side="West";
@@ -4684,7 +4674,7 @@ class Mission
 			};
 			id=1308;
 		};
-		class Item33
+		class Item32
 		{
 			dataType="Group";
 			side="West";
@@ -4819,7 +4809,7 @@ class Mission
 			};
 			id=1333;
 		};
-		class Item34
+		class Item33
 		{
 			dataType="Group";
 			side="West";
@@ -4954,7 +4944,7 @@ class Mission
 			};
 			id=1336;
 		};
-		class Item35
+		class Item34
 		{
 			dataType="Group";
 			side="West";
@@ -5089,7 +5079,7 @@ class Mission
 			};
 			id=1339;
 		};
-		class Item36
+		class Item35
 		{
 			dataType="Group";
 			side="West";
@@ -5224,7 +5214,7 @@ class Mission
 			};
 			id=1342;
 		};
-		class Item37
+		class Item36
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5277,15 +5267,14 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item38
+		class Item37
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={18.393606,5,16.357265};
-				angles[]={0,3.1985602,0};
+				position[]={17.987276,5,15.984066};
+				angles[]={-0,3.1985602,0};
 			};
-			name="z_1";
 			id=1347;
 			type="ModuleCurator_F";
 			class CustomAttributes
@@ -5343,7 +5332,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="Z1";
+							value="";
 						};
 					};
 				};
@@ -5369,15 +5358,14 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item39
+		class Item38
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={18.312551,5,14.75033};
-				angles[]={0,3.1985602,0};
+				position[]={17.963425,5,14.037695};
+				angles[]={-0,3.1985602,0};
 			};
-			name="z_2";
 			id=1348;
 			type="ModuleCurator_F";
 			class CustomAttributes
@@ -5435,7 +5423,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="Z2";
+							value="";
 						};
 					};
 				};
@@ -5461,15 +5449,14 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item40
+		class Item39
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={18.197317,5,12.89535};
-				angles[]={0,3.1985602,0};
+				position[]={17.967615,5,12.02419};
+				angles[]={-0,3.1985602,0};
 			};
-			name="z_3";
 			id=1349;
 			type="ModuleCurator_F";
 			class CustomAttributes
@@ -5489,7 +5476,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="S3_2";
+							value="S3_3";
 						};
 					};
 				};
@@ -5527,7 +5514,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="Z3";
+							value="";
 						};
 					};
 				};
@@ -5553,7 +5540,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item41
+		class Item40
 		{
 			dataType="Group";
 			side="West";
@@ -5565,14 +5552,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={16.098,5.0014391,15.934};
-						angles[]={0,4.6973796,0};
+						position[]={16.01,5.0014391,16.033001};
+						angles[]={-0,4.6973796,0};
 					};
 					side="West";
 					flags=6;
 					class Attributes
 					{
-						init="call{this setgroupid [""ZEUS""];}";
+						init="call{this setgroupID[""ZEUS""];" \n "this setVariable [""cScripts_Player_Unit"", ""ZEUS""];}";
 						name="S3_1";
 						description="Mission Controller@MISSION CONTROLLERS";
 						isPlayable=1;
@@ -5646,13 +5633,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={16.065001,5.0014391,14.511001};
-						angles[]={0,4.6973796,0};
+						position[]={15.984,5.0014391,14.004001};
+						angles[]={-0,4.6973796,0};
 					};
 					side="West";
 					flags=4;
 					class Attributes
 					{
+						init="call{this setVariable [""cScripts_Player_Unit"", ""ZEUS""];}";
 						name="S3_2";
 						description="Mission Controller";
 						isPlayable=1;
@@ -5726,15 +5714,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={15.976,5.0014391,13.316};
-						angles[]={0,4.6973796,0};
+						position[]={16.041,5.0014391,12.019};
+						angles[]={-0,4.6973796,0};
 					};
 					side="West";
 					flags=4;
 					class Attributes
 					{
+						init="call{this setVariable [""cScripts_Player_Unit"", ""ZEUS""];}";
 						name="S3_3";
-						description="Combat Cameraman";
+						description="Mission Controller";
 						isPlayable=1;
 					};
 					id=1356;
