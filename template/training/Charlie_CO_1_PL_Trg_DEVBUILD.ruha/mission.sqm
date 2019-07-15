@@ -8,7 +8,7 @@ class EditorData
 	toggles=545;
 	class ItemIDProvider
 	{
-		nextID=4196;
+		nextID=4256;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1384;
+		nextID=1436;
 	};
 	class Camera
 	{
-		pos[]={6975.0649,83.673508,925.77527};
-		dir[]={-0.6707058,-0.58528149,-0.45589796};
-		up[]={-0.48414084,0.81071794,-0.32908112};
-		aside[]={-0.56221306,-7.423514e-007,0.82712287};
+		pos[]={6626.4644,69.096489,1146.3568};
+		dir[]={-0.061313264,-0.57919329,-0.81295151};
+		up[]={-0.043562092,0.81515211,-0.57760191};
+		aside[]={-0.99721527,-5.769798e-007,0.07520967};
 	};
 };
 binarizationWanted=0;
@@ -137,15 +137,16 @@ addons[]=
 	"ace_realisticnames",
 	"cav_charlie_characters_units",
 	"cav_charlie_characters",
-	"A3_Modules_F_Curator_Curator",
 	"A3_Structures_F_Mil_Radar",
-	"A3_Structures_F_Exp_Commercial_Addons"
+	"A3_Structures_F_Exp_Commercial_Addons",
+	"A3_Weapons_F_Ammoboxes",
+	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=65;
+		items=66;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -570,6 +571,13 @@ class AddonsMetaData
 		};
 		class Item64
 		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item65
+		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
@@ -645,7 +653,7 @@ class CustomAttributes
 							"BOOL"
 						};
 					};
-					value=1;
+					value=0;
 				};
 			};
 		};
@@ -680,7 +688,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=91;
+		items=98;
 		class Item0
 		{
 			dataType="Layer";
@@ -80529,15 +80537,15 @@ class Mission
 								};
 							};
 							id=1749;
-							atlOffset=-19.15;
+							atlOffset=-0.001241684;
 						};
 					};
 					id=2583;
-					atlOffset=-11.220419;
+					atlOffset=-0.00093317032;
 				};
 			};
 			id=1735;
-			atlOffset=-18.689337;
+			atlOffset=-11.214809;
 		};
 		class Item4
 		{
@@ -85217,7 +85225,7 @@ class Mission
 							};
 							id=2589;
 							type="Barrels";
-							atlOffset=9.5367432e-007;
+							atlOffset=0.00025749207;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -85258,7 +85266,7 @@ class Mission
 							};
 							id=2588;
 							type="CargoNet_01_barrels_F";
-							atlOffset=0.025152206;
+							atlOffset=0.025200844;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -85803,11 +85811,11 @@ class Mission
 						};
 					};
 					id=2590;
-					atlOffset=0.35290241;
+					atlOffset=0.35290146;
 				};
 			};
 			id=1935;
-			atlOffset=1.5658154;
+			atlOffset=1.5658159;
 		};
 		class Item23
 		{
@@ -86009,3920 +86017,1404 @@ class Mission
 			state=1;
 			class Entities
 			{
-				items=2;
+				items=8;
 				class Item0
 				{
-					dataType="Layer";
-					name="01. First Battalion HQ";
-					state=1;
-					class Entities
-					{
-						items=6;
-						class Item0
-						{
-							dataType="Layer";
-							name="01. Godfather-6";
-							id=2649;
-							atlOffset=-19.15;
-						};
-						class Item1
-						{
-							dataType="Layer";
-							name="02. Godfather-5";
-							id=2651;
-							atlOffset=-19.15;
-						};
-						class Item2
-						{
-							dataType="Layer";
-							name="03. Godfather-7";
-							id=2652;
-							atlOffset=-19.15;
-						};
-						class Item3
-						{
-							dataType="Layer";
-							name="06. Charlie Company";
-							class Entities
-							{
-								items=5;
-								class Item0
-								{
-									dataType="Layer";
-									name="01. Hitman-6";
-									id=2654;
-									atlOffset=-19.15;
-								};
-								class Item1
-								{
-									dataType="Layer";
-									name="02. Hitman-5";
-									id=2655;
-									atlOffset=-19.15;
-								};
-								class Item2
-								{
-									dataType="Layer";
-									name="03. Hitman-7";
-									id=2656;
-									atlOffset=-19.15;
-								};
-								class Item3
-								{
-									dataType="Layer";
-									name="04. First Platoon";
-									class Entities
-									{
-										items=8;
-										class Item0
-										{
-											dataType="Layer";
-											name="01. Bandit-6";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=1;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6607.4092,47.315975,1095.1292};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="LIEUTENANT";
-																init="call{this setgroupID[""BANDIT-6""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-6""];}";
-																description="Platoon leader@Bandit Six";
-																isPlayable=1;
-															};
-															id=2601;
-															type="Cav_B_C_PlatoonLeader_Bandit_6_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male03ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.05;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-													};
-													class Attributes
-													{
-													};
-													id=2600;
-													atlOffset=-19.15;
-												};
-											};
-											id=2658;
-											atlOffset=-19.15;
-										};
-										class Item1
-										{
-											dataType="Layer";
-											name="02. Bandit-5";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=1;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6609.4365,47.315975,1095.1132};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-5""];}";
-																description="Platoon sergeant@Bandit Five";
-																isPlayable=1;
-															};
-															id=2599;
-															type="Cav_B_C_PlatoonSergeant_Bandit_5_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male10ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.95999998;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-													};
-													class Attributes
-													{
-													};
-													id=2598;
-													atlOffset=-19.15;
-												};
-											};
-											id=2659;
-											atlOffset=-19.15;
-										};
-										class Item2
-										{
-											dataType="Layer";
-											name="03. Bandit-7";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=1;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6605.4365,47.315975,1095.1052};
-															};
-															side="West";
-															flags=3;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-7""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-7""];}";
-																description="Platoon medic@Bandit Seven";
-																isPlayable=1;
-															};
-															id=2603;
-															type="Cav_B_C_PlatoonMedic_Bandit_7_F";
-															atlOffset=0.64453888;
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male05ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.97000003;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-													};
-													class Attributes
-													{
-													};
-													id=2602;
-													atlOffset=-19.15;
-												};
-											};
-											id=2674;
-											atlOffset=-19.15;
-										};
-										class Item3
-										{
-											dataType="Layer";
-											name="04. Bandit-1";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=9;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6633.4634,47.329597,1096.8557};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Squad leader@Bandit One";
-																isPlayable=1;
-															};
-															id=2605;
-															type="Cav_B_C_SquadLeader_Bandit_1_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male03ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.98000002;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6634.9624,47.329597,1095.8557};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Alpha team - Team leader";
-																isPlayable=1;
-															};
-															id=2606;
-															type="Cav_B_C_Alpha_FireTeamLeader_F";
-															atlOffset=0.0030860901;
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male07ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.02;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6633.9624,47.329597,1095.8561};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Alpha team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=2607;
-															type="Cav_B_C_Alpha_AutomaticRifleman_F";
-															atlOffset=0.0030784607;
-														};
-														class Item3
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6632.9624,47.329597,1095.8561};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Alpha team - Grenadier";
-																isPlayable=1;
-															};
-															id=2608;
-															type="Cav_B_C_Alpha_Grenadier_F";
-															atlOffset=0.0030670166;
-														};
-														class Item4
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6631.9624,47.329597,1095.8561};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Alpha team - Rifleman (AT)";
-																isPlayable=1;
-															};
-															id=2609;
-															type="Cav_B_C_Alpha_Rifleman_F";
-															atlOffset=0.0030593872;
-														};
-														class Item5
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6634.9624,47.329597,1094.8557};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Bravo team - Team leader";
-																isPlayable=1;
-															};
-															id=2610;
-															type="Cav_B_C_Bravo_FireTeamLeader_F";
-															atlOffset=0.0048942566;
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male11ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.04;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item6
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6633.9624,47.329597,1094.8561};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Bravo team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=2611;
-															type="Cav_B_C_Bravo_AutomaticRifleman_F";
-															atlOffset=0.0048942566;
-														};
-														class Item7
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6632.9624,47.329597,1094.8561};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Bravo team - Grenadier";
-																isPlayable=1;
-															};
-															id=2612;
-															type="Cav_B_C_Bravo_Grenadier_F";
-															atlOffset=0.0048942566;
-														};
-														class Item8
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6631.9624,47.329597,1094.8561};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-																description="Bravo team - Rifleman (CLS)";
-																isPlayable=1;
-															};
-															id=2613;
-															type="Cav_B_C_Bravo_CombatLifeSaver_F";
-															atlOffset=0.0048942566;
-														};
-													};
-													class Attributes
-													{
-													};
-													id=2604;
-													atlOffset=-19.15;
-												};
-											};
-											id=2660;
-											atlOffset=-19.15;
-										};
-										class Item4
-										{
-											dataType="Layer";
-											name="05. Bandit-2";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=9;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6624.6797,47.336597,1098.5781};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-2""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Squad leader@Bandit Two";
-																isPlayable=1;
-															};
-															id=2615;
-															type="Cav_B_C_SquadLeader_Bandit_2_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male09ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.05;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6626.1802,47.336597,1097.5784};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Alpha team - Team leader";
-																isPlayable=1;
-															};
-															id=2616;
-															type="Cav_B_C_Alpha_FireTeamLeader_F";
-															atlOffset=0.0021858215;
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6625.1802,47.336597,1097.5784};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Alpha team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=2617;
-															type="Cav_B_C_Alpha_AutomaticRifleman_F";
-															atlOffset=0.0021781921;
-														};
-														class Item3
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6624.1802,47.336597,1097.5784};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Alpha team - Grenadier";
-																isPlayable=1;
-															};
-															id=2618;
-															type="Cav_B_C_Alpha_Grenadier_F";
-															atlOffset=0.0021705627;
-														};
-														class Item4
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6623.1802,47.336597,1097.5784};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Alpha team - Rifleman (AT)";
-																isPlayable=1;
-															};
-															id=2619;
-															type="Cav_B_C_Alpha_Rifleman_F";
-															atlOffset=0.0027923584;
-														};
-														class Item5
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6626.1802,47.336597,1096.5784};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Bravo team - Team leader";
-																isPlayable=1;
-															};
-															id=2620;
-															type="Cav_B_C_Bravo_FireTeamLeader_F";
-															atlOffset=0.004360199;
-														};
-														class Item6
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6625.1802,47.336597,1096.5784};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Bravo team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=2621;
-															type="Cav_B_C_Bravo_AutomaticRifleman_F";
-															atlOffset=0.0043563843;
-														};
-														class Item7
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6624.1802,47.336597,1096.5784};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Bravo team - Grenadier";
-																isPlayable=1;
-															};
-															id=2622;
-															type="Cav_B_C_Bravo_Grenadier_F";
-															atlOffset=0.0043487549;
-														};
-														class Item8
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6623.1802,47.336597,1096.5784};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-																description="Bravo team - Rifleman (CLS)";
-																isPlayable=1;
-															};
-															id=2623;
-															type="Cav_B_C_Bravo_CombatLifeSaver_F";
-															atlOffset=0.0043411255;
-														};
-													};
-													class Attributes
-													{
-													};
-													id=2614;
-													atlOffset=-19.15;
-												};
-											};
-											id=2661;
-											atlOffset=-19.15;
-										};
-										class Item5
-										{
-											dataType="Layer";
-											name="06. Bandit-3";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=9;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6596.687,47.320766,1096.7665};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-3""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Squad leader@Bandit Three";
-																isPlayable=1;
-															};
-															id=2625;
-															type="Cav_B_C_SquadLeader_Bandit_3_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male11ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.02;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6598.187,47.320766,1095.7668};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Alpha team - Team leader";
-																isPlayable=1;
-															};
-															id=2626;
-															type="Cav_B_C_Alpha_FireTeamLeader_F";
-															atlOffset=0.0030860901;
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6597.187,47.320766,1095.7668};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Alpha team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=2627;
-															type="Cav_B_C_Alpha_AutomaticRifleman_F";
-															atlOffset=0.0030784607;
-														};
-														class Item3
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6596.187,47.320766,1095.7668};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Alpha team - Grenadier";
-																isPlayable=1;
-															};
-															id=2628;
-															type="Cav_B_C_Alpha_Grenadier_F";
-															atlOffset=0.0030670166;
-														};
-														class Item4
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6595.187,47.320766,1095.7668};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Alpha team - Rifleman (AT)";
-																isPlayable=1;
-															};
-															id=2629;
-															type="Cav_B_C_Alpha_Rifleman_F";
-															atlOffset=0.0030593872;
-														};
-														class Item5
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6598.187,47.320766,1094.7665};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Bravo team - Team leader";
-																isPlayable=1;
-															};
-															id=2630;
-															type="Cav_B_C_Bravo_FireTeamLeader_F";
-															atlOffset=0.0047912598;
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male06ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.04;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item6
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6597.187,47.320766,1094.7668};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Bravo team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=2631;
-															type="Cav_B_C_Bravo_AutomaticRifleman_F";
-															atlOffset=0.0047912598;
-														};
-														class Item7
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6596.187,47.320766,1094.7668};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Bravo team - Grenadier";
-																isPlayable=1;
-															};
-															id=2632;
-															type="Cav_B_C_Bravo_Grenadier_F";
-															atlOffset=0.0047912598;
-														};
-														class Item8
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6595.187,47.320766,1094.7668};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-																description="Bravo team - Rifleman (CLS)";
-																isPlayable=1;
-															};
-															id=2633;
-															type="Cav_B_C_Bravo_CombatLifeSaver_F";
-															atlOffset=0.0047912598;
-														};
-													};
-													class Attributes
-													{
-													};
-													id=2624;
-													atlOffset=-19.15;
-												};
-											};
-											id=2662;
-											atlOffset=-19.15;
-										};
-										class Item6
-										{
-											dataType="Layer";
-											name="07. Bandit-4";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=9;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6587.6226,47.328117,1098.6348};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-4""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Squad leader@Bandit Four";
-																isPlayable=1;
-															};
-															id=2635;
-															type="Cav_B_C_SquadLeader_Bandit_4_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male06ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.03;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6589.1226,47.328117,1097.6348};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Alpha team - Team leader";
-																isPlayable=1;
-															};
-															id=2636;
-															type="Cav_B_C_Alpha_FireTeamLeader_F";
-															atlOffset=0.0021858215;
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6588.1226,47.328117,1097.6348};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Alpha team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=2637;
-															type="Cav_B_C_Alpha_AutomaticRifleman_F";
-															atlOffset=0.0021781921;
-														};
-														class Item3
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6587.1226,47.328117,1097.6348};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Alpha team - Grenadier";
-																isPlayable=1;
-															};
-															id=2638;
-															type="Cav_B_C_Alpha_Grenadier_F";
-															atlOffset=0.0021743774;
-														};
-														class Item4
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6586.1226,47.328117,1097.6348};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Alpha team - Rifleman (AT)";
-																isPlayable=1;
-															};
-															id=2639;
-															type="Cav_B_C_Alpha_Rifleman_F";
-															atlOffset=0.002166748;
-														};
-														class Item5
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6589.1226,47.328117,1096.6348};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Bravo team - Team leader";
-																isPlayable=1;
-															};
-															id=2640;
-															type="Cav_B_C_Bravo_FireTeamLeader_F";
-															atlOffset=0.0043640137;
-														};
-														class Item6
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6588.1226,47.328117,1096.6348};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Bravo team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=2641;
-															type="Cav_B_C_Bravo_AutomaticRifleman_F";
-															atlOffset=0.0043563843;
-														};
-														class Item7
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6587.1226,47.328117,1096.6348};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Bravo team - Grenadier";
-																isPlayable=1;
-															};
-															id=2642;
-															type="Cav_B_C_Bravo_Grenadier_F";
-															atlOffset=0.0043487549;
-														};
-														class Item8
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6586.1226,47.328117,1096.6348};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-																description="Bravo team - Rifleman (CLS)";
-																isPlayable=1;
-															};
-															id=2643;
-															type="Cav_B_C_Bravo_CombatLifeSaver_F";
-															atlOffset=0.0043449402;
-														};
-													};
-													class Attributes
-													{
-													};
-													id=2634;
-													atlOffset=-19.15;
-												};
-											};
-											id=2663;
-											atlOffset=-19.15;
-										};
-										class Item7
-										{
-											dataType="Layer";
-											name="08. Bandit Training Staff";
-											class Entities
-											{
-												items=4;
-												class Item0
-												{
-													dataType="Logic";
-													class PositionInfo
-													{
-														position[]={6612.3257,46.669998,1104.7894};
-														angles[]={0,2.2689285,0};
-													};
-													id=2691;
-													type="ModuleCurator_F";
-													class CustomAttributes
-													{
-														class Attribute0
-														{
-															property="ModuleCurator_F_Owner";
-															expression="_this setVariable ['Owner',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="mOperator_02";
-																};
-															};
-														};
-														class Attribute1
-														{
-															property="ModuleCurator_F_Forced";
-															expression="_this setVariable ['Forced',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=0;
-																};
-															};
-														};
-														class Attribute2
-														{
-															property="ModuleCurator_F_Name";
-															expression="_this setVariable ['Name',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="";
-																};
-															};
-														};
-														class Attribute3
-														{
-															property="ModuleCurator_F_Addons";
-															expression="_this setVariable ['Addons',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=3;
-																};
-															};
-														};
-														nAttributes=4;
-													};
-												};
-												class Item1
-												{
-													dataType="Logic";
-													class PositionInfo
-													{
-														position[]={6611.4697,46.669998,1104.7889};
-														angles[]={0,2.2689285,0};
-													};
-													id=2692;
-													type="ModuleCurator_F";
-													class CustomAttributes
-													{
-														class Attribute0
-														{
-															property="ModuleCurator_F_Owner";
-															expression="_this setVariable ['Owner',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="mOperator_03";
-																};
-															};
-														};
-														class Attribute1
-														{
-															property="ModuleCurator_F_Forced";
-															expression="_this setVariable ['Forced',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=0;
-																};
-															};
-														};
-														class Attribute2
-														{
-															property="ModuleCurator_F_Name";
-															expression="_this setVariable ['Name',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="";
-																};
-															};
-														};
-														class Attribute3
-														{
-															property="ModuleCurator_F_Addons";
-															expression="_this setVariable ['Addons',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=3;
-																};
-															};
-														};
-														nAttributes=4;
-													};
-												};
-												class Item2
-												{
-													dataType="Logic";
-													class PositionInfo
-													{
-														position[]={6610.6055,46.669998,1104.793};
-														angles[]={0,2.2689285,0};
-													};
-													id=2693;
-													type="ModuleCurator_F";
-													class CustomAttributes
-													{
-														class Attribute0
-														{
-															property="ModuleCurator_F_Owner";
-															expression="_this setVariable ['Owner',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="mOperator_04";
-																};
-															};
-														};
-														class Attribute1
-														{
-															property="ModuleCurator_F_Forced";
-															expression="_this setVariable ['Forced',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=0;
-																};
-															};
-														};
-														class Attribute2
-														{
-															property="ModuleCurator_F_Name";
-															expression="_this setVariable ['Name',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="";
-																};
-															};
-														};
-														class Attribute3
-														{
-															property="ModuleCurator_F_Addons";
-															expression="_this setVariable ['Addons',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=3;
-																};
-															};
-														};
-														nAttributes=4;
-													};
-												};
-												class Item3
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=3;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6612.3291,46.671436,1104.8401};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-5""];}";
-																name="mOperator_02";
-																description="Training sergeant@Bandit Training Staff";
-																isPlayable=1;
-															};
-															id=2810;
-															type="Cav_B_C_PlatoonSergeant_Bandit_5_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male10ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.95999998;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6611.4712,46.671436,1104.8401};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-5""];}";
-																name="mOperator_03";
-																description="Training sergeant";
-																isPlayable=1;
-															};
-															id=2880;
-															type="Cav_B_C_PlatoonSergeant_Bandit_5_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male10ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.95999998;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6610.6089,46.671436,1104.8401};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""BANDIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-5""];}";
-																name="mOperator_04";
-																description="Training sergeant";
-																isPlayable=1;
-															};
-															id=2882;
-															type="Cav_B_C_PlatoonSergeant_Bandit_5_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male10ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.95999998;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-													};
-													class Attributes
-													{
-													};
-													id=2809;
-													atlOffset=-19.15;
-												};
-											};
-											id=2677;
-											atlOffset=4.2460957;
-										};
-									};
-									id=2657;
-									atlOffset=2.4428177;
-								};
-								class Item4
-								{
-									dataType="Layer";
-									name="05. Second Platoon";
-									class Entities
-									{
-										items=8;
-										class Item0
-										{
-											dataType="Layer";
-											name="01. Misfit-6";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=1;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6585.2373,47.000126,1124.1218};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=3;
-															class Attributes
-															{
-																rank="LIEUTENANT";
-																init="call{this setgroupID[""MISFIT-6""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-6""];}";
-																description="Platoon leader@Misfit Six";
-																isPlayable=1;
-															};
-															id=3097;
-															type="Cav_B_C_PlatoonLeader_Misfit_6_F";
-															atlOffset=0.32868958;
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male09ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.04;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-													};
-													class Attributes
-													{
-													};
-													id=3096;
-													atlOffset=-19.15;
-												};
-											};
-											id=2668;
-											atlOffset=-19.15;
-										};
-										class Item1
-										{
-											dataType="Layer";
-											name="02. Misfit-5";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=1;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6583.2681,47.000172,1124.1113};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-5""];}";
-																description="Platoon sergeant@Misfit Five";
-																isPlayable=1;
-															};
-															id=3095;
-															type="Cav_B_C_PlatoonSergeant_Misfit_5_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male04ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.95999998;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-													};
-													class Attributes
-													{
-													};
-													id=3094;
-													atlOffset=-19.15;
-												};
-											};
-											id=2669;
-											atlOffset=-19.15;
-										};
-										class Item2
-										{
-											dataType="Layer";
-											name="03. Misfit-7";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=1;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6587.2334,47.000126,1124.1259};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=3;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-7""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-7""];}";
-																description="Platoon medic@Misfit Seven";
-																isPlayable=1;
-															};
-															id=3099;
-															type="Cav_B_C_PlatoonMedic_Misfit_7_F";
-															atlOffset=0.32868958;
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male06ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.98000002;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-													};
-													class Attributes
-													{
-													};
-													id=3098;
-													atlOffset=-19.15;
-												};
-											};
-											id=2675;
-											atlOffset=-19.15;
-										};
-										class Item3
-										{
-											dataType="Layer";
-											name="04. Misfit-1";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=9;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6598.2568,47.005112,1122.0785};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Squad leader@Misfit One";
-																isPlayable=1;
-															};
-															id=3101;
-															type="Cav_B_C_SquadLeader_Misfit_1_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male06ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.02;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6596.7568,47.005112,1123.0781};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Alpha team - Team leader";
-																isPlayable=1;
-															};
-															id=3102;
-															type="Cav_B_C_Alpha_FireTeamLeader_F";
-															atlOffset=0.0030708313;
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6597.7568,47.005112,1123.0781};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Alpha team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=3103;
-															type="Cav_B_C_Alpha_AutomaticRifleman_F";
-															atlOffset=0.0030708313;
-														};
-														class Item3
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6598.7568,47.005112,1123.0781};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Alpha team - Grenadier";
-																isPlayable=1;
-															};
-															id=3104;
-															type="Cav_B_C_Alpha_Grenadier_F";
-															atlOffset=0.0030708313;
-														};
-														class Item4
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6599.7568,47.005112,1123.0781};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Alpha team - Rifleman (AT)";
-																isPlayable=1;
-															};
-															id=3105;
-															type="Cav_B_C_Alpha_Rifleman_F";
-															atlOffset=0.0030708313;
-														};
-														class Item5
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6596.7568,47.005112,1124.0781};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Bravo team - Team leader";
-																isPlayable=1;
-															};
-															id=3106;
-															type="Cav_B_C_Bravo_FireTeamLeader_F";
-															atlOffset=0.004940033;
-														};
-														class Item6
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6597.7568,47.005112,1124.0781};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Bravo team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=3107;
-															type="Cav_B_C_Bravo_AutomaticRifleman_F";
-															atlOffset=0.004940033;
-														};
-														class Item7
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6598.7568,47.005112,1124.0781};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Bravo team - Grenadier";
-																isPlayable=1;
-															};
-															id=3108;
-															type="Cav_B_C_Bravo_Grenadier_F";
-															atlOffset=0.004940033;
-														};
-														class Item8
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6599.7568,47.005112,1124.0781};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-																description="Bravo team - Rifleman (CLS)";
-																isPlayable=1;
-															};
-															id=3109;
-															type="Cav_B_C_Bravo_CombatLifeSaver_F";
-															atlOffset=0.004940033;
-														};
-													};
-													class Attributes
-													{
-													};
-													id=3100;
-													atlOffset=-19.15;
-												};
-											};
-											id=2670;
-											atlOffset=-19.15;
-										};
-										class Item4
-										{
-											dataType="Layer";
-											name="05. Misfit-2";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=9;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6607.3799,47.010536,1120.0475};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=3;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-2""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Squad leader@Misfit Two";
-																isPlayable=1;
-															};
-															id=3111;
-															type="Cav_B_C_SquadLeader_Misfit_2_F";
-															atlOffset=0.33909988;
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male03ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.98000002;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6605.8799,47.010536,1121.0477};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Alpha team - Team leader";
-																isPlayable=1;
-															};
-															id=3112;
-															type="Cav_B_C_Alpha_FireTeamLeader_F";
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6606.8799,47.010536,1121.0477};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Alpha team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=3113;
-															type="Cav_B_C_Alpha_AutomaticRifleman_F";
-														};
-														class Item3
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6607.8799,47.010536,1121.0477};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Alpha team - Grenadier";
-																isPlayable=1;
-															};
-															id=3114;
-															type="Cav_B_C_Alpha_Grenadier_F";
-														};
-														class Item4
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6608.8799,47.010536,1121.0477};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Alpha team - Rifleman (AT)";
-																isPlayable=1;
-															};
-															id=3115;
-															type="Cav_B_C_Alpha_Rifleman_F";
-															atlOffset=0.0016937256;
-														};
-														class Item5
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6605.8799,47.010536,1122.0477};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Bravo team - Team leader";
-																isPlayable=1;
-															};
-															id=3116;
-															type="Cav_B_C_Bravo_FireTeamLeader_F";
-															atlOffset=0.0021743774;
-														};
-														class Item6
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6606.8799,47.010536,1122.0477};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Bravo team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=3117;
-															type="Cav_B_C_Bravo_AutomaticRifleman_F";
-															atlOffset=0.0021743774;
-														};
-														class Item7
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6607.8799,47.010536,1122.0477};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Bravo team - Grenadier";
-																isPlayable=1;
-															};
-															id=3118;
-															type="Cav_B_C_Bravo_Grenadier_F";
-															atlOffset=0.0021743774;
-														};
-														class Item8
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6608.8799,47.010536,1122.0477};
-																angles[]={0,3.1415925,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-																description="Bravo team - Rifleman (CLS)";
-																isPlayable=1;
-															};
-															id=3119;
-															type="Cav_B_C_Bravo_CombatLifeSaver_F";
-															atlOffset=0.0021743774;
-														};
-													};
-													class Attributes
-													{
-													};
-													id=3110;
-													atlOffset=-19.15;
-												};
-											};
-											id=2671;
-											atlOffset=-19.15;
-										};
-										class Item5
-										{
-											dataType="Layer";
-											name="06. Misfit-3";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=9;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6585.4238,47.013535,1135.8373};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-3""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Squad leader@Misfit Three";
-																isPlayable=1;
-															};
-															id=3121;
-															type="Cav_B_C_SquadLeader_Misfit_3_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male12ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=1.02;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6586.9238,47.013535,1134.8381};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Alpha team - Team leader";
-																isPlayable=1;
-															};
-															id=3122;
-															type="Cav_B_C_Alpha_FireTeamLeader_F";
-															atlOffset=0.0021743774;
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6585.9238,47.013535,1134.8381};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Alpha team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=3123;
-															type="Cav_B_C_Alpha_AutomaticRifleman_F";
-															atlOffset=0.0021743774;
-														};
-														class Item3
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6584.9238,47.013535,1134.8381};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Alpha team - Grenadier";
-																isPlayable=1;
-															};
-															id=3124;
-															type="Cav_B_C_Alpha_Grenadier_F";
-															atlOffset=0.0021743774;
-														};
-														class Item4
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6583.9238,47.013535,1134.8381};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Alpha team - Rifleman (AT)";
-																isPlayable=1;
-															};
-															id=3125;
-															type="Cav_B_C_Alpha_Rifleman_F";
-															atlOffset=0.0045013428;
-														};
-														class Item5
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6586.9238,47.013535,1133.8381};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Bravo team - Team leader";
-																isPlayable=1;
-															};
-															id=3126;
-															type="Cav_B_C_Bravo_FireTeamLeader_F";
-															atlOffset=0.0043487549;
-														};
-														class Item6
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6585.9238,47.013535,1133.8381};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Bravo team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=3127;
-															type="Cav_B_C_Bravo_AutomaticRifleman_F";
-															atlOffset=0.0043487549;
-														};
-														class Item7
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6584.9238,47.013535,1133.8381};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Bravo team - Grenadier";
-																isPlayable=1;
-															};
-															id=3128;
-															type="Cav_B_C_Bravo_Grenadier_F";
-															atlOffset=0.0043487549;
-														};
-														class Item8
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6583.9238,47.013535,1133.8381};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-																description="Bravo team - Rifleman (CLS)";
-																isPlayable=1;
-															};
-															id=3129;
-															type="Cav_B_C_Bravo_CombatLifeSaver_F";
-															atlOffset=0.0045013428;
-														};
-													};
-													class Attributes
-													{
-													};
-													id=3120;
-													atlOffset=-19.15;
-												};
-											};
-											id=2672;
-											atlOffset=-19.15;
-										};
-										class Item6
-										{
-											dataType="Layer";
-											name="07. Misfit-4";
-											class Entities
-											{
-												items=1;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=9;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6595.0908,47.004818,1133.3328};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-4""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Squad leader@Misfit Four";
-																isPlayable=1;
-															};
-															id=3131;
-															type="Cav_B_C_SquadLeader_Misfit_4_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male09ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.94999999;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6596.5908,47.004818,1132.3333};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Alpha team - Team leader";
-																isPlayable=1;
-															};
-															id=3132;
-															type="Cav_B_C_Alpha_FireTeamLeader_F";
-															atlOffset=0.0030708313;
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6595.5908,47.004818,1132.3333};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Alpha team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=3133;
-															type="Cav_B_C_Alpha_AutomaticRifleman_F";
-															atlOffset=0.0030708313;
-														};
-														class Item3
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6594.5908,47.004818,1132.3333};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Alpha team - Grenadier";
-																isPlayable=1;
-															};
-															id=3134;
-															type="Cav_B_C_Alpha_Grenadier_F";
-															atlOffset=0.0030708313;
-														};
-														class Item4
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6593.5908,47.004818,1132.3333};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Alpha team - Rifleman (AT)";
-																isPlayable=1;
-															};
-															id=3135;
-															type="Cav_B_C_Alpha_Rifleman_F";
-															atlOffset=0.0030708313;
-														};
-														class Item5
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6596.5908,47.004818,1131.3333};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.44999999;
-																rank="CORPORAL";
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Bravo team - Team leader";
-																isPlayable=1;
-															};
-															id=3136;
-															type="Cav_B_C_Bravo_FireTeamLeader_F";
-															atlOffset=0.0046463013;
-														};
-														class Item6
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6595.5908,47.004818,1131.3333};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Bravo team - Automatic rifleman";
-																isPlayable=1;
-															};
-															id=3137;
-															type="Cav_B_C_Bravo_AutomaticRifleman_F";
-															atlOffset=0.0046463013;
-														};
-														class Item7
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6594.5908,47.004818,1131.3333};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Bravo team - Grenadier";
-																isPlayable=1;
-															};
-															id=3138;
-															type="Cav_B_C_Bravo_Grenadier_F";
-															atlOffset=0.0046463013;
-														};
-														class Item8
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6593.5908,47.004818,1131.3333};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																skill=0.40000001;
-																init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-																description="Bravo team - Rifleman (CLS)";
-																isPlayable=1;
-															};
-															id=3139;
-															type="Cav_B_C_Bravo_CombatLifeSaver_F";
-															atlOffset=0.0046463013;
-														};
-													};
-													class Attributes
-													{
-													};
-													id=3130;
-													atlOffset=-19.15;
-												};
-											};
-											id=2673;
-											atlOffset=-19.15;
-										};
-										class Item7
-										{
-											dataType="Layer";
-											name="08. Misfit Training Staff";
-											class Entities
-											{
-												items=4;
-												class Item0
-												{
-													dataType="Group";
-													side="West";
-													class Entities
-													{
-														items=3;
-														class Item0
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6582.1709,46.671436,1114.6281};
-																angles[]={0,3.1415927,0};
-															};
-															side="West";
-															flags=7;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-5""];}";
-																description="Training sergeant@Misfit Training Staff";
-																isPlayable=1;
-															};
-															id=3141;
-															type="Cav_B_C_PlatoonSergeant_Misfit_5_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male04ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.95999998;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item1
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6583.0225,46.671436,1114.6278};
-																angles[]={0,3.1415932,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-5""];}";
-																description="Training sergeant";
-																isPlayable=1;
-															};
-															id=3143;
-															type="Cav_B_C_PlatoonSergeant_Misfit_5_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male04ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.95999998;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-														class Item2
-														{
-															dataType="Object";
-															class PositionInfo
-															{
-																position[]={6583.8716,46.671436,1114.6278};
-																angles[]={0,3.1415932,0};
-															};
-															side="West";
-															flags=5;
-															class Attributes
-															{
-																rank="SERGEANT";
-																init="call{this setgroupID[""MISFIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""MISFIT-5""];}";
-																description="Training sergeant";
-																isPlayable=1;
-															};
-															id=3145;
-															type="Cav_B_C_PlatoonSergeant_Misfit_5_F";
-															class CustomAttributes
-															{
-																class Attribute0
-																{
-																	property="speaker";
-																	expression="_this setspeaker _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"STRING"
-																				};
-																			};
-																			value="Male04ENG";
-																		};
-																	};
-																};
-																class Attribute1
-																{
-																	property="pitch";
-																	expression="_this setpitch _value;";
-																	class Value
-																	{
-																		class data
-																		{
-																			class type
-																			{
-																				type[]=
-																				{
-																					"SCALAR"
-																				};
-																			};
-																			value=0.95999998;
-																		};
-																	};
-																};
-																nAttributes=2;
-															};
-														};
-													};
-													class Attributes
-													{
-													};
-													id=3140;
-													atlOffset=-19.15;
-												};
-												class Item1
-												{
-													dataType="Logic";
-													class PositionInfo
-													{
-														position[]={6582.1792,46.669998,1114.5775};
-														angles[]={0,5.410521,0};
-													};
-													id=3146;
-													type="ModuleCurator_F";
-													class CustomAttributes
-													{
-														class Attribute0
-														{
-															property="ModuleCurator_F_Owner";
-															expression="_this setVariable ['Owner',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="mOperator_05";
-																};
-															};
-														};
-														class Attribute1
-														{
-															property="ModuleCurator_F_Forced";
-															expression="_this setVariable ['Forced',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=0;
-																};
-															};
-														};
-														class Attribute2
-														{
-															property="ModuleCurator_F_Name";
-															expression="_this setVariable ['Name',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="";
-																};
-															};
-														};
-														class Attribute3
-														{
-															property="ModuleCurator_F_Addons";
-															expression="_this setVariable ['Addons',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=3;
-																};
-															};
-														};
-														nAttributes=4;
-													};
-												};
-												class Item2
-												{
-													dataType="Logic";
-													class PositionInfo
-													{
-														position[]={6583.8745,46.669998,1114.5897};
-														angles[]={0,5.410521,0};
-													};
-													id=3147;
-													type="ModuleCurator_F";
-													class CustomAttributes
-													{
-														class Attribute0
-														{
-															property="ModuleCurator_F_Owner";
-															expression="_this setVariable ['Owner',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="mOperator_07";
-																};
-															};
-														};
-														class Attribute1
-														{
-															property="ModuleCurator_F_Forced";
-															expression="_this setVariable ['Forced',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=0;
-																};
-															};
-														};
-														class Attribute2
-														{
-															property="ModuleCurator_F_Name";
-															expression="_this setVariable ['Name',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="";
-																};
-															};
-														};
-														class Attribute3
-														{
-															property="ModuleCurator_F_Addons";
-															expression="_this setVariable ['Addons',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=3;
-																};
-															};
-														};
-														nAttributes=4;
-													};
-												};
-												class Item3
-												{
-													dataType="Logic";
-													class PositionInfo
-													{
-														position[]={6583.0215,46.669998,1114.5806};
-														angles[]={0,5.410521,0};
-													};
-													id=3148;
-													type="ModuleCurator_F";
-													class CustomAttributes
-													{
-														class Attribute0
-														{
-															property="ModuleCurator_F_Owner";
-															expression="_this setVariable ['Owner',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="mOperator_06";
-																};
-															};
-														};
-														class Attribute1
-														{
-															property="ModuleCurator_F_Forced";
-															expression="_this setVariable ['Forced',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=0;
-																};
-															};
-														};
-														class Attribute2
-														{
-															property="ModuleCurator_F_Name";
-															expression="_this setVariable ['Name',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"STRING"
-																		};
-																	};
-																	value="";
-																};
-															};
-														};
-														class Attribute3
-														{
-															property="ModuleCurator_F_Addons";
-															expression="_this setVariable ['Addons',_value,true];";
-															class Value
-															{
-																class data
-																{
-																	class type
-																	{
-																		type[]=
-																		{
-																			"SCALAR"
-																		};
-																	};
-																	value=3;
-																};
-															};
-														};
-														nAttributes=4;
-													};
-												};
-											};
-											id=2777;
-											atlOffset=-2.1727257;
-										};
-									};
-									id=2667;
-									atlOffset=7.5170822;
-								};
-							};
-							id=2653;
-							atlOffset=4.4901075;
-						};
-						class Item4
-						{
-							dataType="Layer";
-							name="04. Alpha Company";
-							id=2664;
-							atlOffset=-19.15;
-						};
-						class Item5
-						{
-							dataType="Layer";
-							name="05. Bravo Company";
-							id=2665;
-							atlOffset=-19.15;
-						};
-					};
-					id=2648;
-					atlOffset=-16.511194;
-				};
-				class Item1
-				{
-					dataType="Layer";
-					name="02. Other Personnel";
+					dataType="Group";
+					side="West";
 					class Entities
 					{
 						items=1;
 						class Item0
 						{
-							dataType="Layer";
-							name="02. Map Engineers";
-							class Entities
+							dataType="Object";
+							class PositionInfo
 							{
-								items=2;
-								class Item0
-								{
-									dataType="Group";
-									side="West";
-									class Entities
-									{
-										items=1;
-										class Item0
-										{
-											dataType="Object";
-											class PositionInfo
-											{
-												position[]={6640.0684,46.671436,1111.0973};
-												angles[]={0,3.1415927,0};
-											};
-											side="West";
-											flags=7;
-											class Attributes
-											{
-												rank="SERGEANT";
-												name="mOperator_01";
-												description="Map Engineer@Map Editors";
-												isPlayer=1;
-											};
-											id=2355;
-											type="Cav_B_C_SquadLeader_F";
-											class CustomAttributes
-											{
-												class Attribute0
-												{
-													property="speaker";
-													expression="_this setspeaker _value;";
-													class Value
-													{
-														class data
-														{
-															class type
-															{
-																type[]=
-																{
-																	"STRING"
-																};
-															};
-															value="Male10ENG";
-														};
-													};
-												};
-												class Attribute1
-												{
-													property="pitch";
-													expression="_this setpitch _value;";
-													class Value
-													{
-														class data
-														{
-															class type
-															{
-																type[]=
-																{
-																	"SCALAR"
-																};
-															};
-															value=1;
-														};
-													};
-												};
-												nAttributes=2;
-											};
-										};
-									};
-									class Attributes
-									{
-									};
-									id=2354;
-									atlOffset=-19.15;
-								};
-								class Item1
-								{
-									dataType="Logic";
-									class PositionInfo
-									{
-										position[]={6640.1021,46.669998,1111.0514};
-										angles[]={0,0.69813156,0};
-									};
-									id=2343;
-									type="ModuleCurator_F";
-									class CustomAttributes
-									{
-										class Attribute0
-										{
-											property="ModuleCurator_F_Owner";
-											expression="_this setVariable ['Owner',_value,true];";
-											class Value
-											{
-												class data
-												{
-													class type
-													{
-														type[]=
-														{
-															"STRING"
-														};
-													};
-													value="mOperator_01";
-												};
-											};
-										};
-										class Attribute1
-										{
-											property="ModuleCurator_F_Forced";
-											expression="_this setVariable ['Forced',_value,true];";
-											class Value
-											{
-												class data
-												{
-													class type
-													{
-														type[]=
-														{
-															"SCALAR"
-														};
-													};
-													value=0;
-												};
-											};
-										};
-										class Attribute2
-										{
-											property="ModuleCurator_F_Name";
-											expression="_this setVariable ['Name',_value,true];";
-											class Value
-											{
-												class data
-												{
-													class type
-													{
-														type[]=
-														{
-															"STRING"
-														};
-													};
-													value="";
-												};
-											};
-										};
-										class Attribute3
-										{
-											property="ModuleCurator_F_Addons";
-											expression="_this setVariable ['Addons',_value,true];";
-											class Value
-											{
-												class data
-												{
-													class type
-													{
-														type[]=
-														{
-															"SCALAR"
-														};
-													};
-													value=3;
-												};
-											};
-										};
-										nAttributes=4;
-									};
-								};
+								position[]={6608.8496,47.315975,1095.1356};
 							};
-							id=2678;
-							atlOffset=2.4433804;
+							side="West";
+							flags=7;
+							class Attributes
+							{
+								rank="SERGEANT";
+								init="call{this setgroupID[""BANDIT-5""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-5""];}";
+								isPlayable=1;
+							};
+							id=4197;
+							type="Cav_B_C_PlatoonSergeant_Bandit_5_F";
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male10ENG";
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=0.95999998;
+										};
+									};
+								};
+								nAttributes=2;
+							};
 						};
 					};
-					id=2676;
-					atlOffset=2.4433804;
+					class Attributes
+					{
+					};
+					id=4196;
+				};
+				class Item1
+				{
+					dataType="Group";
+					side="West";
+					class Entities
+					{
+						items=1;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6607.2813,47.315975,1095.1724};
+							};
+							side="West";
+							flags=7;
+							class Attributes
+							{
+								rank="SERGEANT";
+								init="call{this setgroupID[""BANDIT-6""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-6""];}";
+								isPlayable=1;
+							};
+							id=4199;
+							type="Cav_B_C_PlatoonLeader_Bandit_6_F";
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male03ENG";
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=1.05;
+										};
+									};
+								};
+								nAttributes=2;
+							};
+						};
+					};
+					class Attributes
+					{
+					};
+					id=4198;
+				};
+				class Item2
+				{
+					dataType="Group";
+					side="West";
+					class Entities
+					{
+						items=1;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6606.1572,47.315975,1095.1812};
+							};
+							side="West";
+							flags=3;
+							class Attributes
+							{
+								rank="SERGEANT";
+								init="call{this setgroupID[""BANDIT-7""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-7""];}";
+								isPlayable=1;
+							};
+							id=4201;
+							type="Cav_B_C_PlatoonMedic_Bandit_7_F";
+							atlOffset=0.64453888;
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male05ENG";
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=0.97000003;
+										};
+									};
+								};
+								nAttributes=2;
+							};
+						};
+					};
+					class Attributes
+					{
+					};
+					id=4200;
+					atlOffset=0.64453888;
+				};
+				class Item3
+				{
+					dataType="Group";
+					side="West";
+					class Entities
+					{
+						items=9;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6634.9575,47.329334,1096.7749};
+							};
+							side="West";
+							flags=7;
+							class Attributes
+							{
+								rank="SERGEANT";
+								init="call{this setgroupID[""BANDIT-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								isPlayable=1;
+							};
+							id=4203;
+							type="Cav_B_C_SquadLeader_Bandit_1_F";
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male03ENG";
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=0.98000002;
+										};
+									};
+								};
+								nAttributes=2;
+							};
+						};
+						class Item1
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6636.4565,47.329334,1095.7749};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.44999999;
+								rank="CORPORAL";
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								isPlayable=1;
+							};
+							id=4204;
+							type="Cav_B_C_Alpha_FireTeamLeader_F";
+							atlOffset=0.0030860901;
+						};
+						class Item2
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6635.4565,47.329334,1095.7749};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								isPlayable=1;
+							};
+							id=4205;
+							type="Cav_B_C_Alpha_AutomaticRifleman_F";
+							atlOffset=0.0030784607;
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6634.4565,47.329334,1095.7749};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								isPlayable=1;
+							};
+							id=4206;
+							type="Cav_B_C_Alpha_Grenadier_F";
+							atlOffset=0.0030670166;
+						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6633.4565,47.329334,1095.7749};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								description="Alpha Rifleman";
+								isPlayable=1;
+							};
+							id=4207;
+							type="Cav_B_C_Alpha_RiflemanLAT_F";
+							atlOffset=0.0030593872;
+						};
+						class Item5
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6636.4565,47.329334,1094.7749};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.44999999;
+								rank="CORPORAL";
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								isPlayable=1;
+							};
+							id=4208;
+							type="Cav_B_C_Bravo_FireTeamLeader_F";
+							atlOffset=0.0046310425;
+						};
+						class Item6
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6635.4565,47.329334,1094.7749};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								isPlayable=1;
+							};
+							id=4209;
+							type="Cav_B_C_Bravo_AutomaticRifleman_F";
+							atlOffset=0.0046310425;
+						};
+						class Item7
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6634.4565,47.329334,1094.7749};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								isPlayable=1;
+							};
+							id=4210;
+							type="Cav_B_C_Bravo_Grenadier_F";
+							atlOffset=0.0046310425;
+						};
+						class Item8
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6633.4565,47.329334,1094.7749};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
+								description="Bravo Rifleman";
+								isPlayable=1;
+							};
+							id=4211;
+							type="Cav_B_C_Bravo_RiflemanLAT_F";
+							atlOffset=0.0046310425;
+						};
+					};
+					class Attributes
+					{
+					};
+					id=4202;
+				};
+				class Item4
+				{
+					dataType="Group";
+					side="West";
+					class Entities
+					{
+						items=9;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6625.7295,47.333073,1098.962};
+							};
+							side="West";
+							flags=3;
+							class Attributes
+							{
+								rank="SERGEANT";
+								init="call{this setgroupID[""BANDIT-2""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								isPlayable=1;
+							};
+							id=4213;
+							type="Cav_B_C_SquadLeader_Bandit_2_F";
+							atlOffset=0.66163635;
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male09ENG";
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=1.05;
+										};
+									};
+								};
+								nAttributes=2;
+							};
+						};
+						class Item1
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6627.23,47.333073,1097.962};
+							};
+							side="West";
+							flags=1;
+							class Attributes
+							{
+								skill=0.44999999;
+								rank="CORPORAL";
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								isPlayable=1;
+							};
+							id=4214;
+							type="Cav_B_C_Alpha_FireTeamLeader_F";
+							atlOffset=0.66163635;
+						};
+						class Item2
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6626.23,47.333073,1097.962};
+							};
+							side="West";
+							flags=1;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								isPlayable=1;
+							};
+							id=4215;
+							type="Cav_B_C_Alpha_AutomaticRifleman_F";
+							atlOffset=0.66163635;
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6625.23,47.333073,1097.962};
+							};
+							side="West";
+							flags=1;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								isPlayable=1;
+							};
+							id=4216;
+							type="Cav_B_C_Alpha_Grenadier_F";
+							atlOffset=0.66163635;
+						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6624.23,47.333073,1097.962};
+							};
+							side="West";
+							flags=1;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								description="Alpha Rifleman";
+								isPlayable=1;
+							};
+							id=4217;
+							type="Cav_B_C_Alpha_RiflemanLAT_F";
+							atlOffset=0.66163635;
+						};
+						class Item5
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6627.23,47.333073,1096.962};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.44999999;
+								rank="CORPORAL";
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								isPlayable=1;
+							};
+							id=4218;
+							type="Cav_B_C_Bravo_FireTeamLeader_F";
+							atlOffset=7.6293945e-006;
+						};
+						class Item6
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6626.23,47.333073,1096.962};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								isPlayable=1;
+							};
+							id=4219;
+							type="Cav_B_C_Bravo_AutomaticRifleman_F";
+						};
+						class Item7
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6625.23,47.333073,1096.962};
+							};
+							side="West";
+							flags=1;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								isPlayable=1;
+							};
+							id=4220;
+							type="Cav_B_C_Bravo_Grenadier_F";
+							atlOffset=0.66163635;
+						};
+						class Item8
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6624.23,47.333073,1096.962};
+							};
+							side="West";
+							flags=1;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
+								description="Bravo Rifleman";
+								isPlayable=1;
+							};
+							id=4221;
+							type="Cav_B_C_Bravo_RiflemanLAT_F";
+							atlOffset=0.66163635;
+						};
+					};
+					class Attributes
+					{
+					};
+					id=4212;
+					atlOffset=0.66163635;
+				};
+				class Item5
+				{
+					dataType="Group";
+					side="West";
+					class Entities
+					{
+						items=9;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6596.7939,47.321133,1096.8864};
+							};
+							side="West";
+							flags=7;
+							class Attributes
+							{
+								rank="SERGEANT";
+								init="call{this setgroupID[""BANDIT-3""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								isPlayable=1;
+							};
+							id=4223;
+							type="Cav_B_C_SquadLeader_Bandit_3_F";
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male11ENG";
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=1.02;
+										};
+									};
+								};
+								nAttributes=2;
+							};
+						};
+						class Item1
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6598.2935,47.321133,1095.8864};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.44999999;
+								rank="CORPORAL";
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								isPlayable=1;
+							};
+							id=4224;
+							type="Cav_B_C_Alpha_FireTeamLeader_F";
+							atlOffset=0.0030860901;
+						};
+						class Item2
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6597.2935,47.321133,1095.8864};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								isPlayable=1;
+							};
+							id=4225;
+							type="Cav_B_C_Alpha_AutomaticRifleman_F";
+							atlOffset=0.0030784607;
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6596.2935,47.321133,1095.8864};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								isPlayable=1;
+							};
+							id=4226;
+							type="Cav_B_C_Alpha_Grenadier_F";
+							atlOffset=0.0030670166;
+						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6595.2935,47.321133,1095.8864};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								description="Alpha Rifleman";
+								isPlayable=1;
+							};
+							id=4227;
+							type="Cav_B_C_Alpha_RiflemanLAT_F";
+							atlOffset=0.0030593872;
+						};
+						class Item5
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6598.2935,47.321133,1094.8864};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.44999999;
+								rank="CORPORAL";
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								isPlayable=1;
+							};
+							id=4228;
+							type="Cav_B_C_Bravo_FireTeamLeader_F";
+							atlOffset=0.0051574707;
+						};
+						class Item6
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6597.2935,47.321133,1094.8864};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								isPlayable=1;
+							};
+							id=4229;
+							type="Cav_B_C_Bravo_AutomaticRifleman_F";
+							atlOffset=0.0051574707;
+						};
+						class Item7
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6596.2935,47.321133,1094.8864};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								isPlayable=1;
+							};
+							id=4230;
+							type="Cav_B_C_Bravo_Grenadier_F";
+							atlOffset=0.0051574707;
+						};
+						class Item8
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6595.2935,47.321133,1094.8864};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
+								description="Bravo Rifleman";
+								isPlayable=1;
+							};
+							id=4231;
+							type="Cav_B_C_Bravo_RiflemanLAT_F";
+							atlOffset=0.0051574707;
+						};
+					};
+					class Attributes
+					{
+					};
+					id=4222;
+				};
+				class Item6
+				{
+					dataType="Group";
+					side="West";
+					class Entities
+					{
+						items=9;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6587.7241,47.327972,1098.5681};
+							};
+							side="West";
+							flags=7;
+							class Attributes
+							{
+								rank="SERGEANT";
+								init="call{this setgroupID[""BANDIT-4""];" \n "this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								isPlayable=1;
+							};
+							id=4233;
+							type="Cav_B_C_SquadLeader_Bandit_4_F";
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male06ENG";
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=1.03;
+										};
+									};
+								};
+								nAttributes=2;
+							};
+						};
+						class Item1
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6589.2241,47.327972,1097.5676};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.44999999;
+								rank="CORPORAL";
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								isPlayable=1;
+							};
+							id=4234;
+							type="Cav_B_C_Alpha_FireTeamLeader_F";
+							atlOffset=0.0021896362;
+						};
+						class Item2
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6588.2241,47.327972,1097.5676};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								isPlayable=1;
+							};
+							id=4235;
+							type="Cav_B_C_Alpha_AutomaticRifleman_F";
+							atlOffset=0.0021820068;
+						};
+						class Item3
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6587.2241,47.327972,1097.5676};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								isPlayable=1;
+							};
+							id=4236;
+							type="Cav_B_C_Alpha_Grenadier_F";
+							atlOffset=0.0021743774;
+						};
+						class Item4
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6586.2241,47.327972,1097.5676};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								description="Alpha Rifleman";
+								isPlayable=1;
+							};
+							id=4237;
+							type="Cav_B_C_Alpha_RiflemanLAT_F";
+							atlOffset=0.0021705627;
+						};
+						class Item5
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6589.2241,47.327972,1096.5676};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.44999999;
+								rank="CORPORAL";
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								isPlayable=1;
+							};
+							id=4238;
+							type="Cav_B_C_Bravo_FireTeamLeader_F";
+							atlOffset=0.0043640137;
+						};
+						class Item6
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6588.2241,47.327972,1096.5676};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								isPlayable=1;
+							};
+							id=4239;
+							type="Cav_B_C_Bravo_AutomaticRifleman_F";
+							atlOffset=0.0043563843;
+						};
+						class Item7
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6587.2241,47.327972,1096.5676};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								isPlayable=1;
+							};
+							id=4240;
+							type="Cav_B_C_Bravo_Grenadier_F";
+							atlOffset=0.0043525696;
+						};
+						class Item8
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6586.2241,47.327972,1096.5676};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								skill=0.40000001;
+								init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
+								description="Bravo Rifleman";
+								isPlayable=1;
+							};
+							id=4241;
+							type="Cav_B_C_Bravo_RiflemanLAT_F";
+							atlOffset=0.0043449402;
+						};
+					};
+					class Attributes
+					{
+					};
+					id=4232;
+				};
+				class Item7
+				{
+					dataType="Group";
+					side="West";
+					class Entities
+					{
+						items=3;
+						class Item0
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6629.4141,46.671436,1120.321};
+								angles[]={0,4.6973796,0};
+							};
+							side="West";
+							flags=7;
+							class Attributes
+							{
+								init="call{this setgroupID[""ZEUS""];" \n "this setVariable [""cScripts_Player_Unit"", ""ZEUS""];}";
+								name="S3_1";
+								description="Mission Controller@MISSION CONTROLLERS";
+								isPlayable=1;
+							};
+							id=4253;
+							type="rhsusf_army_ocp_officer";
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="acex_headless_blacklist";
+									expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"BOOL"
+												};
+											};
+											value=0;
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male05ENG";
+										};
+									};
+								};
+								class Attribute2
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=0.98000002;
+										};
+									};
+								};
+								nAttributes=3;
+							};
+						};
+						class Item1
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6629.3848,46.671436,1118.6901};
+								angles[]={0,4.6973796,0};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								init="call{this setVariable [""cScripts_Player_Unit"", ""ZEUS""];}";
+								name="S3_2";
+								description="Mission Controller";
+								isPlayable=1;
+							};
+							id=4254;
+							type="rhsusf_army_ocp_officer";
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="acex_headless_blacklist";
+									expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"BOOL"
+												};
+											};
+											value=0;
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male05ENG";
+										};
+									};
+								};
+								class Attribute2
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=0.98000002;
+										};
+									};
+								};
+								nAttributes=3;
+							};
+						};
+						class Item2
+						{
+							dataType="Object";
+							class PositionInfo
+							{
+								position[]={6629.3818,46.671436,1116.7831};
+								angles[]={0,4.6973796,0};
+							};
+							side="West";
+							flags=5;
+							class Attributes
+							{
+								init="call{this setVariable [""cScripts_Player_Unit"", ""ZEUS""];}";
+								name="S3_3";
+								description="Mission Controller";
+								isPlayable=1;
+							};
+							id=4255;
+							type="rhsusf_army_ocp_officer";
+							class CustomAttributes
+							{
+								class Attribute0
+								{
+									property="acex_headless_blacklist";
+									expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"BOOL"
+												};
+											};
+											value=0;
+										};
+									};
+								};
+								class Attribute1
+								{
+									property="speaker";
+									expression="_this setspeaker _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="Male05ENG";
+										};
+									};
+								};
+								class Attribute2
+								{
+									property="pitch";
+									expression="_this setpitch _value;";
+									class Value
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"SCALAR"
+												};
+											};
+											value=0.98000002;
+										};
+									};
+								};
+								nAttributes=3;
+							};
+						};
+					};
+					class Attributes
+					{
+					};
+					id=4252;
 				};
 			};
 			id=2527;
-			atlOffset=3.7439785;
+			atlOffset=0.2423172;
 		};
 		class Item25
 		{
@@ -92466,16 +89958,453 @@ class Mission
 			id=4195;
 			type="TargetP_Inf_F";
 		};
+		class Item91
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6612.9033,47.56242,1124.3528};
+				angles[]={-0,1.5707964,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{[this,""Bandit"",true,true,true,true,false] call cScripts_fnc_doStarterCrate;}";
+				description="Starter Crate";
+			};
+			id=4242;
+			type="B_supplyCrate_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""launch_NLAW_F"",""arifle_MX_F"",""arifle_MX_SW_F"",""FirstAidKit""],[1,2,1,10]],[[""30Rnd_65x39_caseless_mag"",""16Rnd_9x21_Mag"",""30Rnd_45ACP_Mag_SMG_01"",""20Rnd_762x51_Mag"",""100Rnd_65x39_caseless_mag"",""1Rnd_HE_Grenade_shell"",""3Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeGreen_Grenade_shell"",""Chemlight_green"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellGreen"",""UGL_FlareWhite_F"",""UGL_FlareGreen_F"",""ACE_SpareBarrel"",""ACE_20Rnd_65x47_Scenar_mag"",""ACE_30Rnd_65x47_Scenar_mag"",""ACE_20Rnd_65_Creedmor_mag"",""ACE_30Rnd_65_Creedmor_mag"",""ACE_10Rnd_762x51_M118LR_Mag"",""ACE_20Rnd_762x51_M118LR_Mag"",""ACE_10Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_10Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mag_Tracer"",""ACE_20Rnd_762x51_Mag_Tracer_Dim""],[24,6,6,6,6,3,1,2,2,6,2,6,6,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4]],[[""Laserdesignator"",""acc_flashlight"",""bipod_01_F_blk"",""ACE_Chemlight_Shield"",""ACE_EarPlugs""],[1,2,1,12,12]],[[""B_Kitbag_mcamo""],[2]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item92
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6612.7856,47.56242,1120.3075};
+				angles[]={-0,1.5358897,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{[this,""Bandit"",true,true,true,true,false] call cScripts_fnc_doStarterCrate;}";
+				description="Starter Crate";
+			};
+			id=4245;
+			type="B_supplyCrate_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""launch_NLAW_F"",""arifle_MX_F"",""arifle_MX_SW_F"",""FirstAidKit""],[1,2,1,10]],[[""30Rnd_65x39_caseless_mag"",""16Rnd_9x21_Mag"",""30Rnd_45ACP_Mag_SMG_01"",""20Rnd_762x51_Mag"",""100Rnd_65x39_caseless_mag"",""1Rnd_HE_Grenade_shell"",""3Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeGreen_Grenade_shell"",""Chemlight_green"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellGreen"",""UGL_FlareWhite_F"",""UGL_FlareGreen_F"",""ACE_SpareBarrel"",""ACE_20Rnd_65x47_Scenar_mag"",""ACE_30Rnd_65x47_Scenar_mag"",""ACE_20Rnd_65_Creedmor_mag"",""ACE_30Rnd_65_Creedmor_mag"",""ACE_10Rnd_762x51_M118LR_Mag"",""ACE_20Rnd_762x51_M118LR_Mag"",""ACE_10Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_10Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mag_Tracer"",""ACE_20Rnd_762x51_Mag_Tracer_Dim""],[24,6,6,6,6,3,1,2,2,6,2,6,6,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4]],[[""Laserdesignator"",""acc_flashlight"",""bipod_01_F_blk"",""ACE_Chemlight_Shield"",""ACE_EarPlugs""],[1,2,1,12,12]],[[""B_Kitbag_mcamo""],[2]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item93
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6673.8379,47.56242,1117.6189};
+				angles[]={-0,1.5707964,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{[this,""Bandit"",true,true,true,true,false] call cScripts_fnc_doStarterCrate;}";
+				description="Starter Crate";
+			};
+			id=4246;
+			type="B_supplyCrate_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""launch_NLAW_F"",""arifle_MX_F"",""arifle_MX_SW_F"",""FirstAidKit""],[1,2,1,10]],[[""30Rnd_65x39_caseless_mag"",""16Rnd_9x21_Mag"",""30Rnd_45ACP_Mag_SMG_01"",""20Rnd_762x51_Mag"",""100Rnd_65x39_caseless_mag"",""1Rnd_HE_Grenade_shell"",""3Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeGreen_Grenade_shell"",""Chemlight_green"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellGreen"",""UGL_FlareWhite_F"",""UGL_FlareGreen_F"",""ACE_SpareBarrel"",""ACE_20Rnd_65x47_Scenar_mag"",""ACE_30Rnd_65x47_Scenar_mag"",""ACE_20Rnd_65_Creedmor_mag"",""ACE_30Rnd_65_Creedmor_mag"",""ACE_10Rnd_762x51_M118LR_Mag"",""ACE_20Rnd_762x51_M118LR_Mag"",""ACE_10Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_10Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mag_Tracer"",""ACE_20Rnd_762x51_Mag_Tracer_Dim""],[24,6,6,6,6,3,1,2,2,6,2,6,6,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4]],[[""Laserdesignator"",""acc_flashlight"",""bipod_01_F_blk"",""ACE_Chemlight_Shield"",""ACE_EarPlugs""],[1,2,1,12,12]],[[""B_Kitbag_mcamo""],[2]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item94
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6673.9121,47.56242,1114.1399};
+				angles[]={-0,1.5707964,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{[this,""Bandit"",true,true,true,true,false] call cScripts_fnc_doStarterCrate;}";
+				description="Starter Crate";
+			};
+			id=4247;
+			type="B_supplyCrate_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[[[[""launch_NLAW_F"",""arifle_MX_F"",""arifle_MX_SW_F"",""FirstAidKit""],[1,2,1,10]],[[""30Rnd_65x39_caseless_mag"",""16Rnd_9x21_Mag"",""30Rnd_45ACP_Mag_SMG_01"",""20Rnd_762x51_Mag"",""100Rnd_65x39_caseless_mag"",""1Rnd_HE_Grenade_shell"",""3Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeGreen_Grenade_shell"",""Chemlight_green"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellGreen"",""UGL_FlareWhite_F"",""UGL_FlareGreen_F"",""ACE_SpareBarrel"",""ACE_20Rnd_65x47_Scenar_mag"",""ACE_30Rnd_65x47_Scenar_mag"",""ACE_20Rnd_65_Creedmor_mag"",""ACE_30Rnd_65_Creedmor_mag"",""ACE_10Rnd_762x51_M118LR_Mag"",""ACE_20Rnd_762x51_M118LR_Mag"",""ACE_10Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk316_Mod_0_Mag"",""ACE_10Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mk319_Mod_0_Mag"",""ACE_20Rnd_762x51_Mag_Tracer"",""ACE_20Rnd_762x51_Mag_Tracer_Dim""],[24,6,6,6,6,3,1,2,2,6,2,6,6,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4]],[[""Laserdesignator"",""acc_flashlight"",""bipod_01_F_blk"",""ACE_Chemlight_Shield"",""ACE_EarPlugs""],[1,2,1,12,12]],[[""B_Kitbag_mcamo""],[2]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item95
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6629.4702,46.669998,1120.26};
+				angles[]={0,3.1985602,0};
+			};
+			id=4249;
+			type="ModuleCurator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="S3_1";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item96
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6629.3901,46.669998,1118.653};
+				angles[]={0,3.1985602,0};
+			};
+			id=4250;
+			type="ModuleCurator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="S3_2";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item97
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6629.354,46.669998,1116.7236};
+				angles[]={-0,3.1985602,0};
+			};
+			id=4251;
+			type="ModuleCurator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="S3_3";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=15;
+			nextID=8;
 		};
 		class Links
 		{
-			items=15;
+			items=8;
 			class Item0
 			{
 				linkID=0;
@@ -92551,76 +90480,6 @@ class Mission
 				linkID=7;
 				item0=2094;
 				item1=2093;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item8
-			{
-				linkID=8;
-				item0=2343;
-				item1=2355;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item9
-			{
-				linkID=9;
-				item0=2691;
-				item1=2810;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item10
-			{
-				linkID=10;
-				item0=2692;
-				item1=2880;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item11
-			{
-				linkID=11;
-				item0=2693;
-				item1=2882;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item12
-			{
-				linkID=12;
-				item0=3146;
-				item1=3141;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item13
-			{
-				linkID=13;
-				item0=3148;
-				item1=3143;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item14
-			{
-				linkID=14;
-				item0=3147;
-				item1=3145;
 				class CustomData
 				{
 					type="Sync";
