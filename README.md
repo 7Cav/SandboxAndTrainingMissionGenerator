@@ -71,7 +71,7 @@ The tool should be cross platform and can be used for other packages as well.
 
 ## Setting up a training mission
 - __Mission file most be unbinirized__.
-- Set the `briefingName` name to `Training Map`
+- Set the `briefingName` name to `Training Template Mission`
 - Training missions name need to be in the following format `[Company]_CO_Trg_[My_Training_Mission_Name-Map]_DEVBUILD.[Island_Name]`<br />Example: `7cav_Charlie_CO_Trg_Map_DEVBUILD.Stratis` or `7cav_Charlie_CO_Trg_Ambush_DEVBUILD.Altis` 
 - Training missions need to placed in `./template/training/`.
 - Additional training mission scripts images or other material need to be placed in the mission root folder. 
