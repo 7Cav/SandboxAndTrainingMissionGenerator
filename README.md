@@ -76,3 +76,8 @@ The tool should be cross platform and can be used for other packages as well.
 - Training missions need to placed in `./template/training/`.
 - Additional training mission scripts images or other material need to be placed in the mission root folder. 
 - Adjust or add a `setup.json`<br />__NOTE!__ Do not add your own `init.sqf` of `description.ext` they will be overwritten. instead add changes or adjustmetns instead to the `add : []` array of the json file.
+
+## String hooks
+String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change. 
+### mission.sqm
+briefingName `Zeus Sandbox Template Mission`, `Training Template Mission`
