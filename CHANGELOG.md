@@ -1,4 +1,8 @@
 # CHANGELOG
+## Version 2.2.0
+- Added Training missions
+- Fixed mission controller not working
+
 ## Version 2.1.2
 - Updated cScripts to v4.3.7
 - Updated Generic Template with new classnames
