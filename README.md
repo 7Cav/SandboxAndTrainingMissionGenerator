@@ -78,8 +78,13 @@ The tool should be cross platform and can be used for other packages as well.
 - Adjust or add a `setup.json`<br />__NOTE!__ Do not add your own `init.sqf` of `description.ext` they will be overwritten. instead add changes or adjustmetns instead to the `add : []` array of the json file.
 
 ## String hooks
-String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change. 
+String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change.
+
 ### mission.sqm
 - **briefingName:** `Zeus Sandbox Template Mission`, `Training Template Mission`
 - **Spawn point move pos:** `position[]={20.200001,25.200001,20.200001};`
 - **overviewText:** `OverviewText Template Text`
+
+## Special strings
+- `$1`: Print version number of the given `--versiontag` parameter.
+- `$2`: Print name of the installed package selected by `--package` parameter.
