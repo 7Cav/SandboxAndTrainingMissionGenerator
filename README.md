@@ -80,4 +80,5 @@ The tool should be cross platform and can be used for other packages as well.
 ## String hooks
 String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change. 
 ### mission.sqm
-briefingName `Zeus Sandbox Template Mission`, `Training Template Mission`
+**briefingName** `Zeus Sandbox Template Mission`, `Training Template Mission`
+**Spawn point move pos** `position[]={20.200001,25.200001,20.200001};`
