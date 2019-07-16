@@ -1,4 +1,7 @@
 {
+    "mission.sqm" : {
+        "briefingName" : "Bravo Troop Training Map v$0"
+    },
     "description.ext" : {
         "author" : "SSG. Geki.T",
         "onLoadName" : "Bravo Troop Training Map",

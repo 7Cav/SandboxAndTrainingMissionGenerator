@@ -1,4 +1,7 @@
 {
+    "mission.sqm" : {
+        "briefingName" : "Charlie Company Training Map v$0"
+    },
     "description.ext" : {
         "author" : "1LT.Argus.J",
         "onLoadName" : "Charlie Company Training Map",

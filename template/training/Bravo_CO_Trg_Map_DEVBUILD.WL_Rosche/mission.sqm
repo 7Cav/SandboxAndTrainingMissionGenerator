@@ -67,7 +67,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Bravo Troop Training Map";
+		briefingName="Training Template Mission";
 		timeOfChanges=1800.0002;
 		startWeather=0.1;
 		startWind=0.1;

@@ -328,7 +328,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="Charlie Company Training Map";
+		briefingName="Training Template Mission";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;

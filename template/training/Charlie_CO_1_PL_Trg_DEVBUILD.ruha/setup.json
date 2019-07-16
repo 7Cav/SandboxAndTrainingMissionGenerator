@@ -1,4 +1,7 @@
 {
+    "mission.sqm" : {
+        "briefingName" : "1st Platoon Training Grounds v$0"
+    },
     "description.ext" : {
         "author" : "SSG.van der Hulst.T",
         "onLoadName" : "1st Platoon Training Grounds",

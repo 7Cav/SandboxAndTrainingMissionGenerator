@@ -1,4 +1,7 @@
 {
+    "mission.sqm" : {
+        "briefingName" : "Training Mission v$0"
+    },
     "description.ext" : {
         "author" : "PFC Tully.B",
         "onLoadName" : "Training Mission v$0",
