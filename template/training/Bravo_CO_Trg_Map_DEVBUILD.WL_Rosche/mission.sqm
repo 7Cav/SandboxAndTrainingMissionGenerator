@@ -35,6 +35,7 @@ randomSeed=9534159;
 class ScenarioData
 {
 	author="=7Cav= SSG.Geki.T";
+	overviewText="OverviewText Template Text";
 };
 class CustomAttributes
 {

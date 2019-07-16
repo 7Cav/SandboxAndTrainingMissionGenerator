@@ -27,7 +27,8 @@ $ sudo apt-get install armake
 
 # How to run
 ```
-usage: build [-h] -p PACKAGE -v VERSIONTAG [-y] [--color] [--version]
+usage: build [-h] -p PACKAGE -pv PACKAGEVERSION -v VERSIONTAG [-y] [--color]
+             [--version]
              {sandbox,training}
 
 This script generates missions.
@@ -40,6 +41,9 @@ optional arguments:
   -h, --help            show this help message and exit
   -p PACKAGE, --package PACKAGE
                         This defines what script package to install.
+  -pv PACKAGEVERSION, --packageVersion PACKAGEVERSION
+                        This define a version number of a given package to be
+                        used in the script.
   -v VERSIONTAG, --versionTag VERSIONTAG
                         This define what version name you whant the file to
                         have.
@@ -81,10 +85,10 @@ The tool should be cross platform and can be used for other packages as well.
 String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change.
 
 ### mission.sqm
-- **briefingName:** `Zeus Sandbox Template Mission`, `Training Template Mission`
+- **briefingName:** `$briefingName`, `Zeus Sandbox Template Mission`, `Training Template Mission`
+- **overviewText:** `$overviewText`, `OverviewText Template Text`
 - **Spawn point move pos:** `position[]={20.200001,25.200001,20.200001};`
-- **overviewText:** `OverviewText Template Text`
 
 ## Special strings
-- `$1`: Print version number of the given `--versiontag` parameter.
-- `$2`: Print name of the installed package selected by `--package` parameter.
+- `$1`: Print version number provided by `--versionTag` parameter.
+- `$2`: Print name of the installed package selected by `--packageVersion` parameter.

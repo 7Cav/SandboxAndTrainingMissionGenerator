@@ -39,6 +39,7 @@ randomSeed=7020199;
 class ScenarioData
 {
 	author="1LT.Argus.J";
+	overviewText="OverviewText Template Text";
 	disabledAI=1;
 	respawn=3;
 	respawnDelay=5;

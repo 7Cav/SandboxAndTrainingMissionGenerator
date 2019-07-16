@@ -1,6 +1,8 @@
 {
     "mission.sqm" : {
-        "briefingName" : "Charlie Company Training Map v$0"
+        "briefingName" : "Charlie Company Training Map v$0",
+        "overviewText" : "cScripts v$1 is installed on this mission."
+
     },
     "description.ext" : {
         "author" : "SGT Geki.T",

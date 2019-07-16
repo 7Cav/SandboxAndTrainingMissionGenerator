@@ -19,72 +19,10 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-addons[]=
-{
-	"A3_Modules_F_Curator_Respawn",
-	"cav_charlie_characters_units",
-	"cav_charlie_characters",
-	"cav_bravo_characters_units",
-	"cav_bravo_characters",
-	"cav_alpha_characters_units",
-	"cav_alpha_characters",
-	"A3_Modules_F_Curator_Curator"
-};
+addons[]={};
 class AddonsMetaData
 {
-	class List
-	{
-		items=7;
-		class Item0
-		{
-			className="A3_Modules_F_Curator";
-			name="Arma 3 Zeus Update - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item1
-		{
-			className="cav_charlie_characters_units";
-			name="7th Cavalry Mod - Charlie Units";
-			author="7th Cavalry S3 Mod Team";
-			url="http://7cav.us";
-		};
-		class Item2
-		{
-			className="cav_charlie_characters";
-			name="7th Cavalry Mod - Charlie Characters";
-			author="7th Cavalry S3 Mod Team";
-			url="http://7cav.us";
-		};
-		class Item3
-		{
-			className="cav_bravo_characters_units";
-			name="7th Cavalry Mod - Bravo Units";
-			author="7th Cavalry S3 Mod Team";
-			url="http://7cav.us";
-		};
-		class Item4
-		{
-			className="cav_bravo_characters";
-			name="7th Cavalry Mod - Bravo Characters";
-			author="7th Cavalry S3 Mod Team";
-			url="http://7cav.us";
-		};
-		class Item5
-		{
-			className="cav_alpha_characters_units";
-			name="7th Cavalry Mod - Alpha Units";
-			author="7th Cavalry S3 Mod Team";
-			url="http://7cav.us";
-		};
-		class Item6
-		{
-			className="cav_alpha_characters";
-			name="7th Cavalry Mod - Alpha Characters";
-			author="7th Cavalry S3 Mod Team";
-			url="http://7cav.us";
-		};
-	};
+	class List {};
 };
 randomSeed=1446646;
 class ScenarioData

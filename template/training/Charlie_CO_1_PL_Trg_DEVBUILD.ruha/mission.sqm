@@ -36,6 +36,7 @@ randomSeed=4548574;
 class ScenarioData
 {
 	author="SSG.van der Hulst.T";
+	overviewText="OverviewText Template Text";
 	disabledAI=1;
 	joinUnassigned=0;
 };

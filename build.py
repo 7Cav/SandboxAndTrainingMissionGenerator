@@ -29,6 +29,10 @@ parser.add_argument('-p', '--package',
     required=True,
     help='This defines what script package to install.'
 )
+parser.add_argument('-pv', '--packageVersion',
+    required=True,
+    help='This define a version number of a given package to be used in the script.'
+)
 
 parser.add_argument('-v', '--versionTag',
     required=True,
@@ -50,6 +54,7 @@ args = parser.parse_args()
 
 # handle arguments
 PACKAGE = args.package
+PACKAGEVER = args.packageVersion
 VERSION = args.versionTag
 VERSION_DIR = args.versionTag.replace('.','_')
 
@@ -150,12 +155,12 @@ def json_macro_replace(obj):
         if '$0' in obj:
             return obj.replace('$0', '{}'.format(VERSION))
         if '$1' in obj:
-            return obj.replace('$1', '{}'.format(PACKAGE))
+            return obj.replace('$1', '{}'.format(PACKAGEVER))
     elif type(obj) == list:
         new_list = []
         for line in obj:
             line = line.replace('$0', '{}'.format(VERSION))
-            line = line.replace('$1', '{}'.format(PACKAGE))
+            line = line.replace('$1', '{}'.format(PACKAGEVER))
             new_list.append(line)
         return new_list
     else:
@@ -209,6 +214,10 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
 
             if 'briefingName' == changes:
                 replace(file,
+                'briefingName="$briefingName";',
+                'briefingName="{}";'.format(string))
+
+                replace(file,
                 'briefingName="Zeus Sandbox Template Mission";',
                 'briefingName="{}";'.format(string))
 
@@ -218,6 +227,10 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
                 continue
 
             if 'overviewText' == changes:
+                replace(file,
+                'overviewText="$overviewText";',
+                'overviewText="{}";'.format(string))
+
                 replace(file,
                 'overviewText="OverviewText Template Text";',
                 'overviewText="{}";'.format(string))

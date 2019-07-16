@@ -1,6 +1,7 @@
 {
     "mission.sqm" : {
-        "briefingName" : "1st Platoon Training Grounds v$0"
+        "briefingName" : "1st Platoon Training Grounds v$0",
+        "overviewText" : "cScripts v$1 is installed on this mission."
     },
     "description.ext" : {
         "author" : "SSG.van der Hulst.T",

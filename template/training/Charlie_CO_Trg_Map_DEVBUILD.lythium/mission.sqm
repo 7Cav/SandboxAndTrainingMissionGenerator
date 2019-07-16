@@ -39,6 +39,7 @@ randomSeed=193549;
 class ScenarioData
 {
 	author="=7Cav=1LT.Argus.J";
+	overviewText="OverviewText Template Text";
 };
 class CustomAttributes
 {

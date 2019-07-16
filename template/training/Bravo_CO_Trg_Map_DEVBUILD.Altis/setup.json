@@ -1,6 +1,7 @@
 {
     "mission.sqm" : {
-        "briefingName" : "Bravo Troop Training Map v$0"
+        "briefingName" : "Bravo Troop Training Map v$0",
+        "overviewText" : "cScripts v$1 is installed on this mission."
     },
     "description.ext" : {
         "author" : "SSG. Geki.T",
