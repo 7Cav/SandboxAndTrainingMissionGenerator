@@ -1,4 +1,8 @@
 # CHANGELOG
+## Version 2.2.1
+- Added proper naming and versioning to training missions
+- cScripts version is now visable in the mission selection
+
 ## Version 2.2.0
 - Added Training missions
 - Fixed mission controller not working
