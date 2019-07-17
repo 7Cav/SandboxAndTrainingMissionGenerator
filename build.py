@@ -30,7 +30,6 @@ parser.add_argument('-p', '--package',
     help='This defines what script package to install.'
 )
 parser.add_argument('-pv', '--packageVersion',
-    required=True,
     help='This define a version number of a given package to be used in the script.'
 )
 
@@ -52,11 +51,18 @@ parser.add_argument('--version', action='version', version='Author: Andreas Bros
 
 args = parser.parse_args()
 
+
+
 # handle arguments
 PACKAGE = args.package
-PACKAGEVER = args.packageVersion
+
 VERSION = args.versionTag
 VERSION_DIR = args.versionTag.replace('.','_')
+
+if args.packageVersion == '':
+    PACKAGEVER = args.packageVersion
+else:
+    PACKAGEVER = args.package
 
 # #########################################################################################
 
