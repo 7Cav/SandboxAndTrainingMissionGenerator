@@ -85,10 +85,22 @@ The tool should be cross platform and can be used for other packages as well.
 String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change.
 
 ### mission.sqm
-- **briefingName:** `$briefingName`, `Zeus Sandbox Template Mission`, `Training Template Mission`
-- **overviewText:** `$overviewText`, `OverviewText Template Text`
+- **briefingName:** `$briefingName`, `Zeus Sandbox Template Mission`, `Training Template Mission` (string)
+- **overviewText:** `$overviewText`, `OverviewText Template Text` (string)
 - **Spawn point move pos:** `position[]={20.200001,25.200001,20.200001};`
 
-## Special strings
+### description.ext
+<!--
+- **author:** `$author`, `1SG Tully.B`
+- **onLoadName** `MyMissionName`
+- **onLoadMission** `7th Cavalry - S3 1BN Battle Staff Operation`
+- **onLoadIntro** `S3 1BN Battle Staff Operation`
+- **loadScreen** `Data\MissionLogo.paa`
+- **overviewPicture** `Data\MissionLogo.paa`
+- **cba_settings_hasSettingsFile** `cba_settings_hasSettingsFile = 1;`
+- **disabledAI** `disabledAI              = true;`
+-->
+
+### Magicwords
 - `$1`: Print version number provided by `--versionTag` parameter.
 - `$2`: Print name of the installed package selected by `--packageVersion` parameter.
