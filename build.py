@@ -260,6 +260,13 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
             
             if changes == 'author':
                 replace(file,
+                    'dev                 = "$author";',
+                    'dev                 = "{}";'.format(string))
+                replace(file,
+                    'author              = "$author";',
+                    'author              = "{}";'.format(string))
+
+                replace(file,
                     'dev                 = "1SG Tully.B";',
                     'dev                 = "{}";'.format(string))
                 replace(file,
