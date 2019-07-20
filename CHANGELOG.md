@@ -1,7 +1,7 @@
 # CHANGELOG
 ## Version 2.2.1
 - Added proper naming and versioning to training missions
-- cScripts version is now visable in the mission selection
+- cScripts version is now visible in the mission selection
 - Updated cScripts to v4.3.8
 
 ## Version 2.2.0
