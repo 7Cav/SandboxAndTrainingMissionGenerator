@@ -1,4 +1,7 @@
 # CHANGELOG
+## Version 2.2.3
+- Fixed cba_settings params in description.ext getting changed to empty array when not defined.
+
 ## Version 2.2.2
 - Updated cScripts to v4.3.8 Hotfixed
 
