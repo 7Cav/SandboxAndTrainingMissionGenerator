@@ -304,7 +304,7 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
                     'overviewPicture     = "{}";'.format(string))
                 continue
 
-            if 'cba_settings_hasSettingsFile':
+            if changes == 'cba_settings_hasSettingsFile':
                 replace(file,
                     'cba_settings_hasSettingsFile = 1;',
                     'cba_settings_hasSettingsFile = {};'.format(string))
