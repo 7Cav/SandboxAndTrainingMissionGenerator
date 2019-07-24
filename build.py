@@ -47,6 +47,11 @@ parser.add_argument('--color',
     action='store_true'
 )
 
+parser.add_argument('-m', '--mission',
+    required=False,
+    help='Define a specific mission from path'
+)
+
 parser.add_argument('--version', action='version', version='Author: Andreas Broström <andreas.brostrom.ce@gmail.com>\nScript version: {}'.format(__version__))
 
 args = parser.parse_args()
@@ -55,6 +60,7 @@ args = parser.parse_args()
 
 # handle arguments
 PACKAGE = args.package
+SELECTED_MISSION = args.mission
 
 VERSION = args.versionTag
 VERSION_DIR = args.versionTag.replace('.','_')
@@ -171,6 +177,7 @@ def json_macro_replace(obj):
         return new_list
     else:
         sys.exit('ERROR: JSON macro function can\'t handle input...')
+    return obj
 
 def clean_mission_folder(temp_folder=''):
     os.chdir(temp_folder)
@@ -206,7 +213,7 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
     file = '{}/{}'.format(temp_folder,filename)
     if filename in sandbox_json_data and os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
-        
+
         # Spawn
         if args.buildtype == 'sandbox':
             print('Spawn set to {}, {}, {} on {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color), color_string(world,'\033[92m',args.color)))
@@ -253,11 +260,11 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
     file = '{}/{}'.format(temp_folder,filename)
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
-       
+
         for changes in sandbox_json_data[filename]:
-            string = sandbox_json_data[filename][changes] 
+            string = sandbox_json_data[filename][changes]
             string = json_macro_replace(string)
-            
+
             if changes == 'author':
                 replace(file,
                     'dev                 = "$author";',
@@ -397,11 +404,15 @@ def main():
     check_or_create_folder('template/training')
 
     if args.buildtype == 'sandbox':
+
+        # Exit on non suported mission
+        sys.exit('Sandbox does not support selected builds using the \'-mission\' parameter exiting...') if MISSION else ''
+
         # get json data
         sandbox_json = '{}/setup.json'.format(scriptDir)
         with open(sandbox_json) as json_file:  
             sandbox_data = json.load(json_file)
-
+ 
         # get mission name
         sandbox_mission_name = sandbox_data['sandboxMissionName']
 
@@ -445,6 +456,12 @@ def main():
     if args.buildtype == 'training':
         all_templates = get_templates('training')
         all_templates.remove('setup_template.json')
+        template_dir_name = 'training'
+        
+        # over write all found templates if mission is defined
+        if SELECTED_MISSION:
+            template_dir_name = 'custom'
+            all_templates = [SELECTED_MISSION]
 
         sys.exit('No training missions found in "./template/training/"...') if (len(all_templates) == 0) else ''
 
@@ -456,10 +473,13 @@ def main():
                 mission_name = mission_name.replace('DEVBUILD',VERSION)
 
             print('Creating training mission {}... ({}/{})'.format(color_string(world,'\033[92m',args.color), count+1, len(all_templates)))
-            template_path = '{}/training/{}'.format(templateDir, world)
-            content_list = fetch_objects(template_path)
-            folder_list = content_list[0]
-            file_list = content_list[1]
+            template_path = '{}/{}/{}'.format(templateDir, template_dir_name, world)
+            try:
+                content_list = fetch_objects(template_path)
+                folder_list = content_list[0]
+                file_list = content_list[1]
+            except:
+                sys.exit('No mission named \'{1}\' file was discoverd in the given path: ../{0}'.format(template_dir_name, world))
 
             os.chdir(template_path)
 
@@ -472,10 +492,10 @@ def main():
             install_script_package(PACKAGE, temp_path, args.color)
 
             # get json data
-            training_json = '{}/template/training/{}/setup.json'.format(scriptDir,world)
+            training_json = '{}/setup.json'.format(temp_path, world)
             with open(training_json) as json_file:
                 training_json = json.load(json_file)
-            
+
             # Setup mission file
             print('Setting up and adjusting training mission file...')
             setup_missions(temp_path, training_json, count, args.color)
