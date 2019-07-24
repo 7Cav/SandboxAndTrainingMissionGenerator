@@ -82,7 +82,9 @@ The tool should be cross platform and can be used for other packages as well.
 - Adjust or add a `setup.json`<br />__NOTE!__ Do not add your own `init.sqf` of `description.ext` they will be overwritten. instead add changes or adjustmetns instead to the `add : []` array of the json file.
 
 ## Custom build
-The custom mission build is preformed when you use the ´training -mission [MISSION_NAME]´ parameters. This requires the mission to be located in the custom missions need to be placed in `./template/training/`. The build procediur follows the training mission build system byt only uses the defined mission name.
+The custom mission build is preformed when you use the `training` and `-mission [mission]` parameters.
+To run this you need to be placed the mission in; `./template/training/`. The build follows the training mission build system. But instead of building all missions it only build for one. Exsample:<br />
+`py build.py training -v 1.0 -p cScripts.zip -m My_Mission_Name.Island`
 
 ## String hooks
 String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change.
