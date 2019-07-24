@@ -3,7 +3,7 @@ import sys, os, shutil, subprocess, time
 import argparse, tempfile, zipfile, fileinput, json
 startTime = time.time()
 
-__version__ = 3.0
+__version__ = 3.1
 
 scriptPath = os.path.realpath(__file__)
 scriptDir = os.path.dirname(scriptPath)
