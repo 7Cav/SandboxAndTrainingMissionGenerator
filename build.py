@@ -405,8 +405,8 @@ def main():
 
     if args.buildtype == 'sandbox':
 
-        # Exit on non suported mission
-        sys.exit('Sandbox does not support selected builds using the \'-mission\' parameter exiting...') if MISSION else ''
+        # Exit on non supported param
+        sys.exit('Sandbox does not support selected builds using the \'-mission\' parameter exiting...') if SELECTED_MISSION else ''
 
         # get json data
         sandbox_json = '{}/setup.json'.format(scriptDir)
