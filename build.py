@@ -48,8 +48,14 @@ parser.add_argument('--color',
 )
 
 parser.add_argument('-m', '--mission',
+    default='',
     required=False,
     help='Define a specific mission from path'
+)
+parser.add_argument('-s', '--setting',
+    default='',
+    required=False,
+    help='Define a custom setup.json file'
 )
 
 parser.add_argument('--version', action='version', version='Author: Andreas Broström <andreas.brostrom.ce@gmail.com>\nScript version: {}'.format(__version__))
@@ -61,6 +67,7 @@ args = parser.parse_args()
 # handle arguments
 PACKAGE = args.package
 SELECTED_MISSION = args.mission
+SELECTED_JSON = args.setting
 
 VERSION = args.versionTag
 VERSION_DIR = args.versionTag.replace('.','_')
@@ -216,7 +223,7 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
 
         # Spawn
         if args.buildtype == 'sandbox':
-            print('Spawn set to {}, {}, {} on {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color), color_string(world,'\033[92m',args.color)))
+            print('Spawn set to {}, {}, {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color)))
             replace(file,
                 'position[]={20.200001,25.200001,20.200001};',
                 'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
@@ -405,11 +412,16 @@ def main():
 
     if args.buildtype == 'sandbox':
 
-        # Exit on non supported param
-        sys.exit('Sandbox does not support selected builds using the \'-mission\' parameter exiting...') if SELECTED_MISSION else ''
+        # Exit on non supported params
+        sys.exit('Sandbox does not support selected builds using the \'--mission\' parameter exiting...') if not SELECTED_MISSION == '' else ''
 
         # get json data
-        sandbox_json = '{}/setup.json'.format(scriptDir)
+        sandbox_json_setup = 'setup.json'
+        if SELECTED_JSON:
+            sandbox_json_setup = SELECTED_JSON
+        print('Fetching data from {}...'.format(color_string(sandbox_json_setup,'\033[96m',args.color)))
+
+        sandbox_json = '{}/{}'.format(scriptDir, sandbox_json_setup)
         with open(sandbox_json) as json_file:  
             sandbox_data = json.load(json_file)
  
@@ -458,6 +470,10 @@ def main():
         all_templates.remove('setup_template.json')
         template_dir_name = 'training'
         
+        # Exit on non supported params
+
+        sys.exit('Training missions does not support selected json using the \'--setting\' parameter exiting...') if not SELECTED_JSON == '' else ''
+
         # over write all found templates if mission is defined
         if SELECTED_MISSION:
             template_dir_name = 'custom'
