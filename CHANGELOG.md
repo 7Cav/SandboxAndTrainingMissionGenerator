@@ -1,4 +1,8 @@
 # CHANGELOG
+## Version 2.2.4
+- Fixed issue were names returned `none` if a hook was not pressent.
+- Updated cScripts to v4.3.9
+
 ## Version 2.2.3
 - Fixed cba_settings params in description.ext getting changed to empty array when not defined.
 
