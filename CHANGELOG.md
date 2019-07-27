@@ -1,6 +1,9 @@
 # CHANGELOG
 ## Version 2.2.4
-- Fixed issue were names returned `none` if a hook was not pressent.
+- Fixed issue were generator names returned `none` if a hook was not pressent.
+- Added Levonia to generator mission list
+- Added ability to generate selected or custom missions
+- Added ability to generate sandboxes with custom json
 - Updated cScripts to v4.3.9
 
 ## Version 2.2.3
