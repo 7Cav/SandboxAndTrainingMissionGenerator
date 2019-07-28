@@ -27,8 +27,8 @@ $ sudo apt-get install armake
 
 # How to run
 ```
-usage: build [-h] -p PACKAGE -pv PACKAGEVERSION -v VERSIONTAG [-y] [--color]
-             [--version]
+usage: build [-h] -p PACKAGE [-pv PACKAGEVERSION] -v VERSIONTAG [-y] [--color]
+             [-m MISSION] [-s SETTING] [--version]
              {sandbox,training}
 
 This script generates missions.
@@ -49,6 +49,10 @@ optional arguments:
                         have.
   -y, --fastbuild       Will instantly run untill done.
   --color               Enable colors in the script.
+  -m MISSION, --mission MISSION
+                        Define a specific mission from path
+  -s SETTING, --setting SETTING
+                        Define a custom setup.json file
   --version             show program's version number and exit
 
 This build script generates sandboxes or training mapes bases on avalible templates.
