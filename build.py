@@ -72,10 +72,9 @@ SELECTED_JSON = args.setting
 VERSION = args.versionTag
 VERSION_DIR = args.versionTag.replace('.','_')
 
-if args.packageVersion == '':
+PACKAGEVER = args.package
+if not args.packageVersion == '':
     PACKAGEVER = args.packageVersion
-else:
-    PACKAGEVER = args.package
 
 # #########################################################################################
 
