@@ -1,0 +1,12 @@
+name: Arma
+on: tag
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download cScripts
+      run: echo Test
+    - name: Construct Sandbox Mission
+      run: echo Test
+    - name: Construct Test Mission
+      run: echo Test
