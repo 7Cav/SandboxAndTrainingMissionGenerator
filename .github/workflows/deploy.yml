@@ -1,5 +1,5 @@
-name: Arma
-on: tag
+name: Deploy
+on: release
 jobs:
   deploy:
     runs-on: ubuntu-latest
