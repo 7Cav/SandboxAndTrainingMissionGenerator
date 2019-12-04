@@ -19,23 +19,11 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Build release
-        run: ./tools/deploy.sh ${{ steps.get_version.outputs.VERSION }}
+        run: ./deploy.sh ${{ steps.get_version.outputs.VERSION }}
 
-      - name: Upload Release cScripts
+      - name: Upload Sandbox Release
         uses: JasonEtco/upload-to-release@master
         with:
-          args: release/cScripts-${{ steps.get_version.outputs.VERSION }}.zip application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload Release cScripts (PUBLIC)
-        uses: JasonEtco/upload-to-release@master
-        with:
-          args: release/cScripts_PUBLIC-${{ steps.get_version.outputs.VERSION }}.zip application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload Release cScripts (Compositions)
-        uses: JasonEtco/upload-to-release@master
-        with:
-          args: release/Compositions-${{ steps.get_version.outputs.VERSION }}.zip application/zip
+          args: release/Mission_sandbox_v${{ steps.get_version.outputs.VERSION }}.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
