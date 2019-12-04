@@ -7,6 +7,11 @@ jobs:
     name: Create And Upload Release
     runs-on: ubuntu-latest
     steps:
+      - name: Install dependencies
+        run: |
+          sudo add-apt-repository ppa:koffeinflummi/armake -y
+          sudo apt update -y
+          sudo apt install armake -y
       - name: Checkout code
         uses: actions/checkout@master
       - name: Get the version
