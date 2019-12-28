@@ -495,11 +495,10 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-1""];}";
-						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1101;
-					type="Cav_B_C_Bravo_RiflemanLAT_F";
+					type="Cav_B_C_Bravo_CombatLifeSaver_F";
 				};
 			};
 			class Attributes
@@ -716,11 +715,10 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-2""];}";
-						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1111;
-					type="Cav_B_C_Bravo_RiflemanLAT_F";
+					type="Cav_B_C_Bravo_CombatLifeSaver_F";
 				};
 			};
 			class Attributes
@@ -937,11 +935,10 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-3""];}";
-						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1121;
-					type="Cav_B_C_Bravo_RiflemanLAT_F";
+					type="Cav_B_C_Bravo_CombatLifeSaver_F";
 				};
 			};
 			class Attributes
@@ -1158,11 +1155,10 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""BANDIT-4""];}";
-						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1131;
-					type="Cav_B_C_Bravo_RiflemanLAT_F";
+					type="Cav_B_C_Bravo_CombatLifeSaver_F";
 				};
 			};
 			class Attributes
@@ -1557,11 +1553,10 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-1""];}";
-						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1155;
-					type="Cav_B_C_Bravo_RiflemanLAT_F";
+					type="Cav_B_C_Bravo_CombatLifeSaver_F";
 				};
 			};
 			class Attributes
@@ -1778,11 +1773,10 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-2""];}";
-						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1165;
-					type="Cav_B_C_Bravo_RiflemanLAT_F";
+					type="Cav_B_C_Bravo_CombatLifeSaver_F";
 				};
 			};
 			class Attributes
@@ -1999,11 +1993,10 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-3""];}";
-						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1175;
-					type="Cav_B_C_Bravo_RiflemanLAT_F";
+					type="Cav_B_C_Bravo_CombatLifeSaver_F";
 				};
 			};
 			class Attributes
@@ -2220,11 +2213,10 @@ class Mission
 					{
 						skill=0.40000001;
 						init="call{this setVariable [""cScripts_Player_Unit"", ""MISFIT-4""];}";
-						description="Bravo Rifleman";
 						isPlayable=1;
 					};
 					id=1185;
-					type="Cav_B_C_Bravo_RiflemanLAT_F";
+					type="Cav_B_C_Bravo_CombatLifeSaver_F";
 				};
 			};
 			class Attributes
