@@ -2,6 +2,8 @@
 
 set -e
 
+VERSION_TAG=$*
+
 echo "Checking and downloading latest version of cScripts..." 
 PACKAGE_TAG=$(curl -fs "https://api.github.com/repos/7Cav/cScripts/releases/latest" | \
     grep '"tag_name":' | \
@@ -19,5 +21,5 @@ for i in 1 2 3 4 5; do
     sleep 15
 done
 
-python3 build.py sandbox -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${TRAVIS_TAG} -y
-#python3 build.py training -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${TRAVIS_TAG} -y
+python3 build.py sandbox -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y
+#python3 build.py training -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y

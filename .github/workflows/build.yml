@@ -1,0 +1,29 @@
+name: Build and Deploy
+on:
+  release:
+      types: [ published, prereleased ]
+jobs:
+  build:
+    name: Create And Upload Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo add-apt-repository ppa:koffeinflummi/armake -y
+          sudo apt update -y
+          sudo apt install armake -y
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+      - name: Build release
+        run: ./deploy.sh ${{ steps.get_version.outputs.VERSION }}
+
+      - name: Upload Sandbox Release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: release/Mission_sandbox_v${{ steps.get_version.outputs.VERSION }}.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
