@@ -90,26 +90,31 @@ The custom mission build is preformed when you use the `training` and `-mission 
 To run this you need to be placed the mission in; `./template/training/`. The build follows the training mission build system. But instead of building all missions it only build for one. Exsample:<br />
 `$ build.py training -v 1.0 -p cScripts.zip -m My_Mission_Name.Island`
 
-## String hooks
+## String hooks and magicwords
 String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change.
+### Directory and file
+- **DEVBUILD:** `DEVBUILD` will be replaced with `versionTag` (Exsample: `v1.2`)
 
 ### mission.sqm
+- **authot** `$author` (string)
 - **briefingName:** `$briefingName`, `Zeus Sandbox Template Mission`, `Training Template Mission` (string)
-- **overviewText:** `$overviewText`, `OverviewText Template Text` (string)
-- **Spawn point move pos:** `position[]={20.200001,25.200001,20.200001};`
+- **overviewText** `$overviewText`, `OverviewText Template Text` (string)
+- **Spawn point move pos:** `position[]={20.200001,25.200001,20.200001};` (auto)
 
 ### description.ext
-<!--
-- **author:** `$author`, `1SG Tully.B`
-- **onLoadName** `MyMissionName`
-- **onLoadMission** `7th Cavalry - S3 1BN Battle Staff Operation`
-- **onLoadIntro** `S3 1BN Battle Staff Operation`
-- **loadScreen** `Data\MissionLogo.paa`
-- **overviewPicture** `Data\MissionLogo.paa`
-- **cba_settings_hasSettingsFile** `cba_settings_hasSettingsFile = 1;`
-- **disabledAI** `disabledAI              = true;`
--->
+- **author/dev** `$author`, `1SG Tully.B` (string)
+- **onLoadName** `$onLoadName`, `MyMissionName` (string)
+- **onLoadMission** `$onLoadMission` `7th Cavalry - S3 1BN Battle Staff Operation` (string)
+- **onLoadIntro** `$onLoadIntro`, `S3 1BN Battle Staff Operation` (string)
+- **loadScreen** `Data\MissionLogo.paa` (string)
+- **overviewPicture** `Data\MissionLogo.paa` (string)
+- **cba_settings_hasSettingsFile** `cba_settings_hasSettingsFile = 1;` (number)
+- **disabledAI** `disabledAI              = true;` (bool)
+- **forceRotorLibSimulation** `forceRotorLibSimulation = 1;`
+- **spawn** `respawn                = BASE;` (string)
+- **respawnDelay** `respawnDelay           = 4;` (number)
+- **respawnOnStart** `respawnOnStart         = -1;` (number)
 
 ### Magicwords
-- `$1`: Print version number provided by `--versionTag` parameter.
-- `$2`: Print name of the installed package selected by `--packageVersion` parameter.
+- `$0`: Print version number provided by `--versionTag` parameter.
+- `$1`: Print name of the installed package selected by `--packageVersion` parameter.
