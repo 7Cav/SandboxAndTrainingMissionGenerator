@@ -92,7 +92,8 @@ To run this you need to be placed the mission in; `./template/training/`. The bu
 
 ## String hooks and magicwords
 String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change.
-### Directory and file
+
+### Directoryname
 - **DEVBUILD:** `DEVBUILD` will be replaced with `versionTag` (Exsample: `v1.2`)
 
 ### mission.sqm
