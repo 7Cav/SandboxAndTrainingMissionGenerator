@@ -1,5 +1,6 @@
 {
     "mission.sqm" : {
+        "author" : "PFC Tully.B",
         "briefingName" : "Training Mission v$0",
         "overviewText" : "cScripts v$1 is installed on this mission."
     },
