@@ -203,13 +203,13 @@ def cleanup_output():
     os.chdir(scriptDir)
 
 
-def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=False):
+def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=False):
     os.chdir(temp_folder)
 
     if args.buildtype == 'sandbox':
         world_spawn_list = []
-        for world in sandbox_json_data['worlds']:
-            world_spawn_list.append(sandbox_json_data['worlds'][world])
+        for world in mission_json_data['worlds']:
+            world_spawn_list.append(mission_json_data['worlds'][world])
 
         spawn = world_spawn_list[count]
 
@@ -217,7 +217,7 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
     changes = ''
     filename = 'mission.sqm'
     file = '{}/{}'.format(temp_folder,filename)
-    if filename in sandbox_json_data and os.path.isfile(file):
+    if filename in mission_json_data and os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
 
         # Spawn
@@ -227,9 +227,15 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
                 'position[]={20.200001,25.200001,20.200001};',
                 'position[]={{{},{},{}}};'.format(spawn[0],spawn[1],spawn[2]))
         
-        for changes in sandbox_json_data[filename]:
-            string = sandbox_json_data[filename][changes] 
+        for changes in mission_json_data[filename]:
+            string = mission_json_data[filename][changes] 
             string = json_macro_replace(string)
+            
+            if 'author' == changes:
+                replace(file,
+                    'author="$author";',
+                    'author="{}";'.format(string))
+                continue
 
             if 'briefingName' == changes:
                 replace(file,
@@ -267,8 +273,8 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
 
-        for changes in sandbox_json_data[filename]:
-            string = sandbox_json_data[filename][changes]
+        for changes in mission_json_data[filename]:
+            string = mission_json_data[filename][changes]
             string = json_macro_replace(string)
 
             if changes == 'author':
@@ -288,6 +294,9 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
                 continue
 
             if changes == 'onLoadName':
+                replace(file,
+                    'onLoadName          = "$onLoadName";',
+                    'onLoadName          = "{}";'.format(string))
                 replace(file,
                     'onLoadName          = "MyMissionName";',
                     'onLoadName          = "{}";'.format(string))
@@ -368,8 +377,8 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
        
-        for changes in sandbox_json_data[filename]:
-            string = sandbox_json_data[filename][changes] 
+        for changes in mission_json_data[filename]:
+            string = mission_json_data[filename][changes] 
             string = json_macro_replace(string)
             
             if changes == 'add':
@@ -387,8 +396,8 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
        
-        for changes in sandbox_json_data[filename]:
-            string = sandbox_json_data[filename][changes] 
+        for changes in mission_json_data[filename]:
+            string = mission_json_data[filename][changes] 
             string = json_macro_replace(string)
 
             if changes == 'add':
