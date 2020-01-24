@@ -27,26 +27,21 @@ $ sudo apt-get install armake
 
 # How to run
 ```
-usage: build [-h] -p PACKAGE [-pv PACKAGEVERSION] -v VERSIONTAG [-y] [--color]
-             [-m MISSION] [-s SETTING] [--version]
-             {sandbox,training}
+usage: build [-h] -p PACKAGE [-pv PACKAGEVERSION] -v VERSIONTAG [-y] [--color] [-m MISSION] [-s SETTING] [--version] {sandbox,training}
 
 This script generates missions.
 
 positional arguments:
-  {sandbox,training}    This defines what kind of generation the script should
-                        commit.
+  {sandbox,training}    This defines what kind of generation the script should commit.
 
 optional arguments:
   -h, --help            show this help message and exit
   -p PACKAGE, --package PACKAGE
                         This defines what script package to install.
   -pv PACKAGEVERSION, --packageVersion PACKAGEVERSION
-                        This define a version number of a given package to be
-                        used in the script.
+                        This define a version number of a given package to be used in the script.
   -v VERSIONTAG, --versionTag VERSIONTAG
-                        This define what version name you whant the file to
-                        have.
+                        This define what version name you whant the file to have.
   -y, --fastbuild       Will instantly run untill done.
   --color               Enable colors in the script.
   -m MISSION, --mission MISSION
@@ -62,10 +57,10 @@ The tool should be cross platform and can be used for other packages as well.
 - Modify the `setup.json` if needed.
 - Modify the Templates if needed. (See below for requirements.) 
 - Run the script<br />
-  Windows: `py build.py sandbox -v 1.0 -p cScripts.zip` or
-           `py build.py training -v 1.0 -p cScripts.zip`<br />
-  Linux: `python3 build.py sandbox -v 1.0 -p cScripts.zip` or
-         ` python3 build.py training -v 1.0 -p cScripts.zip`
+  Windows: `> py build.py sandbox -v 1.0 -p cScripts.zip` or
+           `> py build.py training -v 1.0 -p cScripts.zip`<br />
+  Linux: `$ ./build.py sandbox -v 1.0 -p cScripts.zip` or
+         `$ ./build.py training -v 1.0 -p cScripts.zip`
 
 ## Setting up a sandbox template
 - __Mission file most be unbinirized__.
@@ -80,15 +75,14 @@ The tool should be cross platform and can be used for other packages as well.
 ## Setting up a training mission
 - __Mission file most be unbinirized__.
 - Set the `briefingName` name to `Training Template Mission`
-- Training missions name need to be in the following format `[Company]_CO_Trg_[My_Training_Mission_Name-Map]_DEVBUILD.[Island_Name]`<br />Example: `7cav_Charlie_CO_Trg_Map_DEVBUILD.Stratis` or `7cav_Charlie_CO_Trg_Ambush_DEVBUILD.Altis` 
 - Training missions need to placed in `./template/training/`.
 - Additional training mission scripts images or other material need to be placed in the mission root folder. 
-- Adjust or add a `setup.json`<br />__NOTE!__ Do not add your own `init.sqf` of `description.ext` they will be overwritten. instead add changes or adjustmetns instead to the `add : []` array of the json file.
+- Adjust or add a `setup.json`<br />__NOTE!__ Do not add your own `init.sqf` of `description.ext` they will be overwritten. Instead add changes or adjustmetns settings by defining them in the json file. You can find a exsample [here](https://github.com/7Cav/SandboxAndTrainingMissionGenerator/blob/master/template/training/setup_template.json).
 
 ## Custom build
-The custom mission build is preformed when you use the `training` and `-mission [mission]` parameters.
-To run this you need to be placed the mission in; `./template/training/`. The build follows the training mission build system. But instead of building all missions it only build for one. Exsample:<br />
-`$ build.py training -v 1.0 -p cScripts.zip -m My_Mission_Name.Island`
+The custom mission build is preformed when you use the `training` parameter and define a `-mission [mission]` parameter.
+The mission need to be placed in; `./template/custom/`. The build follows the training mission build system. But instead of building all missions it only build for one. Run exsample:<br />
+`$ ./build.py training -v 1.0 -p cScripts.zip -m My_Mission_Name.Island`
 
 ## String hooks and magicwords
 String hooks refere to names that the script look for in order to replace a Line. If it can't fine the string it will skip the change.
