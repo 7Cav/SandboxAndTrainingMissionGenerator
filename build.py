@@ -466,7 +466,14 @@ def main():
 
     if args.buildtype == 'training':
         all_templates = get_templates('training')
-        all_templates.remove('setup_template.json')
+        
+        if 'setup_template.json' in all_templates:
+            all_templates.remove('setup_template.json')
+        if '.git' in all_templates:
+            all_templates.remove('.git')
+        if 'README.md' in all_templates:
+            all_templates.remove('README.md')
+
         template_dir_name = 'training'
         
         # Exit on non supported params
