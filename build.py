@@ -159,7 +159,7 @@ def replace(file, searchExp, replaceExp):
             line = line.replace(searchExp,replaceExp)
         sys.stdout.write(line)
 
-
+        
 def additions(file, additions=[]):
     with open(file, 'a') as add:
         add.write('\n')
@@ -351,6 +351,14 @@ def setup_missions(temp_folder='', sandbox_json_data={}, count=0, use_color=Fals
                 replace(file,
                     'respawnOnStart         = -1;',
                     'respawnOnStart         = {};'.format(string))
+                continue
+
+            if changes == 'CfgFunctions':
+
+                for func in list(reversed(string)):
+                    replace(file,
+                        '#include "cScripts\CavFnc\CfgFunctions.hpp"',
+                        '#include "cScripts\CavFnc\CfgFunctions.hpp"\n        {}'.format(func))
                 continue
 
             if changes == 'add':

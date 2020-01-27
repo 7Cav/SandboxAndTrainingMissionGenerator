@@ -54,6 +54,7 @@
         "onLoadMission" : "7th Cavalry - S3 1BN Battle Staff Sandbox",
         "onLoadIntro" : "S3 1BN Battle Staff Sandbox",
         "respawnOnStart" : "1",
+        "CfgFunctions" : [],
         "add" : []
     },
     "init.sqf" : {
