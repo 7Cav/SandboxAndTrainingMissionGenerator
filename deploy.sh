@@ -21,8 +21,8 @@ for i in 1 2 3 4 5; do
     sleep 15
 done
 
-echo Downloading training missions...
-git clone https://github.com/7Cav/7thCavalry_Training_Missions.git template/training/
+#echo Downloading training missions...
+#git clone https://github.com/7Cav/7thCavalry_Training_Missions.git template/training/
 
 python3 build.py sandbox -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y
-python3 build.py training -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y
+#python3 build.py training -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y
