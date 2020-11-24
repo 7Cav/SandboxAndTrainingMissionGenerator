@@ -89,7 +89,7 @@
             "force force cScripts_Settings_setCustomHintTopic = \"Zeus Sandbox v$0\";",
             "force force cScripts_Settings_setFortifyBudget = 800;",
             "force force cScripts_Settings_setFortifyRestriction = 1;",
-            "force force cScripts_Settings_setMissionType = 3;",
+            "force force cScripts_Settings_setMissionType = 0;",
             "force force cScripts_Settings_setPlayerRank = true;",
             "force force cScripts_Settings_setRadio = true;",
             "force force cScripts_Settings_setRadioChannelNames = \"[\"\"UNUSED\"\",\"\"AVIATION\"\",\"\"VIKING\"\",\"\"LANCER\"\",\"\"BANSHEE\"\",\"\"SABRE\"\",\"\"BANDIT\"\",\"\"MISFIT\"\",\"\"HAVOC\"\",\"\"IDF-1\"\",\"\"IDF-2\"\",\"\"CAS-1\"\",\"\"CAS-2\"\",\"\"GROUND-TO-AIR\"\",\"\"ATLAS\"\",\"\"FARP\"\",\"\"CONVOY\"\",\"\"ZEUS\"\",\"\"CAG\"\",\"\"COMMAND\"\"]\";",
