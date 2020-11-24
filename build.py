@@ -3,13 +3,13 @@ import sys, os, shutil, subprocess, time
 import argparse, tempfile, zipfile, fileinput, json
 startTime = time.time()
 
-__version__ = 3.1
+__version__ = 3.3
 
 scriptPath = os.path.realpath(__file__)
 scriptDir = os.path.dirname(scriptPath)
-outputDir = '{}/output'.format(scriptDir)
-releaseDir = '{}/release'.format(scriptDir)
-templateDir = '{}/template'.format(scriptDir)
+outputDir = os.path.join(scriptDir, 'output')
+releaseDir = os.path.join(scriptDir, 'release')
+templateDir = os.path.join(scriptDir, 'template')
 
 # #########################################################################################
 
@@ -63,7 +63,6 @@ parser.add_argument('--version', action='version', version='Author: Andreas Bros
 args = parser.parse_args()
 
 
-
 # handle arguments
 PACKAGE = args.package
 SELECTED_MISSION = args.mission
@@ -93,7 +92,7 @@ def build_pbo(temp_folder='', pbo_name='unnamed', use_color=False):
 
 def build_archive(archive_name='unnamed', archive_type='zip', archive_input='', use_color=False):
     print('Archiving all generated mission files...')
-    archive_output = '{}/{}'.format(releaseDir,archive_name)
+    archive_output = os.path.join(releaseDir, archive_name)
     shutil.make_archive(archive_output, archive_type, archive_input)
     fullarchname = color_string('{}.{}'.format(archive_name,archive_type),'\033[96m',use_color)
     print('{} have been created...'.format(fullarchname))
@@ -216,7 +215,7 @@ def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=Fals
     # Reset common variable
     changes = ''
     filename = 'mission.sqm'
-    file = '{}/{}'.format(temp_folder,filename)
+    file = os.path.join(temp_folder, filename)
     if filename in mission_json_data and os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
 
@@ -269,7 +268,7 @@ def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=Fals
     # Reset common variable
     changes = ''
     filename = 'description.ext'
-    file = '{}/{}'.format(temp_folder,filename)
+    file = os.path.join(temp_folder, filename)
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
 
@@ -373,7 +372,7 @@ def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=Fals
     # Reset common variable
     changes = ''
     filename = 'init.sqf'
-    file = '{}/{}'.format(temp_folder,filename)
+    file = os.path.join(temp_folder, filename)
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
        
@@ -392,7 +391,7 @@ def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=Fals
     # Reset common variable
     changes = ''
     filename = 'cba_settings.sqf'
-    file = '{}/{}'.format(temp_folder,filename)
+    file = os.path.join(temp_folder, filename)
     if os.path.isfile(file):
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
        
@@ -455,7 +454,7 @@ def main():
             os.chdir(template_path)
 
             for obj in folder_list:
-                shutil.copytree(obj, '{}/{}'.format(temp_path, obj))
+                shutil.copytree(obj, os.path.join(temp_path, obj))
             for obj in file_list:
                 shutil.copy2(obj, temp_path)
 
@@ -523,7 +522,7 @@ def main():
             install_script_package(PACKAGE, temp_path, args.color)
 
             # get json data
-            training_json = '{}/setup.json'.format(temp_path, world)
+            training_json = os.path.join(temp_path, world, 'setup.json')
             with open(training_json) as json_file:
                 training_json = json.load(json_file)
 
