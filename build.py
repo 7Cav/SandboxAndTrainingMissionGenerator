@@ -105,13 +105,13 @@ def check_or_create_folder(dir=''):
 
 def get_templates(template_type='', world=''):
     if template_type == 'sandbox':
-        if os.path.exists('{0}/sandbox/Template_{1}.{1}'.format(templateDir,world)):
+        if os.path.exists(os.path.join(templateDir, 'sandbox', 'Template_{0}.{0}'.format(world))):
             print('Mission files found for {} using them instead of generic...'.format(world))
-            return '{0}/sandbox/Template_{1}.{1}'.format(templateDir,world)
-        print('Creating mission file with generic template...'.format(world))
-        return '{0}/sandbox/Template_Generic.VR'.format(templateDir)
+            return os.path.join(templateDir, 'sandbox', 'Template_{0}.{0}'.format(world))
+        print('Creating mission file with generic template...')
+        return os.path.join(templateDir, 'sandbox', 'Template_Generic.VR')
     elif template_type == 'training':
-        return os.listdir('{0}/training/'.format(templateDir))
+        return os.listdir(os.path.join(templateDir, 'training'))
     else:
         sys.exit('ERROR: No valid template defined')
 
@@ -143,7 +143,7 @@ def fetch_objects(template_path=''):
 
 def install_script_package(script_package, temp_path, use_color=False):
     print('Installing script package {}...'.format(color_string(script_package,'\033[96m',use_color)))
-    script_package_full_path = '{}/{}'.format(scriptDir,script_package)
+    script_package_full_path = os.path.join(scriptDir, script_package)
     try:
         scriptsArchive = zipfile.ZipFile(script_package_full_path, 'r')
     except:
@@ -422,8 +422,8 @@ def main():
     # setup directories if non exist
     check_or_create_folder('release')
     check_or_create_folder('output')
-    check_or_create_folder('template/sandbox')
-    check_or_create_folder('template/training')
+    check_or_create_folder(os.path.join('template', 'sandbox'))
+    check_or_create_folder(os.path.join('template', 'training'))
 
     if args.buildtype == 'sandbox':
 
@@ -436,7 +436,7 @@ def main():
             sandbox_json_setup = SELECTED_JSON
         print('Fetching data from {}...'.format(color_string(sandbox_json_setup,'\033[96m',args.color)))
 
-        sandbox_json = '{}/{}'.format(scriptDir, sandbox_json_setup)
+        sandbox_json = os.path.join(scriptDir, sandbox_json_setup)
         with open(sandbox_json) as json_file:  
             sandbox_data = json.load(json_file)
  
@@ -511,7 +511,7 @@ def main():
                 mission_name = mission_name.replace('DEVBUILD',VERSION)
 
             print('Creating training mission {}... ({}/{})'.format(color_string(world,'\033[92m',args.color), count+1, len(all_templates)))
-            template_path = '{}/{}/{}'.format(templateDir, template_dir_name, world)
+            template_path = os.path.join(templateDir, template_dir_name, world)
             try:
                 content_list = fetch_objects(template_path)
                 folder_list = content_list[0]
@@ -522,7 +522,7 @@ def main():
             os.chdir(template_path)
 
             for obj in folder_list:
-                shutil.copytree(obj, '{}/{}'.format(temp_path, obj))
+                shutil.copytree(obj, os.path.join(temp_path, obj))
             for obj in file_list:
                 shutil.copy2(obj, temp_path)
 
