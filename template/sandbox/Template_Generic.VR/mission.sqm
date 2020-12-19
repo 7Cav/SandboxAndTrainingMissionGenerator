@@ -9291,7 +9291,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="call{[this,""all"",true,true,true,true,false] call cScripts_fnc_doStarterCrate; " \n "}";
+				init="call{[this,""all"",true,true,true,false,false] call cScripts_fnc_doStarterCrate; " \n "}";
 			};
 			id=1835;
 			type="B_supplyCrate_F";
