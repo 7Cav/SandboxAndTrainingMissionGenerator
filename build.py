@@ -87,7 +87,6 @@ def color_string(string='', color='\033[0m', use_color=False):
 def build_pbo(temp_folder='', pbo_name='unnamed', use_color=False):
     os.chdir(scriptDir)
     print('Building and compiling {}...'.format(color_string('{}.pbo'.format(pbo_name),'\033[96m',use_color)))
-    print(temp_folder)
     subprocess.call('armake build -f -p "{}" "output/{}.pbo"'.format(os.path.join(temp_folder, "."),pbo_name), shell=True)
 
 
