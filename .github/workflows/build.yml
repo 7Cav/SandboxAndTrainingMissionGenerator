@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     name: Create And Upload Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Install dependencies
         run: |
