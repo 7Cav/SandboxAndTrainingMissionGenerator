@@ -85,7 +85,7 @@
             "force force cScripts_Settings_allowInsigniaApplication = true;",
             "force force cScripts_Settings_allowReplaceItem = true;",
             "force force cScripts_Settings_enable7cavZeusModules = true;",
-            "force force cScripts_Settings_enableStartHint = true;",
+            "force force cScripts_Settings_enableACRE = true;",
             "force force cScripts_Settings_jumpSimulation = 2;",
             "force force cScripts_Settings_jumpSimulationGlasses = true;",
             "force force cScripts_Settings_jumpSimulationHat = true;",
@@ -95,18 +95,14 @@
             "force force cScripts_Settings_replaceSmokeGrenades = 1;",
             "force force cScripts_Settings_replaceStunGrenades = 1;",
             "force force cScripts_Settings_setAiSystemDifficulty = 2;",
-            "force force cScripts_Settings_setCustomHintText = \"Be creative!\";",
-            "force force cScripts_Settings_setCustomHintTopic = \"Zeus Sandbox v$0\";",
-            "force force cScripts_Settings_setFortifyBudget = 800;",
-            "force force cScripts_Settings_setFortifyRestriction = 1;",
-            "force force cScripts_Settings_setMissionType = 0;",
+            "force force cScripts_Settings_setMissionType = 1;",
             "force force cScripts_Settings_setPlayerRank = true;",
             "force force cScripts_Settings_setRadio = true;",
             "force force cScripts_Settings_setRadioChannelNames = \"[\"\"UNUSED\"\",\"\"AVIATION\"\",\"\"VIKING\"\",\"\"LANCER\"\",\"\"BANSHEE\"\",\"\"SABRE\"\",\"\"BANDIT\"\",\"\"MISFIT\"\",\"\"HAVOC\"\",\"\"IDF-1\"\",\"\"IDF-2\"\",\"\"CAS-1\"\",\"\"CAS-2\"\",\"\"GROUND-TO-AIR\"\",\"\"ATLAS\"\",\"\"FARP\"\",\"\"CONVOY\"\",\"\"ZEUS\"\",\"\"CAG\"\",\"\"COMMAND\"\"]\";",
-            "force force cScripts_Settings_setStartupDelay = 30;",
             "force force cScripts_Settings_showDiaryRecords = true;",
             "force force cScripts_Settings_useCustomVehicleInventory = true;",
-            "force force cScripts_Settings_useCustomVehicleSettings = true;"
+            "force force cScripts_Settings_useCustomVehicleSystem = true;",
+            "force force cScripts_Settings_vehicleFactions = \"[\"\"BLU_F\"\", \"\"BLU_CTRG_F\"\", \"\"BLU_T_F\"\", \"\"BLU_USA_7CAV_F\"\", \"\"rhs_faction_usaf\"\", \"\"rhs_faction_usarmy\"\", \"\"rhs_faction_usarmy_d\"\", \"\"rhs_faction_usarmy_wd\"\", \"\"rhs_faction_usmc\"\", \"\"rhs_faction_usmc_d\"\", \"\"rhs_faction_usmc_wd\"\", \"\"rhs_faction_usn\"\"]\";"
         ]
     }
 }
