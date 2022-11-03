@@ -32,6 +32,10 @@ parser.add_argument('-p', '--package',
 parser.add_argument('-pv', '--packageVersion',
     help='This define a version number of a given package to be used in the script.'
 )
+parser.add_argument('-o', '--output',
+    default="",
+    help='This allow you to define a output sufix.'
+)
 
 parser.add_argument('-v', '--versionTag',
     required=True,
@@ -544,7 +548,12 @@ def main():
             # Building PBO
             build_pbo(temp_path, mission_name, args.color)
 
-    build_archive('Mission_{}_v{}'.format(args.buildtype, VERSION), 'zip', outputDir, args.color)
+    if args.output != "":
+        outputPrefix = "_" + args.output
+    else:
+        outputPrefix = ""
+
+    build_archive('Mission_{}{}_v{}'.format(args.buildtype, outputPrefix, VERSION), 'zip', outputDir, args.color)
     cleanup_output()
 
     print('Builds complete. ({} seconds)'.format(round(time.time() - startTime, 3)))

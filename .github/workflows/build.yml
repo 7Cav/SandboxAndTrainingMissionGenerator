@@ -27,3 +27,10 @@ jobs:
           args: release/Mission_sandbox_v${{ steps.get_version.outputs.VERSION }}.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Sandbox No ACRE Release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: release/Mission_sandbox_noacre_v${{ steps.get_version.outputs.VERSION }}.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
