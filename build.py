@@ -116,7 +116,7 @@ def check_or_create_folder(dir=''):
         os.makedirs(dir)
 
 
-def get_sandbox_template(world='') -> str:
+def get_sandbox_template(world=''):
     if os.path.exists(os.path.join(templateDir, 'sandbox', 'Template_{0}.{0}'.format(world))):
         print('Mission files found for {} using them instead of generic...'.format(world))
         return os.path.join(templateDir, 'sandbox', 'Template_{0}.{0}'.format(world))
@@ -124,7 +124,7 @@ def get_sandbox_template(world='') -> str:
     return os.path.join(templateDir, 'sandbox', 'Template_Generic.VR')
 
 
-def get_training_templates() -> list[str]:
+def get_training_templates():
     mission_folder = os.path.join(templateDir, 'training')
     training_missions = []
     for root, dirs, files in os.walk(mission_folder):
