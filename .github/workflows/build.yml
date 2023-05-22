@@ -8,17 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     container: 7cav/armake
     steps:
-      - name: Docker function
-        run: |
-          echo $PATH
-          pwd
-          ls -la
-          cd
-          pwd
-          echo $SHELL
-          ls -la
-          echo "Setup function"
-          armake --version
     
       - name: Checkout code
         uses: actions/checkout@master
@@ -28,7 +17,7 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Build release
-        run: ./deploy.sh ${{ steps.get_version.outputs.VERSION }}
+        run: ls -la;./deploy.sh ${{ steps.get_version.outputs.VERSION }}
 
       - name: Upload Sandbox Release
         uses: JasonEtco/upload-to-release@master
