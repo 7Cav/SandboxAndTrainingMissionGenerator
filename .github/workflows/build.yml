@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     name: Create And Upload Release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     container: 7cav/armake
     steps:
       - name: Checkout code
