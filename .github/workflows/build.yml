@@ -8,6 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     container: 7cav/armake
     steps:
+      - name: Docker function
+        run: |
+          function armake () {
+            (docker run -ti --rm -v ${HOME}:/root -v $(pwd):/arma 7cav/armake "$@")
+          }
+    
       - name: Checkout code
         uses: actions/checkout@master
 
