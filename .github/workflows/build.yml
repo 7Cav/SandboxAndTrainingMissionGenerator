@@ -8,11 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     container: 7cav/armake
     steps:
-      - name: Install dependencies
-        run:  |
-          sudo apt-get update -y -qq
-          sudo apt-get install  -y -qq curl python3
-        
+    
+      - name: DEBUG what does exist?
+        run: |
+          cat /etc/os-release
+          echo path
+          echo $PATH
+          echo bin
+          ls /bin
+          echo /usr/bin
+          ls /usr/bin
       - name: Clone code
         uses: actions/checkout@master
 
