@@ -10,10 +10,13 @@ jobs:
     steps:
       - name: Docker function
         run: |
+          pwd
           cd
+          pwd
           echo DEBUG
           echo $SHELL
           ls -la
+          echo "Setup function"
           function armake () {
             (docker run -ti --rm -v ${HOME}:/root -v $(pwd):/arma 7cav/armake "$@")
           }
