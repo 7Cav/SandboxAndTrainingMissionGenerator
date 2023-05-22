@@ -15,13 +15,9 @@ jobs:
           ls -la
           cd
           pwd
-          echo DEBUG
           echo $SHELL
           ls -la
           echo "Setup function"
-          function armake () {
-            (docker run -ti --rm -v ${HOME}:/root -v $(pwd):/arma 7cav/armake "$@")
-          }
           armake --version
     
       - name: Checkout code
