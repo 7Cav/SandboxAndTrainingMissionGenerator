@@ -18,7 +18,8 @@ jobs:
           ls /bin
           echo /usr/bin
           ls /usr/bin
-      - name: Clone code
+
+      - name: Clone repo
         uses: actions/checkout@master
 
       - name: Get the version
