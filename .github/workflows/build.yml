@@ -9,15 +9,8 @@ jobs:
     container: 7cav/armake
     steps:
     
-      - name: DEBUG what does exist?
-        run: |
-          cat /etc/os-release
-          echo path
-          echo $PATH
-          echo bin
-          ls /bin
-          echo /usr/bin
-          ls /usr/bin
+      - name: Install dependencies
+        run: apk add curl python3
 
       - name: Clone repo
         uses: actions/checkout@master
