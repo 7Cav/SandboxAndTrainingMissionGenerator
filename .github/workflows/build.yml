@@ -11,6 +11,7 @@ jobs:
       - name: Docker function
         run: |
           pwd
+          ls -la
           cd
           pwd
           echo DEBUG
