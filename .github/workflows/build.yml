@@ -9,8 +9,8 @@ jobs:
     container: 7cav/armake
     steps:
       - name: Docker function
-        shell: bash
         run: |
+          echo $PATH
           pwd
           ls -la
           cd
