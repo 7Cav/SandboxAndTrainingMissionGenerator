@@ -17,7 +17,9 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Build release
-        run: bash deploy.sh ${{ steps.get_version.outputs.VERSION }}
+        run: |
+          chmod +x deploy.sh
+          deploy.sh ${{ steps.get_version.outputs.VERSION }}
 
       - name: Upload Sandbox Release
         uses: JasonEtco/upload-to-release@master
