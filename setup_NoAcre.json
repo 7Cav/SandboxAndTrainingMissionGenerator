@@ -48,31 +48,6 @@
         "Woodland_ACR" : [4692.2144,6.0036001,1175.9294],
         "zargabad" : [4967.8613,29.545662,6143.1611]
     },
-    "inactive_worlds" : {
-        "abel": [701.88397,28.965271,12077.249],
-        "bozcaada" : [7947.96,18.12056,12249.938],
-        "cain": [1930.2211,7.0247927,11759.995],
-        "chernarusredux" : [12230.213,159.02339,12588.442],
-        "clafghan" : [15397.197,2.8328435,843.40723],
-        "Esseker" : [36.651447,139.58144,2760.229],
-        "fata" : [2101.8367,21.604599,267.96603],
-        "hellanmaa": [58.168327,45.877998,74.17363],
-        "hellanmaaw": [58.168327,45.877998,74.17363],
-        "isladuala3" : [4256.0117,15.251439,2130.021],
-        "Kunduz": [1434.059,43.039223,3660.7322],
-        "Mog" : [8241.5498,3.2092922,5366.6777],
-        "Napf": [16412.383,40.549366,18473.67],
-        "NapfWinter": [16412.383,40.549366,18473.67],
-        "noe": [9056.167,17.857883,12524.282],
-        "panthera3" : [959.83557,13.361439,9660.8418],
-        "pja314" : [753.32843,143.50633,1481.077],
-        "pja319" : [1607.7159,637.45093,3306.1414],
-        "prei_khmaoch_luong" : [5677.208,111.26981,4182.6396],
-        "ruha" : [6680.1616,46.671436,1116.3844],
-        "tem_vinjesvingenc": [4967.106,2.03,1055.7616],
-        "vt7" : [877.31897,13.261437,3009.231],
-        "Winthera3" : [959.83557,13.361439,9660.8418]
-    },
     "mission.sqm" : {
         "briefingName" : "Zeus Sandbox v$0 (No ACRE)",
         "overviewText" : "This is a zeus sandbox mission developed for custom mission making and sandbox mission building. This template can also be used by squads to conduct training. cScripts v$1 is installed on this mission."

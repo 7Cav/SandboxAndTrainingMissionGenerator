@@ -1,9 +1,20 @@
 #!/usr/bin/env python3
-import sys, os, shutil, subprocess, time
-import argparse, tempfile, zipfile, fileinput, json
+import sys
+import os
+import shutil
+import subprocess
+import time
+import argparse
+import tempfile
+import zipfile
+import fileinput
+import json
+import typing
+import glob
+
 startTime = time.time()
 
-__version__ = 3.3
+__version__ = '4.0.0'
 
 scriptPath = os.path.realpath(__file__)
 scriptDir = os.path.dirname(scriptPath)
@@ -16,11 +27,11 @@ templateDir = os.path.join(scriptDir, 'template')
 parser = argparse.ArgumentParser(
     prog='build',
     formatter_class=argparse.RawDescriptionHelpFormatter,
-    description='This script generates missions.',
-    epilog='This build script generates sandboxes or training mapes bases on avalible templates.\nThe tool should be cross platform and can be used for other packages as well.'
+    description='This script generates sandbox or training missions.',
+    epilog='This build script generates sandboxes or training maps bases on provided templates.\nThe tool should be cross platform and requires armake to function.'
 )
 
-parser.add_argument('buildtype',
+parser.add_argument('buildType',
     choices=['sandbox', 'training'],
     help='This defines what kind of generation the script should commit.'
 )
@@ -30,24 +41,24 @@ parser.add_argument('-p', '--package',
     help='This defines what script package to install.'
 )
 parser.add_argument('-pv', '--packageVersion',
-    help='This define a version number of a given package to be used in the script.'
+    help='This define a version number of a given script installation package to be used in the script. (Suggestively the release version name)'
 )
 parser.add_argument('-o', '--output',
     default="",
-    help='This allow you to define a output sufix.'
+    help='This allow you to define a output suffix.'
 )
 
 parser.add_argument('-v', '--versionTag',
     required=True,
-    help='This define what version name you whant the file to have.'
+    help='This define what version name you want the file to have.'
 )
 
 parser.add_argument("-y", "--fastbuild",
-    help="Will instantly run untill done.",
+    help="Will instantly run until done.",
     action="store_false"
 )
 parser.add_argument('--color',
-    help='Enable colors in the script.',
+    help='Enable color in the script.',
     action='store_true'
 )
 
@@ -75,9 +86,7 @@ SELECTED_JSON = args.setting
 VERSION = args.versionTag
 VERSION_DIR = args.versionTag.replace('.','_')
 
-PACKAGEVER = args.package
-if not args.packageVersion == '':
-    PACKAGEVER = args.packageVersion
+PACKAGEVER = args.package if args.packageVersion == '' else args.packageVersion
 
 # #########################################################################################
 
@@ -107,18 +116,21 @@ def check_or_create_folder(dir=''):
         os.makedirs(dir)
 
 
-def get_templates(template_type='', world=''):
-    if template_type == 'sandbox':
-        if os.path.exists(os.path.join(templateDir, 'sandbox', 'Template_{0}.{0}'.format(world))):
-            print('Mission files found for {} using them instead of generic...'.format(world))
-            return os.path.join(templateDir, 'sandbox', 'Template_{0}.{0}'.format(world))
-        print('Creating mission file with generic template...')
-        return os.path.join(templateDir, 'sandbox', 'Template_Generic.VR')
-    elif template_type == 'training':
-        return os.listdir(os.path.join(templateDir, 'training'))
-    else:
-        sys.exit('ERROR: No valid template defined')
+def get_sandbox_template(world='') -> str:
+    if os.path.exists(os.path.join(templateDir, 'sandbox', 'Template_{0}.{0}'.format(world))):
+        print('Mission files found for {} using them instead of generic...'.format(world))
+        return os.path.join(templateDir, 'sandbox', 'Template_{0}.{0}'.format(world))
+    print('Creating mission file with generic template...')
+    return os.path.join(templateDir, 'sandbox', 'Template_Generic.VR')
 
+
+def get_training_templates() -> list[str]:
+    mission_folder = os.path.join(templateDir, 'training')
+    training_missions = []
+    for root, dirs, files in os.walk(mission_folder):
+        for dir in dirs:
+            training_missions.append((os.path.join(dir)))
+    return training_missions
 
 def fetch_objects(template_path=''):
     os.chdir(template_path)
@@ -188,6 +200,7 @@ def json_macro_replace(obj):
         sys.exit('ERROR: JSON macro function can\'t handle input...')
     return obj
 
+
 def clean_mission_folder(temp_folder=''):
     os.chdir(temp_folder)
     remove_list = ['README.md', 'setup.json', 'Data/MissionLogo.psd']
@@ -196,6 +209,7 @@ def clean_mission_folder(temp_folder=''):
             os.remove(f)
         except:
             pass
+
 
 def cleanup_output():
     print('Cleaning up output folder...')
@@ -209,7 +223,7 @@ def cleanup_output():
 def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=False):
     os.chdir(temp_folder)
 
-    if args.buildtype == 'sandbox':
+    if args.buildType == 'sandbox':
         world_spawn_list = []
         for world in mission_json_data['worlds']:
             world_spawn_list.append(mission_json_data['worlds'][world])
@@ -224,7 +238,7 @@ def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=Fals
         print('Applying adjustmetns to {}...'.format(color_string(filename,'\033[96m',use_color)))
 
         # Spawn
-        if args.buildtype == 'sandbox':
+        if args.buildType == 'sandbox':
             print('Spawn set to {}, {}, {}.'.format(color_string(spawn[0],'\033[92m',use_color), color_string(spawn[1],'\033[92m',use_color), color_string(spawn[2],'\033[92m',use_color)))
             replace(file,
                 'position[]={20.200001,25.200001,20.200001};',
@@ -429,7 +443,7 @@ def main():
     check_or_create_folder(os.path.join('template', 'sandbox'))
     check_or_create_folder(os.path.join('template', 'training'))
 
-    if args.buildtype == 'sandbox':
+    if args.buildType == 'sandbox':
 
         # Exit on non supported params
         sys.exit('Sandbox does not support selected builds using the \'--mission\' parameter exiting...') if not SELECTED_MISSION == '' else ''
@@ -458,7 +472,7 @@ def main():
 
             print('Creating sandbox mission on {}... ({}/{})'.format(color_string(world,'\033[92m',args.color), count+1, len(world_list)))
 
-            template_path = get_templates('sandbox', world)
+            template_path = get_sandbox_template(world)
             content_list = fetch_objects(template_path)
             folder_list = content_list[0]
             file_list = content_list[1]
@@ -484,15 +498,8 @@ def main():
             build_pbo(temp_path, mission_name, args.color)
 
 
-    if args.buildtype == 'training':
-        all_templates = get_templates('training')
-        
-        if 'setup_template.json' in all_templates:
-            all_templates.remove('setup_template.json')
-        if '.git' in all_templates:
-            all_templates.remove('.git')
-        if 'README.md' in all_templates:
-            all_templates.remove('README.md')
+    if args.buildType == 'training':
+        all_templates = get_training_templates()
 
         template_dir_name = 'training'
         
@@ -512,7 +519,7 @@ def main():
             
             mission_name = world
             if 'DEVBUILD' in mission_name:
-                mission_name = mission_name.replace('DEVBUILD',VERSION)
+                mission_name = mission_name.replace('DEVBUILD', VERSION)
 
             print('Creating training mission {}... ({}/{})'.format(color_string(world,'\033[92m',args.color), count+1, len(all_templates)))
             template_path = os.path.join(templateDir, template_dir_name, world)
@@ -534,7 +541,8 @@ def main():
             install_script_package(PACKAGE, temp_path, args.color)
 
             # get json data
-            training_json = os.path.join(temp_path, world, 'setup.json')
+            training_json = os.path.join(temp_path, 'setup.json')
+            print(training_json)
             with open(training_json) as json_file:
                 training_json = json.load(json_file)
 
@@ -548,12 +556,9 @@ def main():
             # Building PBO
             build_pbo(temp_path, mission_name, args.color)
 
-    if args.output != "":
-        outputPrefix = "_" + args.output
-    else:
-        outputPrefix = ""
+    OutputPrefix = f"_{args.output}" if args.output != "" else ""
 
-    build_archive('Mission_{}{}_v{}'.format(args.buildtype, outputPrefix, VERSION), 'zip', outputDir, args.color)
+    build_archive('Mission_{}{}_v{}'.format(args.buildType, OutputPrefix, VERSION), 'zip', outputDir, args.color)
     cleanup_output()
 
     print('Builds complete. ({} seconds)'.format(round(time.time() - startTime, 3)))

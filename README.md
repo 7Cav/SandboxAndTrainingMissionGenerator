@@ -27,31 +27,36 @@ $ sudo apt-get install armake
 
 # How to run
 ```
-usage: build [-h] -p PACKAGE [-pv PACKAGEVERSION] -v VERSIONTAG [-y] [--color] [-m MISSION] [-s SETTING] [--version] {sandbox,training}
+usage: build [-h] -p PACKAGE [-pv PACKAGEVERSION] [-o OUTPUT] -v VERSIONTAG [-y] [--color]
+             [-m MISSION] [-s SETTING] [--version]
+             {sandbox,training}
 
-This script generates missions.
+This script generates sandbox or training missions.
 
 positional arguments:
   {sandbox,training}    This defines what kind of generation the script should commit.
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -p PACKAGE, --package PACKAGE
                         This defines what script package to install.
   -pv PACKAGEVERSION, --packageVersion PACKAGEVERSION
-                        This define a version number of a given package to be used in the script.
+                        This define a version number of a given script installation package
+                        to be used in the script. (Suggestively the release version name)
+  -o OUTPUT, --output OUTPUT
+                        This allow you to define a output suffix.
   -v VERSIONTAG, --versionTag VERSIONTAG
-                        This define what version name you whant the file to have.
-  -y, --fastbuild       Will instantly run untill done.
-  --color               Enable colors in the script.
+                        This define what version name you want the file to have.
+  -y, --fastbuild       Will instantly run until done.
+  --color               Enable color in the script.
   -m MISSION, --mission MISSION
                         Define a specific mission from path
   -s SETTING, --setting SETTING
                         Define a custom setup.json file
   --version             show program's version number and exit
 
-This build script generates sandboxes or training mapes bases on avalible templates.
-The tool should be cross platform and can be used for other packages as well.
+This build script generates sandboxes or training maps bases on provided templates.
+The tool should be cross platform and requires armake to function.
 ```
 <!--- (Soon) Modfify the `properties.ini` if needed.-->
 - Modify the `setup.json` if needed.
