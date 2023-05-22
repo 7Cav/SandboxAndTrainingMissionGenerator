@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     container: 7cav/armake
     steps:
-    
-      - name: Checkout code
+      - name: Install dependencies
+        run: apt install curl python2
+        
+      - name: Clone code
         uses: actions/checkout@master
 
       - name: Get the version
