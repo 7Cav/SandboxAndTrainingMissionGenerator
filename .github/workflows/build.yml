@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Docker function
         run: |
-          docker ps
           echo $PATH
           pwd
           ls -la
