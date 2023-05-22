@@ -13,6 +13,7 @@ jobs:
           function armake () {
             (docker run -ti --rm -v ${HOME}:/root -v $(pwd):/arma 7cav/armake "$@")
           }
+          armake --help
     
       - name: Checkout code
         uses: actions/checkout@master
