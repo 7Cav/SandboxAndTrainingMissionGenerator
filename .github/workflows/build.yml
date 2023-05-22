@@ -19,7 +19,7 @@ jobs:
       - name: Build release
         run: |
           chmod +x deploy.sh
-          deploy.sh ${{ steps.get_version.outputs.VERSION }}
+          ./deploy.sh ${{ steps.get_version.outputs.VERSION }}
 
       - name: Upload Sandbox Release
         uses: JasonEtco/upload-to-release@master
