@@ -1,5 +1,5 @@
 {
-    "sandboxMissionName" : "7cav_zeus_sandbox_noacre",
+    "sandboxMissionName" : "7cav_zeus_sandbox_noradio",
     "worlds" : {
         "Altis" : [14180.181,19.533018,16286.612],
         "Beketov" : [2187.8704,33.461834,7131.4131],
@@ -49,12 +49,12 @@
         "zargabad" : [4967.8613,29.545662,6143.1611]
     },
     "mission.sqm" : {
-        "briefingName" : "Zeus Sandbox v$0 (No ACRE)",
+        "briefingName" : "Zeus Sandbox v$0 (No RADIO)",
         "overviewText" : "This is a zeus sandbox mission developed for custom mission making and sandbox mission building. This template can also be used by squads to conduct training. cScripts v$1 is installed on this mission."
     },
     "description.ext" : {
         "author" :"CPL Brostrom.A",
-        "onLoadName" : "Zeus Sandbox v$0 (No ACRE)",
+        "onLoadName" : "Zeus Sandbox v$0 (No RADIO)",
         "onLoadMission" : "7th Cavalry - S3 1BN Battle Staff Sandbox",
         "onLoadIntro" : "S3 1BN Battle Staff Sandbox",
         "respawnOnStart" : "1",
