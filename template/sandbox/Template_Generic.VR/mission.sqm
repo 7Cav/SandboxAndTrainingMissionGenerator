@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=4525;
+		nextID=4608;
 	};
 	class LayerIndexProvider
 	{
-		nextID=167;
+		nextID=248;
 	};
 	class Camera
 	{
-		pos[]={-9.8394289,30.260433,62.702206};
-		dir[]={0.077944756,-0.43013191,-0.89939487};
-		up[]={0.037137557,0.90276599,-0.42852566};
-		aside[]={-0.99626565,0,-0.086339921};
+		pos[]={-7.0352383,71.763695,70.064964};
+		dir[]={-0.017941318,-0.66497505,-0.74665552};
+		up[]={-0.015974071,0.74686193,-0.66478676};
+		aside[]={-0.99971509,-8.3655323e-009,0.024022};
 	};
 };
 binarizationWanted=0;
@@ -11035,7 +11035,7 @@ class Mission
 							name="C-130J Titan-4";
 							class Entities
 							{
-								items=1;
+								items=2;
 								class Item0
 								{
 									dataType="Group";
@@ -11148,6 +11148,492 @@ class Mission
 									{
 									};
 									id=4517;
+								};
+								class Item1
+								{
+									dataType="Layer";
+									name="FW Gunship (AC-130)";
+									class Entities
+									{
+										items=1;
+										class Item0
+										{
+											dataType="Group";
+											side="West";
+											class Entities
+											{
+												items=6;
+												class Item0
+												{
+													dataType="Object";
+													class PositionInfo
+													{
+														position[]={-35.973747,5.0014391,-13.166491};
+														angles[]={0,0.0061986842,0};
+													};
+													side="West";
+													flags=7;
+													class Attributes
+													{
+														skill=0.60000002;
+														rank="CAPTAIN";
+														init="call{this setgroupID[""HAMMER-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""TITAN-1""];}";
+														description="Pilot@HAMMER-1";
+														isPlayable=1;
+													};
+													id=4562;
+													type="Cav_B_A_Plane_Transport_Pilot_Titan_1_F";
+													class CustomAttributes
+													{
+														class Attribute0
+														{
+															property="ace_isMedic";
+															expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute1
+														{
+															property="ace_isEngineer";
+															expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute2
+														{
+															property="speaker";
+															expression="_this setspeaker _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="STRING";
+																	value="Male04ENG";
+																};
+															};
+														};
+														class Attribute3
+														{
+															property="pitch";
+															expression="_this setpitch _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1.03;
+																};
+															};
+														};
+														nAttributes=4;
+													};
+												};
+												class Item1
+												{
+													dataType="Object";
+													class PositionInfo
+													{
+														position[]={-34.974113,5.0014391,-13.172838};
+														angles[]={0,0.006202857,0};
+													};
+													side="West";
+													flags=5;
+													class Attributes
+													{
+														skill=0.55000001;
+														rank="LIEUTENANT";
+														init="call{this setgroupID[""HAMMER-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""TITAN-1""];}";
+														description="Co-Pilot";
+														isPlayable=1;
+													};
+													id=4563;
+													type="Cav_B_A_Plane_Transport_coPilot_F";
+													class CustomAttributes
+													{
+														class Attribute0
+														{
+															property="ace_isMedic";
+															expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute1
+														{
+															property="ace_isEngineer";
+															expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute2
+														{
+															property="speaker";
+															expression="_this setspeaker _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="STRING";
+																	value="Male03ENG";
+																};
+															};
+														};
+														class Attribute3
+														{
+															property="pitch";
+															expression="_this setpitch _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1.03;
+																};
+															};
+														};
+														nAttributes=4;
+													};
+												};
+												class Item2
+												{
+													dataType="Object";
+													class PositionInfo
+													{
+														position[]={-35.908928,5.0014391,-14.233385};
+														angles[]={0,0.006202857,0};
+													};
+													side="West";
+													flags=5;
+													class Attributes
+													{
+														skill=0.55000001;
+														rank="LIEUTENANT";
+														init="call{this setgroupID[""HAMMER-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""TITAN-1""];}";
+														description="IR Operator";
+														isPlayable=1;
+													};
+													id=4564;
+													type="Cav_B_A_Plane_Transport_coPilot_F";
+													class CustomAttributes
+													{
+														class Attribute0
+														{
+															property="ace_isMedic";
+															expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute1
+														{
+															property="ace_isEngineer";
+															expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute2
+														{
+															property="speaker";
+															expression="_this setspeaker _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="STRING";
+																	value="Male03ENG";
+																};
+															};
+														};
+														class Attribute3
+														{
+															property="pitch";
+															expression="_this setpitch _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1.03;
+																};
+															};
+														};
+														nAttributes=4;
+													};
+												};
+												class Item3
+												{
+													dataType="Object";
+													class PositionInfo
+													{
+														position[]={-34.979362,5.0014391,-14.326891};
+														angles[]={0,0.006202857,0};
+													};
+													side="West";
+													flags=5;
+													class Attributes
+													{
+														skill=0.55000001;
+														rank="LIEUTENANT";
+														init="call{this setgroupID[""HAMMER-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""TITAN-1""];}";
+														description="TV Operator";
+														isPlayable=1;
+													};
+													id=4565;
+													type="Cav_B_A_Plane_Transport_coPilot_F";
+													class CustomAttributes
+													{
+														class Attribute0
+														{
+															property="ace_isMedic";
+															expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute1
+														{
+															property="ace_isEngineer";
+															expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute2
+														{
+															property="speaker";
+															expression="_this setspeaker _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="STRING";
+																	value="Male03ENG";
+																};
+															};
+														};
+														class Attribute3
+														{
+															property="pitch";
+															expression="_this setpitch _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1.03;
+																};
+															};
+														};
+														nAttributes=4;
+													};
+												};
+												class Item4
+												{
+													dataType="Object";
+													class PositionInfo
+													{
+														position[]={-35.92614,5.0014391,-15.355455};
+														angles[]={0,0.006202857,0};
+													};
+													side="West";
+													flags=5;
+													class Attributes
+													{
+														skill=0.55000001;
+														rank="LIEUTENANT";
+														init="call{this setgroupID[""HAMMER-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""TITAN-1""];}";
+														description="Fire Control Officer";
+														isPlayable=1;
+													};
+													id=4566;
+													type="Cav_B_A_Plane_Transport_coPilot_F";
+													class CustomAttributes
+													{
+														class Attribute0
+														{
+															property="ace_isMedic";
+															expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute1
+														{
+															property="ace_isEngineer";
+															expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute2
+														{
+															property="speaker";
+															expression="_this setspeaker _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="STRING";
+																	value="Male03ENG";
+																};
+															};
+														};
+														class Attribute3
+														{
+															property="pitch";
+															expression="_this setpitch _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1.03;
+																};
+															};
+														};
+														nAttributes=4;
+													};
+												};
+												class Item5
+												{
+													dataType="Object";
+													class PositionInfo
+													{
+														position[]={-34.945427,5.0014391,-15.396471};
+														angles[]={0,0.006202857,0};
+													};
+													side="West";
+													flags=5;
+													class Attributes
+													{
+														skill=0.55000001;
+														rank="LIEUTENANT";
+														init="call{this setgroupID[""HAMMER-1""];" \n "this setVariable [""cScripts_Player_Unit"", ""TITAN-1""];}";
+														description="Electronic Warfare Officer";
+														isPlayable=1;
+													};
+													id=4567;
+													type="Cav_B_A_Plane_Transport_coPilot_F";
+													class CustomAttributes
+													{
+														class Attribute0
+														{
+															property="ace_isMedic";
+															expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute1
+														{
+															property="ace_isEngineer";
+															expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1;
+																};
+															};
+														};
+														class Attribute2
+														{
+															property="speaker";
+															expression="_this setspeaker _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="STRING";
+																	value="Male03ENG";
+																};
+															};
+														};
+														class Attribute3
+														{
+															property="pitch";
+															expression="_this setpitch _value;";
+															class Value
+															{
+																class data
+																{
+																	singleType="SCALAR";
+																	value=1.03;
+																};
+															};
+														};
+														nAttributes=4;
+													};
+												};
+											};
+											class Attributes
+											{
+												dynamicSimulation=1;
+											};
+											id=4561;
+										};
+									};
+									id=4560;
 								};
 							};
 							id=3871;
