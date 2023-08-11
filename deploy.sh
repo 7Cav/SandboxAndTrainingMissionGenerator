@@ -25,6 +25,6 @@ done
 #git clone https://github.com/7Cav/7thCavalry_Training_Missions.git template/training/
 
 python3 build.py sandbox -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y
-python3 build.py sandbox -s setup_NoAcre.json -o noacre -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y
+python3 build.py sandbox -s setup_Radio.json -o noacre -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y
 
 #python3 build.py training -p cScripts-$PACKAGE_TAG.zip -pv $PACKAGE_TAG -v ${VERSION_TAG} -y
