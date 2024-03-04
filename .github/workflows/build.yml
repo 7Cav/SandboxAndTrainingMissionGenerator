@@ -46,4 +46,4 @@ jobs:
           U_USER: ${{ secrets.SERVER_USER }}
           U_PASS: ${{ secrets.SERVER_PASSWORD }}
         run: |
-          sshpass -p $U_PASS scp -r server_missions/* $U_USER@$SERVER:/C:/arma3/servers/server_master/mpmissions/.
+          sshpass -p "$U_PASS" scp -r server_missions/* $U_USER@$SERVER:/C:/arma3/servers/server_master/mpmissions/.
