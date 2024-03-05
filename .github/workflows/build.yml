@@ -41,9 +41,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Uploading to Server
-        env:
-          SERVER: ${{ secrets.SERVER }}
-          U_USER: ${{ secrets.SERVER_USER }}
-          U_PASS: ${{ secrets.SERVER_PASSWORD }}
-        run: |
-          sshpass -p "$U_PASS" scp -r server_missions/* $U_USER@$SERVER:/C:/arma3/servers/server_master/mpmissions/.
+        uses: actions/checkout@v3
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{ secrets.SERVER }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: 22
+          uploads: |
+          ./server_missions/ => ./
