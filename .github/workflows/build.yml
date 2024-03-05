@@ -49,4 +49,4 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: 22
           uploads: |
-          ./server_missions/ => ./
+            ./server_missions/ => ./
