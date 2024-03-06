@@ -31,4 +31,4 @@ python3 build.py sandbox -s setup_NoRadios.json -o noradio -p cScripts-$PACKAGE_
 
 mkdir -p server_missions
 unzip release/Mission_sandbox_v$VERSION_TAG.zip -d server_missions
-unzip release/Mission_sandbox_noradio_v$VERSION_TAG.zip-d server_missions
+unzip release/Mission_sandbox_noradio_v$VERSION_TAG.zip -d server_missions
