@@ -7,10 +7,12 @@ jobs:
     name: Create And Upload Release
     runs-on: ubuntu-latest
     container: 7cav/armake
+    environment: 
+      name: production
     steps:
     
       - name: Install dependencies
-        run: apk add curl python3
+        run: apk add curl python3 sshpass
 
       - name: Clone repo
         uses: actions/checkout@master
@@ -37,3 +39,13 @@ jobs:
           args: release/Mission_sandbox_noradio_v${{ steps.get_version.outputs.VERSION }}.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Uploading to Server
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{ secrets.SERVER }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: 22
+          uploads: |
+            ./server_missions/ => ./
