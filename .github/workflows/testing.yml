@@ -7,4 +7,3 @@ jobs:
     - name: Checking json format
       if: always()
       run: bash scripts/checkFormat.sh
-      continue-on-error: true
