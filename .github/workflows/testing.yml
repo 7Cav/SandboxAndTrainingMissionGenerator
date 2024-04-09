@@ -1,12 +1,11 @@
 name: Testing
 on: [push, pull_request]
 jobs:
-  checkformat:
+  testing:
     runs-on: ubuntu-latest
     steps:
     - name: Checking json format
       run: |
-        sudo apt install jq
         settings_files=$(find -name "*.json")
         has_error=0
         for file in $settings_files; do
