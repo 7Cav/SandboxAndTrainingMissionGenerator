@@ -4,6 +4,8 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     steps:
-    - name: Checking json format
-      if: always()
-      run: bash scripts/checkFormat.sh
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Checking json format
+        if: always()
+        run: bash scripts/checkFormat.sh
