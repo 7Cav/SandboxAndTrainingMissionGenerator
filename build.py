@@ -383,8 +383,8 @@ def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=Fals
 
                 for func in list(reversed(string)):
                     replace(file,
-                        '#include "cScripts\CavFnc\CfgFunctions.hpp"',
-                        '#include "cScripts\CavFnc\CfgFunctions.hpp"\n        {}'.format(func))
+                        '#include "cScripts\CfgFunctions.hpp"',
+                        '#include "cScripts\CfgFunctions.hpp"\n        {}'.format(func))
                 continue
 
             if changes == 'add':
