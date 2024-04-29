@@ -114,6 +114,7 @@ String hooks refere to names that the script look for in order to replace a Line
 - **spawn** `respawn                = BASE;` (string)
 - **respawnDelay** `respawnDelay           = 4;` (number)
 - **respawnOnStart** `respawnOnStart         = -1;` (number)
+- **CfgFunctions** (list)
 
 ### Magicwords
 - `$0`: Print version number provided by `--versionTag` parameter.
