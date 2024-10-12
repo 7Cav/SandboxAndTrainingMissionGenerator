@@ -333,13 +333,13 @@ def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=Fals
 
             if changes == 'loadScreen':
                 replace(file,
-                    'loadScreen          = "Data\MissionLogo.paa";',
+                    'loadScreen          = "Data\\MissionLogo.paa";',
                     'loadScreen         = "{}";'.format(string))
                 continue
 
             if changes == 'overviewPicture':
                 replace(file,
-                    'overviewPicture     = "Data\MissionLogo.paa";',
+                    'overviewPicture     = "Data\\MissionLogo.paa";',
                     'overviewPicture     = "{}";'.format(string))
                 continue
 
@@ -383,8 +383,8 @@ def setup_missions(temp_folder='', mission_json_data={}, count=0, use_color=Fals
 
                 for func in list(reversed(string)):
                     replace(file,
-                        '#include "cScripts\CfgFunctions.hpp"',
-                        '#include "cScripts\CfgFunctions.hpp"\n        {}'.format(func))
+                        '#include "cScripts\\CfgFunctions.hpp"',
+                        '#include "cScripts\\CfgFunctions.hpp"\n        {}'.format(func))
                 continue
 
             if changes == 'add':

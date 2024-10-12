@@ -119,3 +119,9 @@ String hooks refere to names that the script look for in order to replace a Line
 ### Magicwords
 - `$0`: Print version number provided by `--versionTag` parameter.
 - `$1`: Print name of the installed package selected by `--packageVersion` parameter.
+
+## Quick local build snippets
+
+```pwsh
+> python build.py sandbox -p "cScripts-4.5.21-RC2.zip" -pv "4.5.21-RC2" -v "2.7.19" -y
+```
