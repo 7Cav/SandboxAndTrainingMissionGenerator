@@ -3,6 +3,7 @@
 set -e
 
 PATH=$PWD:$PATH
+chmod +x armake2
 
 VERSION_TAG=$*
 
