@@ -9,10 +9,6 @@ jobs:
     environment: 
       name: production
     steps:
-    
-      - name: Install dependencies
-        run: sudo apt install curl
-
       - name: Clone repo
         uses: actions/checkout@master
 
