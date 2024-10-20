@@ -28,7 +28,7 @@ parser = argparse.ArgumentParser(
     prog='build',
     formatter_class=argparse.RawDescriptionHelpFormatter,
     description='This script generates sandbox or training missions.',
-    epilog='This build script generates sandboxes or training maps bases on provided templates.\nThe tool should be cross platform and requires armake to function.'
+    epilog='This build script generates sandboxes or training maps bases on provided templates.\nThe tool should be cross platform and requires armake2 to function.'
 )
 
 parser.add_argument('buildType',
@@ -100,7 +100,7 @@ def color_string(string='', color='\033[0m', use_color=False):
 def build_pbo(temp_folder='', pbo_name='unnamed', use_color=False):
     os.chdir(scriptDir)
     print('Building and compiling {}...'.format(color_string('{}.pbo'.format(pbo_name),'\033[96m',use_color)))
-    subprocess.call('armake build -f -p "{}" "output/{}.pbo"'.format(os.path.join(temp_folder, "."),pbo_name), shell=True)
+    subprocess.call('armake2 build -f "{}" "output/{}.pbo"'.format(os.path.join(temp_folder, "."),pbo_name), shell=True)
 
 
 def build_archive(archive_name='unnamed', archive_type='zip', archive_input='', use_color=False):

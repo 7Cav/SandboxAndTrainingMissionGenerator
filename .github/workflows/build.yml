@@ -6,13 +6,12 @@ jobs:
   build:
     name: Create And Upload Release
     runs-on: ubuntu-latest
-    container: 7cav/armake
     environment: 
       name: production
     steps:
     
       - name: Install dependencies
-        run: apk add curl python3 sshpass
+        run: sudo apt install curl
 
       - name: Clone repo
         uses: actions/checkout@master
@@ -41,6 +40,7 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Uploading to Server
+        if: "!github.event.release.prerelease"
         uses: Dylan700/sftp-upload-action@latest
         with:
           server: ${{ secrets.SERVER }}

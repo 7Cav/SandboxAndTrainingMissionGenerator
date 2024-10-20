@@ -2,6 +2,8 @@
 
 set -e
 
+PATH=$PWD:$PATH
+
 VERSION_TAG=$*
 
 echo "Checking and downloading latest version of cScripts..." 
