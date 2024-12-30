@@ -44,4 +44,4 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: 22
           uploads: |
-            ./server_missions/ => ./profiling-Core_OCT_2024/.
+            ./server_missions/ => ./profiling-Core_JAN_2025/.
